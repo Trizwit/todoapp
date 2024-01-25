@@ -1,0 +1,85 @@
+-- ds.page:
+
+-- ds.section-column:
+flush: full
+
+-- my-day-page:
+
+-- end: ds.section-column
+
+-- end: ds.page
+
+
+
+
+
+-- component my-day-page:
+
+-- ds.column:
+radius: $ds.radius.zero
+spacing: $ds.spaces.horizontal-gap.space-between
+inset: $ds.spaces.inset-square.extra-large
+height.fixed.vw: 45
+
+-- ds.row:
+radius: $ds.radius.zero
+align-content: left
+
+-- ds.column:
+
+-- ds.heading-medium: My Day
+color: #4b95bd
+
+-- ds.heading-tiny: Monday, 22 January
+color: #4b95bd
+
+-- end: ds.column
+
+-- end: ds.row
+
+-- ds.column:
+align-content: center
+width.fixed.vw: 18
+background.solid: $ds.colors.background.step-2
+inset: $ds.spaces.inset-square.medium
+
+-- ftd.image: 
+src: D:\fastn\todoapp\assets\img-5.png
+width.fixed.vw: 6
+border-radius.px: 8
+
+-- ds.copy-regular:
+align: center
+color: #4b95bd
+
+Focus on your day
+
+-- ds.fine-print:
+align: center
+color: #4b95bd
+
+Get things done with My Day, a list that refreshes every day
+
+-- ds.secondary-button: Add task to My Day
+link: /
+
+-- end: ds.column
+
+-- ds.row:
+inset: $ds.spaces.inset-square.small
+background.solid: $ds.colors.background.step-1
+radius: $ds.radius.zero
+
+-- phosphor.regular: circle
+size: 24
+color: #4b95bd
+
+-- ds.copy-regular: Add a task
+align: left
+color: #4b95bd
+
+-- end: ds.row
+
+-- end: ds.column
+
+-- end: my-day-page

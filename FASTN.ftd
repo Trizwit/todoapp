@@ -3,17 +3,16 @@
 -- fastn.package: trizwit.github.io/todoapp
 favicon: /-/trizwit.github.io/todoapp/favicon.ico
 
--- fastn.dependency: fastn-community.github.io/doc-site as doc-site
--- fastn.dependency: fastn-community.github.io/footer
+-- fastn.dependency: fastn-community.github.io/design-system
 -- fastn.dependency: fastn-community.github.io/roboto-typography
 -- fastn.dependency: fastn-community.github.io/dark-flame-cs
+-- fastn.dependency: fastn-community.github.io/svg-icons
 
--- fastn.auto-import: trizwit.github.io/todoapp/FASTN/ds
--- fastn.auto-import: trizwit.github.io/todoapp/assets
--- fastn.auto-import: doc-site
 
--- fastn.sitemap:
+-- fastn.auto-import: avgayathri.github.io/todoapp/assets
+-- fastn.auto-import: fastn-community.github.io/design-system as ds
+-- fastn.auto-import: fastn-community.github.io/svg-icons/phosphor
 
-# Home: index.html
 
-- Right Sidebar Sample: /sidebar/
+
+
