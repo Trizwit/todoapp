@@ -2,8 +2,8 @@
   "files": {
     "FASTN.ftd": {
       "name": "FASTN.ftd",
-      "checksum": "44C8C372F82F51F831207BD1E62F09AFF08BACCC605E7A580D886A294316BD93",
-      "size": 556
+      "checksum": "6CFC4231CD2219128A5C5FB81F243F20C8086469CE88D4D0F426D308BFDC180C",
+      "size": 553
     },
     "FASTN/ds.ftd": {
       "name": "FASTN/ds.ftd",
@@ -52,8 +52,8 @@
     },
     "_fastn_todoapp/fastn-community.github.io_design-system": {
       "name": "_fastn_todoapp/fastn-community.github.io_design-system",
-      "checksum": "AE68CFAA961342706CBF9A760176E1ED983C50A21E2BCA140B85DC3F625CC179",
-      "size": 14102
+      "checksum": "BF68170A8F06F8981180FB956281DD6663CD8738D1619920C54D0D4DD9029C96",
+      "size": 14156
     },
     "_fastn_todoapp/fastn-community.github.io_design-system_borders": {
       "name": "_fastn_todoapp/fastn-community.github.io_design-system_borders",
@@ -142,8 +142,8 @@
     },
     "_fastn_todoapp/trizwit.github.io_todoapp_": {
       "name": "_fastn_todoapp/trizwit.github.io_todoapp_",
-      "checksum": "87B4CDF1A08A947DA4B82AD235DF5597BA89E6FABFB30774B9B96F5BE04C1560",
-      "size": 37660
+      "checksum": "9CD7F7A4E5119A235610548B27A061311AB95BF6F8D0038B84F43CC510981D44",
+      "size": 37867
     },
     "_fastn_todoapp/trizwit.github.io_todoapp_important_": {
       "name": "_fastn_todoapp/trizwit.github.io_todoapp_important_",
@@ -207,8 +207,8 @@
     },
     "index.ftd": {
       "name": "index.ftd",
-      "checksum": "440FB4ED7B619970D3BE03AC256F03AFBCDC940BA24598D44E817EEC07445AC2",
-      "size": 4876
+      "checksum": "70E42F20601685FCEA335BA696CA2EE644EC9545051C52C8248DE0DA38A4336D",
+      "size": 4915
     },
     "my-day.ftd": {
       "name": "my-day.ftd",
@@ -232,5 +232,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "FDD29DE2146D4E336BDF7E113685279EBB0D399E13CF4009920FA2537FDCDA3B"
+  "checksum": "6C9897ADF8A9E489689DF06C5D5A1CEC6BE85C3993E87EEC8F6F3F246CFAFED6"
 }
