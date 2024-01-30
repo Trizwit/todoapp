@@ -142,18 +142,43 @@
     },
     "_fastn_todoapp/trizwit.github.io_todoapp_": {
       "name": "_fastn_todoapp/trizwit.github.io_todoapp_",
-      "checksum": "9CD7F7A4E5119A235610548B27A061311AB95BF6F8D0038B84F43CC510981D44",
-      "size": 37867
+      "checksum": "888E854995D76870EFEB373EBA766A50BF87EFF4000F6A58579463310A01665D",
+      "size": 37854
+    },
+    "_fastn_todoapp/trizwit.github.io_todoapp_assets": {
+      "name": "_fastn_todoapp/trizwit.github.io_todoapp_assets",
+      "checksum": "AA91BF1D04CA27698E6F35BF4740963AA97C0F32C5240D69EACC034D8CAE41E6",
+      "size": 321
+    },
+    "_fastn_todoapp/trizwit.github.io_todoapp_assign_": {
+      "name": "_fastn_todoapp/trizwit.github.io_todoapp_assign_",
+      "checksum": "C0DD1F5A6EABF54EBF21B0E55959E0197DF173A6EE82BD22E2BB2C85166ADE7C",
+      "size": 7399
+    },
+    "_fastn_todoapp/trizwit.github.io_todoapp_flagged_": {
+      "name": "_fastn_todoapp/trizwit.github.io_todoapp_flagged_",
+      "checksum": "E59DF04EEBAD8B0E02DBA1B8C33827B970A26EE07B948B0E0C8B6472778FBC99",
+      "size": 7407
     },
     "_fastn_todoapp/trizwit.github.io_todoapp_important_": {
       "name": "_fastn_todoapp/trizwit.github.io_todoapp_important_",
-      "checksum": "2AC7F639B19DE61F230ECF75D22482EE95DCE2963D94D84FC1E5810651328F98",
-      "size": 7410
+      "checksum": "51709069E97FECFE88C25355215FBA0DC946445D9BD1E8667A2266373610B0CD",
+      "size": 7397
     },
     "_fastn_todoapp/trizwit.github.io_todoapp_my-day_": {
       "name": "_fastn_todoapp/trizwit.github.io_todoapp_my-day_",
-      "checksum": "708389594862CD8F64BC367ADFAE8B0F10CD1148C22573CBB9723E0C1C4E19A1",
-      "size": 9447
+      "checksum": "11A13BFD95ACAF2D71B3024E1F64A4AADAB7843E54DD486D601CDEA2290FDEEE",
+      "size": 9434
+    },
+    "_fastn_todoapp/trizwit.github.io_todoapp_planned_": {
+      "name": "_fastn_todoapp/trizwit.github.io_todoapp_planned_",
+      "checksum": "ED15670FC0CB780BC040D8CF6062ED46CEBF33C146C0C5FBD65D8E7BC2A9D0DC",
+      "size": 7406
+    },
+    "_fastn_todoapp/trizwit.github.io_todoapp_tasks_": {
+      "name": "_fastn_todoapp/trizwit.github.io_todoapp_tasks_",
+      "checksum": "E69C43551712854FE516C99BCBEFE45982590CC700F06F414A083143C490F29F",
+      "size": 7424
     },
     "assets/img-1.png": {
       "name": "assets/img-1.png",
@@ -187,8 +212,8 @@
     },
     "assign.ftd": {
       "name": "assign.ftd",
-      "checksum": "D7261E95F79FF394029A7544E7530F8F96189524DCDFEE8B1DC5A3253DADE7B8",
-      "size": 1011
+      "checksum": "0019FEBAC5034769D496594856899A66259B177481E2DEFD5DD63586CCD29D2C",
+      "size": 1008
     },
     "favicon.ico": {
       "name": "favicon.ico",
@@ -197,13 +222,13 @@
     },
     "flagged.ftd": {
       "name": "flagged.ftd",
-      "checksum": "D44F0DC51A7806304B05B20DA262EF3112B2B585B7F3CC2DF4C8647E3CD7D02B",
-      "size": 1018
+      "checksum": "FBB63161FFCF0DAE00AADAB73759EE30D5769EB39C764CE1D7BDC58E8FF2724C",
+      "size": 1015
     },
     "important.ftd": {
       "name": "important.ftd",
-      "checksum": "51FFE82B6B377095B46020BDB069A1635DC4197BCBD8984DF0D7DF52E9FD398D",
-      "size": 1004
+      "checksum": "9687B6FB3CC4398E045EE9A2BB1B46DB1624E902666DEEE37AEDFC5144199EAF",
+      "size": 1001
     },
     "index.ftd": {
       "name": "index.ftd",
@@ -212,18 +237,18 @@
     },
     "my-day.ftd": {
       "name": "my-day.ftd",
-      "checksum": "054D37E4B35D3DAC9CAE0BE3675F5877A6830BEF1D8ACEBEB424676D941021B2",
-      "size": 1267
+      "checksum": "02BFB1FB69F10FCC7D788255472293228BFD2D257C037D05F4233E9AABBF3A46",
+      "size": 1264
     },
     "planned.ftd": {
       "name": "planned.ftd",
-      "checksum": "8C4A948099566105F462E5C056CAA599930FFFE5B80DE4F7F6224F940103D458",
-      "size": 1015
+      "checksum": "E5720911BAFF09E45E153A57CAEBC1C1AE1B41EC0D3E13C86C1B621C53F951D6",
+      "size": 1012
     },
     "tasks.ftd": {
       "name": "tasks.ftd",
-      "checksum": "0E630F9AF6AB24ED10D0E9E089C561E245E638E55EA06F1576E8EB9EE02BC2E9",
-      "size": 1037
+      "checksum": "4E028C63E4200AF52012DB2E70A7B9DCAFD395A66469022EA8F334B28E6B5A4C",
+      "size": 1034
     },
     "vercel.json": {
       "name": "vercel.json",
@@ -232,5 +257,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "7070E6E79C18FDD53A9A2BC2E8E0A9DE07CEB9B04F6F8B8B7FD2323803E687D1"
+  "checksum": "62420C0B843D6A2126E241CCAF2E2ECE7EC7F27D40DE7E9B9346300E7FE576FA"
 }
