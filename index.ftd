@@ -82,7 +82,7 @@ width.fixed.px: 40
 height.fixed.px: 40
 
 -- ftd.image:
-src: D:\fastn\todoapp\assets\profile-pic.png;;$assets.files.assets.profile-pic.png;;
+src: $assets.files.assets.profile-pic.png
 width: fill-container
 height: fill-container
 border-radius.px: 100

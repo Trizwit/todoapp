@@ -2,8 +2,8 @@
   "files": {
     "FASTN.ftd": {
       "name": "FASTN.ftd",
-      "checksum": "6CFC4231CD2219128A5C5FB81F243F20C8086469CE88D4D0F426D308BFDC180C",
-      "size": 553
+      "checksum": "360A22E3C58E2BBDE3EE9DD2E4FA1C59E48616A3798865078543B02FE1F6A4C6",
+      "size": 550
     },
     "FASTN/ds.ftd": {
       "name": "FASTN/ds.ftd",
@@ -207,8 +207,8 @@
     },
     "index.ftd": {
       "name": "index.ftd",
-      "checksum": "70E42F20601685FCEA335BA696CA2EE644EC9545051C52C8248DE0DA38A4336D",
-      "size": 4915
+      "checksum": "21ED47C03053A2CA2463BD77B526C135BE460581717BD286D6735A95E762DE9A",
+      "size": 4872
     },
     "my-day.ftd": {
       "name": "my-day.ftd",
@@ -232,5 +232,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "6C9897ADF8A9E489689DF06C5D5A1CEC6BE85C3993E87EEC8F6F3F246CFAFED6"
+  "checksum": "7070E6E79C18FDD53A9A2BC2E8E0A9DE07CEB9B04F6F8B8B7FD2323803E687D1"
 }
