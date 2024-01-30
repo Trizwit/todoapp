@@ -38,7 +38,7 @@ color: #4b95bd
 align-content: center
 
 -- ftd.image: 
-src: D:\fastn\todoapp\assets\img-5.png
+src: $assets.files.assets.img-5.png
 width.fixed.vw: 10
 border-radius.px: 8
 
