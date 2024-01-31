@@ -1,0 +1,28 @@
+-- import: trizwit.github.io/todoapp/components/home
+
+
+
+
+-- component page:
+
+-- ds.page:
+
+-- home.header:
+
+-- ds.section-row:
+flush: full
+align-content: top-center
+inset: $ds.spaces.inset-square.small
+spacing: $ds.spaces.horizontal-gap.small
+
+-- home.sidesection:
+
+-- home.suggestions:
+
+;;-- add-task:
+
+-- end: ds.section-row
+
+-- end: ds.page
+
+-- end: page

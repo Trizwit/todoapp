@@ -20,166 +20,6 @@
       "checksum": "A42D91290C93B5F17412C3B346737EA1C796E5D287306758AFE8B20470119D80",
       "size": 21
     },
-    "_fastn_todoapp/avgayathri.github.io_to-do-app_assets": {
-      "name": "_fastn_todoapp/avgayathri.github.io_to-do-app_assets",
-      "checksum": "C4F280EB55F4B00EE285EF2AA848068B2BE2E9314D1DDE300ACF9EA36E93A152",
-      "size": 324
-    },
-    "_fastn_todoapp/avgayathri.github.io_todoapp_assets": {
-      "name": "_fastn_todoapp/avgayathri.github.io_todoapp_assets",
-      "checksum": "C4F280EB55F4B00EE285EF2AA848068B2BE2E9314D1DDE300ACF9EA36E93A152",
-      "size": 324
-    },
-    "_fastn_todoapp/fastn-community.github.io_dark-flame-cs": {
-      "name": "_fastn_todoapp/fastn-community.github.io_dark-flame-cs",
-      "checksum": "A02F4C0BD3B4BDED5D6BF9FF75BAEC85E352CBB1A82CC107FE4ECE65CDE00860",
-      "size": 118944
-    },
-    "_fastn_todoapp/fastn-community.github.io_dark-flame-cs_colors": {
-      "name": "_fastn_todoapp/fastn-community.github.io_dark-flame-cs_colors",
-      "checksum": "8DDFD6B929FC9258CD75C2A70E472C33A6D9F1A19FB050EEF45A8A6CA6535B08",
-      "size": 64662
-    },
-    "_fastn_todoapp/fastn-community.github.io_dark-mode-switcher": {
-      "name": "_fastn_todoapp/fastn-community.github.io_dark-mode-switcher",
-      "checksum": "595D9AFBECF3D24AE0EF98720864436CC6AF62BB18B3B5ECBE7F5A13CE7E0EDA",
-      "size": 11088
-    },
-    "_fastn_todoapp/fastn-community.github.io_dark-mode-switcher_assets": {
-      "name": "_fastn_todoapp/fastn-community.github.io_dark-mode-switcher_assets",
-      "checksum": "B2A6C5588DAB7224D2884C7F5985F85ED47DEF37CFFB449A3E1C99A9D6AA9AB9",
-      "size": 340
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system",
-      "checksum": "BF68170A8F06F8981180FB956281DD6663CD8738D1619920C54D0D4DD9029C96",
-      "size": 14156
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_borders": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_borders",
-      "checksum": "EDB93DBF49EF2B9D60780107309EB2170D37757DA9680BADABBFD390E513B6B7",
-      "size": 31328
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_form_button": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_form_button",
-      "checksum": "01DCC4DCCBA2C3382376784770C1B057BE62195B6BA0F6DCAEC072B1437D9609",
-      "size": 69590
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_form_icon-button": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_form_icon-button",
-      "checksum": "D0CDAB52DAB3E75E621247785D7CFA39C71CFCF630F90FE59A19FC7089BA8271",
-      "size": 62463
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_header": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_header",
-      "checksum": "C4AD2E82AFA20A9601BC655245506E620D2F1B8A01EC9208B5A26C1591E4F7E3",
-      "size": 2355
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_layout_column": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_layout_column",
-      "checksum": "0B6FD8FF30D732BA15DB1BF53B5E912E383AB6D6632E63656CF52D1852BF0836",
-      "size": 15611
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_layout_page": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_layout_page",
-      "checksum": "87C50468E2725C2878D33E2DBD4CFD1C28D4A4AF87B21462F0872A833003EA20",
-      "size": 10190
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_layout_row": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_layout_row",
-      "checksum": "087D5259D1C5096C5E8F81EF014DE043112CB9F2F81CA74C67AA7D526B6329E1",
-      "size": 16872
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_layout_section-column": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_layout_section-column",
-      "checksum": "FD563DA3F7C2F402B0082F6C567C3054091FD6EC1F7828C1FEF77451865360F4",
-      "size": 13553
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_layout_section-row": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_layout_section-row",
-      "checksum": "88DEFFCFE531D5AB5F4318CC2EA3D8B530FAB943F37622406029DFC6CA9D93F6",
-      "size": 13584
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_radius": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_radius",
-      "checksum": "A8E974A74FBD001AB0D7A22E1D35197241E5C0C62406C4F984B61EB27A3BFBD5",
-      "size": 10753
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_spaces": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_spaces",
-      "checksum": "3BAE341B127A5BC7588DED76ECA059F6C87EE8EEA272449AC6FEB3022C86E51D",
-      "size": 23790
-    },
-    "_fastn_todoapp/fastn-community.github.io_design-system_typography": {
-      "name": "_fastn_todoapp/fastn-community.github.io_design-system_typography",
-      "checksum": "CA4275E02DF8C5545C6412E0B34E00E8B6BE08300CCC5EC5380AB2DB6CD0D295",
-      "size": 48808
-    },
-    "_fastn_todoapp/fastn-community.github.io_roboto-font_assets": {
-      "name": "_fastn_todoapp/fastn-community.github.io_roboto-font_assets",
-      "checksum": "1C7814B2FA11CF7C0A5015FD22003CDD7866156FBD94AE7D419ACFE9435064B4",
-      "size": 1009
-    },
-    "_fastn_todoapp/fastn-community.github.io_roboto-typography": {
-      "name": "_fastn_todoapp/fastn-community.github.io_roboto-typography",
-      "checksum": "584FDBC536CCF39AE6F9AB0C3848D2469DFEE8075361D97F3B0B333FAB76759D",
-      "size": 75249
-    },
-    "_fastn_todoapp/fastn-community.github.io_svg-icons_assets": {
-      "name": "_fastn_todoapp/fastn-community.github.io_svg-icons_assets",
-      "checksum": "B0545A7EC8E48E4299D992D113560B487AE952068CC65A68A92E868ADDCAD9B5",
-      "size": 331
-    },
-    "_fastn_todoapp/fastn-community.github.io_svg-icons_helper": {
-      "name": "_fastn_todoapp/fastn-community.github.io_svg-icons_helper",
-      "checksum": "554F1E5AF65D7C67CC936A92FB66E943FF55ED86F58D7C54B578D7ED39B9D542",
-      "size": 3819
-    },
-    "_fastn_todoapp/fastn-community.github.io_svg-icons_phosphor": {
-      "name": "_fastn_todoapp/fastn-community.github.io_svg-icons_phosphor",
-      "checksum": "1B178DB0C93E4A811506F01D05786CA832D2F2C380B24A0B6858EF9F47E2BCEF",
-      "size": 8080
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_",
-      "checksum": "888E854995D76870EFEB373EBA766A50BF87EFF4000F6A58579463310A01665D",
-      "size": 37854
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_assets": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_assets",
-      "checksum": "AA91BF1D04CA27698E6F35BF4740963AA97C0F32C5240D69EACC034D8CAE41E6",
-      "size": 321
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_assign_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_assign_",
-      "checksum": "C0DD1F5A6EABF54EBF21B0E55959E0197DF173A6EE82BD22E2BB2C85166ADE7C",
-      "size": 7399
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_flagged_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_flagged_",
-      "checksum": "E59DF04EEBAD8B0E02DBA1B8C33827B970A26EE07B948B0E0C8B6472778FBC99",
-      "size": 7407
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_important_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_important_",
-      "checksum": "51709069E97FECFE88C25355215FBA0DC946445D9BD1E8667A2266373610B0CD",
-      "size": 7397
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_my-day_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_my-day_",
-      "checksum": "11A13BFD95ACAF2D71B3024E1F64A4AADAB7843E54DD486D601CDEA2290FDEEE",
-      "size": 9434
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_planned_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_planned_",
-      "checksum": "ED15670FC0CB780BC040D8CF6062ED46CEBF33C146C0C5FBD65D8E7BC2A9D0DC",
-      "size": 7406
-    },
-    "_fastn_todoapp/trizwit.github.io_todoapp_tasks_": {
-      "name": "_fastn_todoapp/trizwit.github.io_todoapp_tasks_",
-      "checksum": "E69C43551712854FE516C99BCBEFE45982590CC700F06F414A083143C490F29F",
-      "size": 7424
-    },
     "assets/img-1.png": {
       "name": "assets/img-1.png",
       "checksum": "93A95C83E354CA98C65A30DC29C121D56214151274B86384F7E7776EA9530A9D",
@@ -210,43 +50,73 @@
       "checksum": "7D53C64D8DE58F89DDFE5363870543F7809C6154AB19DA4A7AC81D059BD7C92E",
       "size": 68914
     },
-    "assign.ftd": {
-      "name": "assign.ftd",
-      "checksum": "0019FEBAC5034769D496594856899A66259B177481E2DEFD5DD63586CCD29D2C",
-      "size": 1008
+    "components/home.ftd": {
+      "name": "components/home.ftd",
+      "checksum": "CB0D9D4C8AF0814F057C9199099D0EDC3C41FC83A8AA0593E229BDAC061C6B5D",
+      "size": 4832
+    },
+    "components/imp.ftd": {
+      "name": "components/imp.ftd",
+      "checksum": "E6E3F17A27774C6F907DE82D1EF1013E15849929B30E055B03E7E32BB41962C7",
+      "size": 895
+    },
+    "components/my_day.ftd": {
+      "name": "components/my_day.ftd",
+      "checksum": "405FCFBDFC9DE1E92FA866099CB2DC3C3B463DAC61F2BB831EBAF0E8BCD3ABC6",
+      "size": 1157
     },
     "favicon.ico": {
       "name": "favicon.ico",
       "checksum": "65056A1D6C6AAE6E3DC4626E29F4BD4B628B17A8E9CC1D3A5E8FE9F6743F306B",
       "size": 15406
     },
-    "flagged.ftd": {
-      "name": "flagged.ftd",
+    "index.ftd": {
+      "name": "index.ftd",
+      "checksum": "911A0A40E14D1779656F7785A7450BB2383C8A152EFCB75FF90D26CFE71EA5DF",
+      "size": 74
+    },
+    "pages/home.ftd": {
+      "name": "pages/home.ftd",
+      "checksum": "CA8565EDCB21FC39C620C253BAEDD439B1ACF27869B46FF2FEE042969ED4681A",
+      "size": 356
+    },
+    "pages/important.ftd": {
+      "name": "pages/important.ftd",
+      "checksum": "6E184CE5ABB793FECCEA34F726ACB816E8A7D3DDC7F04FD3C60FC603587AAA93",
+      "size": 198
+    },
+    "pages/my_day.ftd": {
+      "name": "pages/my_day.ftd",
+      "checksum": "8ED07F72ED430D65C640218C0B4A73EC82D25B2BFE62A6EFA3E0C4C31EA3623A",
+      "size": 211
+    },
+    "scenarios/assigned/assign.ftd": {
+      "name": "scenarios/assigned/assign.ftd",
+      "checksum": "0019FEBAC5034769D496594856899A66259B177481E2DEFD5DD63586CCD29D2C",
+      "size": 1008
+    },
+    "scenarios/flagged/flagged.ftd": {
+      "name": "scenarios/flagged/flagged.ftd",
       "checksum": "FBB63161FFCF0DAE00AADAB73759EE30D5769EB39C764CE1D7BDC58E8FF2724C",
       "size": 1015
     },
-    "important.ftd": {
-      "name": "important.ftd",
-      "checksum": "9687B6FB3CC4398E045EE9A2BB1B46DB1624E902666DEEE37AEDFC5144199EAF",
-      "size": 1001
+    "scenarios/important/important.ftd": {
+      "name": "scenarios/important/important.ftd",
+      "checksum": "90D1960571080FE5A790E3911D6061AAB8523E76D96A4E15774FA6A477209091",
+      "size": 78
     },
-    "index.ftd": {
-      "name": "index.ftd",
-      "checksum": "21ED47C03053A2CA2463BD77B526C135BE460581717BD286D6735A95E762DE9A",
-      "size": 4872
+    "scenarios/my_day/my-day.ftd": {
+      "name": "scenarios/my_day/my-day.ftd",
+      "checksum": "10CC556B064F294626AE079924B949EB187822DD2A117A2998B26C4EAA2006F5",
+      "size": 71
     },
-    "my-day.ftd": {
-      "name": "my-day.ftd",
-      "checksum": "02BFB1FB69F10FCC7D788255472293228BFD2D257C037D05F4233E9AABBF3A46",
-      "size": 1264
-    },
-    "planned.ftd": {
-      "name": "planned.ftd",
+    "scenarios/planned/planned.ftd": {
+      "name": "scenarios/planned/planned.ftd",
       "checksum": "E5720911BAFF09E45E153A57CAEBC1C1AE1B41EC0D3E13C86C1B621C53F951D6",
       "size": 1012
     },
-    "tasks.ftd": {
-      "name": "tasks.ftd",
+    "scenarios/tasks/tasks.ftd": {
+      "name": "scenarios/tasks/tasks.ftd",
       "checksum": "4E028C63E4200AF52012DB2E70A7B9DCAFD395A66469022EA8F334B28E6B5A4C",
       "size": 1034
     },
@@ -257,5 +127,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "62420C0B843D6A2126E241CCAF2E2ECE7EC7F27D40DE7E9B9346300E7FE576FA"
+  "checksum": "FE25F12ED13A79460643FCB4BC196B9D67C1A22D4D39EB1D8B42CCFB11086B0C"
 }

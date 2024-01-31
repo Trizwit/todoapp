@@ -1,0 +1,19 @@
+-- import: trizwit.github.io/todoapp/components/my_day as myd
+
+
+
+
+-- component page:
+
+-- ds.page:
+
+-- ds.section-column:
+flush: full
+
+-- myd.my-day-page:
+
+-- end: ds.section-column
+
+-- end: ds.page
+
+-- end: page
