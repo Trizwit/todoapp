@@ -1,13 +1,4 @@
--- ds.page:
 
--- ds.section-column:
-flush: full
-
--- my-day-page:
-
--- end: ds.section-column
-
--- end: ds.page
 
 
 
@@ -44,7 +35,7 @@ background.solid: $ds.colors.background.step-2
 inset: $ds.spaces.inset-square.medium
 
 -- ftd.image: 
-src: D:\fastn\todoapp\assets\img-5.png
+src: $assets.files.assets.img-5.png
 width.fixed.vw: 6
 border-radius.px: 8
 

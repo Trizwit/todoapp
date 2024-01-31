@@ -2,3 +2,5 @@
 .build
 .DS_Store
 .idea
+_fastn_todoapp*
+_Users*
