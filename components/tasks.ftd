@@ -1,0 +1,54 @@
+-- component task-page:
+
+-- ds.column:
+radius: $ds.radius.zero
+spacing: $ds.spaces.horizontal-gap.space-between
+inset: $ds.spaces.inset-square.extra-large
+height.fixed.vw: 45
+
+-- ds.row:
+radius: $ds.radius.zero
+align-content: left
+;;color: #4b95bd
+
+-- phosphor.regular: house
+size: 32
+
+-- ds.heading-medium: Tasks
+color: #4b95bd
+
+-- end: ds.row
+
+-- ds.column:
+align-content: center
+
+-- ftd.image: 
+src: $assets.files.assets.img-5.png
+width.fixed.vw: 10
+border-radius.px: 8
+
+-- ds.fine-print:
+color: #4b95bd
+
+Tasks show up here if they aren't part of any lists you have created
+
+-- end: ds.column
+
+-- ds.row:
+inset: $ds.spaces.inset-square.small
+background.solid: $ds.colors.background.step-1
+radius: $ds.radius.zero
+
+-- phosphor.regular: circle
+size: 24
+color: #4b95bd
+
+-- ds.copy-regular: Try typing  'pay utilities bill by friday 6pm'
+align: left
+color: #4b95bd
+
+-- end: ds.row
+
+-- end: ds.column
+
+-- end: task-page

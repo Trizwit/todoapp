@@ -973,18 +973,7 @@ font-family: fastn-community-github-io-roboto-font-Roboto }
   let __fastn_super_package_name__ = __fastn_package_name__;
   __fastn_package_name__ = "trizwit_github_io_todoapp";
   try {
-    let parenti0 = fastn_community_github_io_design_system__page(parent, inherited, {
-      content: fastn.mutableList([function (root, inherited) {
-        let rooti0 = fastn_community_github_io_design_system__section_column(root, inherited, {
-          flush: 1,
-          content: fastn.mutableList([function (root, inherited) {
-            let rooti0 = trizwit_github_io_todoapp_scenarios_planned_planned___plan_page(root, inherited);
-          }
-          ])
-        });
-      }
-      ])
-    });
+    let parenti0 = trizwit_github_io_todoapp_pages_planned__page(parent, inherited);
   } finally {
     __fastn_package_name__ = __fastn_super_package_name__;
   }
@@ -3473,7 +3462,7 @@ let fastn_community_github_io_design_system_typography__copy_regular = function 
   }
 }
 global["fastn_community_github_io_design_system_typography__copy_regular"] = fastn_community_github_io_design_system_typography__copy_regular;
-let trizwit_github_io_todoapp_scenarios_planned_planned___plan_page = function (parent, inherited, args)
+let trizwit_github_io_todoapp_components_planned__plan_page = function (parent, inherited, args)
 {
   let __fastn_super_package_name__ = __fastn_package_name__;
   __fastn_package_name__ = "trizwit_github_io_todoapp";
@@ -3577,7 +3566,7 @@ let trizwit_github_io_todoapp_scenarios_planned_planned___plan_page = function (
     __fastn_package_name__ = __fastn_super_package_name__;
   }
 }
-global["trizwit_github_io_todoapp_scenarios_planned_planned___plan_page"] = trizwit_github_io_todoapp_scenarios_planned_planned___plan_page;
+global["trizwit_github_io_todoapp_components_planned__plan_page"] = trizwit_github_io_todoapp_components_planned__plan_page;
 fastn_utils.createNestedObject(global, "fastn_community_github_io_design_system_layout_page__flush", function () {
   let record = fastn.recordInstance({
   });
@@ -3728,6 +3717,33 @@ let fastn_community_github_io_design_system_layout_section_column__section_colum
   }
 }
 global["fastn_community_github_io_design_system_layout_section_column__section_column"] = fastn_community_github_io_design_system_layout_section_column__section_column;
+let trizwit_github_io_todoapp_pages_planned__page = function (parent, inherited, args)
+{
+  let __fastn_super_package_name__ = __fastn_package_name__;
+  __fastn_package_name__ = "trizwit_github_io_todoapp";
+  try {
+    let __args__ = {
+    };
+    inherited = fastn_utils.getInheritedValues(__args__, inherited, args);
+    __args__ = fastn_utils.getArgs(__args__, args);
+    let parenti0 = fastn_community_github_io_design_system__page(parent, inherited, {
+      content: fastn.mutableList([function (root, inherited) {
+        let rooti0 = fastn_community_github_io_design_system__section_column(root, inherited, {
+          flush: 1,
+          content: fastn.mutableList([function (root, inherited) {
+            let rooti0 = trizwit_github_io_todoapp_components_planned__plan_page(root, inherited);
+          }
+          ])
+        });
+      }
+      ])
+    });
+    return parenti0;
+  } finally {
+    __fastn_package_name__ = __fastn_super_package_name__;
+  }
+}
+global["trizwit_github_io_todoapp_pages_planned__page"] = trizwit_github_io_todoapp_pages_planned__page;
 let fastn_community_github_io_design_system__spaces = global["fastn_community_github_io_design_system_spaces__spaces"];
 global["fastn_community_github_io_design_system__spaces"] = fastn_community_github_io_design_system__spaces;
 let fastn_community_github_io_design_system__page = global["fastn_community_github_io_design_system_layout_page__page"];

@@ -50,6 +50,16 @@
       "checksum": "7D53C64D8DE58F89DDFE5363870543F7809C6154AB19DA4A7AC81D059BD7C92E",
       "size": 68914
     },
+    "components/assigned.ftd": {
+      "name": "components/assigned.ftd",
+      "checksum": "55B8AC394AD986C17530F3A9B5DBD9EBFE7908FF276D9543424E303681F02673",
+      "size": 895
+    },
+    "components/flagged.ftd": {
+      "name": "components/flagged.ftd",
+      "checksum": "813E902C1FD99A51BD0780C3C779E20B6F91B31DF230871249BC4CBC7AF5BB6E",
+      "size": 904
+    },
     "components/home.ftd": {
       "name": "components/home.ftd",
       "checksum": "CB0D9D4C8AF0814F057C9199099D0EDC3C41FC83A8AA0593E229BDAC061C6B5D",
@@ -65,6 +75,16 @@
       "checksum": "405FCFBDFC9DE1E92FA866099CB2DC3C3B463DAC61F2BB831EBAF0E8BCD3ABC6",
       "size": 1157
     },
+    "components/planned.ftd": {
+      "name": "components/planned.ftd",
+      "checksum": "B3B1A38D2D72BE152ABC06C41E0644226E6AB53400265F8101B2FAC9453C933C",
+      "size": 901
+    },
+    "components/tasks.ftd": {
+      "name": "components/tasks.ftd",
+      "checksum": "9E34A11A28721D85FCDDF260421F163575E771BC9996A12B851ADCC83ADC7A84",
+      "size": 917
+    },
     "favicon.ico": {
       "name": "favicon.ico",
       "checksum": "65056A1D6C6AAE6E3DC4626E29F4BD4B628B17A8E9CC1D3A5E8FE9F6743F306B",
@@ -74,6 +94,16 @@
       "name": "index.ftd",
       "checksum": "911A0A40E14D1779656F7785A7450BB2383C8A152EFCB75FF90D26CFE71EA5DF",
       "size": 74
+    },
+    "pages/assigned.ftd": {
+      "name": "pages/assigned.ftd",
+      "checksum": "60888A4AB1F75EDF5D436F4D5319E1083B46D312D9FE962C4A67301792FE3049",
+      "size": 214
+    },
+    "pages/flagged.ftd": {
+      "name": "pages/flagged.ftd",
+      "checksum": "DAC2983F52C0D0DC882076594C94E2EE541BA90348B3C622A65255ABF1CA9C86",
+      "size": 214
     },
     "pages/home.ftd": {
       "name": "pages/home.ftd",
@@ -90,15 +120,25 @@
       "checksum": "8ED07F72ED430D65C640218C0B4A73EC82D25B2BFE62A6EFA3E0C4C31EA3623A",
       "size": 211
     },
+    "pages/planned.ftd": {
+      "name": "pages/planned.ftd",
+      "checksum": "99E12ADD8ECF877F27823F54F1616DD7108164AFD8C588A61B5D29083CEE6B8F",
+      "size": 207
+    },
+    "pages/tasks.ftd": {
+      "name": "pages/tasks.ftd",
+      "checksum": "573269286A27351ED502897CFD96DEBB4889875263288D873899F2B91F60C76F",
+      "size": 211
+    },
     "scenarios/assigned/assign.ftd": {
       "name": "scenarios/assigned/assign.ftd",
-      "checksum": "0019FEBAC5034769D496594856899A66259B177481E2DEFD5DD63586CCD29D2C",
-      "size": 1008
+      "checksum": "763BC545D545328D7163B846385E91B111FE96734F97002291D708D4C4A3FFD3",
+      "size": 77
     },
     "scenarios/flagged/flagged.ftd": {
       "name": "scenarios/flagged/flagged.ftd",
-      "checksum": "FBB63161FFCF0DAE00AADAB73759EE30D5769EB39C764CE1D7BDC58E8FF2724C",
-      "size": 1015
+      "checksum": "170EFE38C7D082E8B1836B5A14913D09354A68CA06FE924E9A33CB57B0ED5BAA",
+      "size": 79
     },
     "scenarios/important/important.ftd": {
       "name": "scenarios/important/important.ftd",
@@ -112,13 +152,13 @@
     },
     "scenarios/planned/planned.ftd": {
       "name": "scenarios/planned/planned.ftd",
-      "checksum": "E5720911BAFF09E45E153A57CAEBC1C1AE1B41EC0D3E13C86C1B621C53F951D6",
-      "size": 1012
+      "checksum": "5FD09D2AA08AAD8793A02B38064A3FAEA1C5C4D633D887A5867376E01EE4083C",
+      "size": 75
     },
     "scenarios/tasks/tasks.ftd": {
       "name": "scenarios/tasks/tasks.ftd",
-      "checksum": "4E028C63E4200AF52012DB2E70A7B9DCAFD395A66469022EA8F334B28E6B5A4C",
-      "size": 1034
+      "checksum": "48FA92FADA7EB04289DB64E424CFA6F4049FAD55A2CC030965685B39243114D4",
+      "size": 73
     },
     "vercel.json": {
       "name": "vercel.json",
@@ -127,5 +167,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "FE25F12ED13A79460643FCB4BC196B9D67C1A22D4D39EB1D8B42CCFB11086B0C"
+  "checksum": "5F1393287AC66A3B2C7F284D56614C75B57547564DB774E279D4F375CBB772C4"
 }
