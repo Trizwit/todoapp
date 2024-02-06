@@ -50,6 +50,11 @@
       "checksum": "7D53C64D8DE58F89DDFE5363870543F7809C6154AB19DA4A7AC81D059BD7C92E",
       "size": 68914
     },
+    "assets/search.svg": {
+      "name": "assets/search.svg",
+      "checksum": "FED56626A25A57AE5809B7B8CA297A7CEE155D167CF1A8B94D2DADB8A7E3197E",
+      "size": 1815
+    },
     "components/assigned.ftd": {
       "name": "components/assigned.ftd",
       "checksum": "55B8AC394AD986C17530F3A9B5DBD9EBFE7908FF276D9543424E303681F02673",
@@ -62,8 +67,8 @@
     },
     "components/home.ftd": {
       "name": "components/home.ftd",
-      "checksum": "CB0D9D4C8AF0814F057C9199099D0EDC3C41FC83A8AA0593E229BDAC061C6B5D",
-      "size": 4832
+      "checksum": "6F005DF638488D303EAC5C4472840042EA772E0859E765604A6B3EFA6E470616",
+      "size": 5417
     },
     "components/imp.ftd": {
       "name": "components/imp.ftd",
@@ -72,8 +77,8 @@
     },
     "components/my_day.ftd": {
       "name": "components/my_day.ftd",
-      "checksum": "405FCFBDFC9DE1E92FA866099CB2DC3C3B463DAC61F2BB831EBAF0E8BCD3ABC6",
-      "size": 1157
+      "checksum": "4B83F6AB7F8D780A4EE7BF964B36DC95CEE46672CB02C0C98FC0E54E6149AB0E",
+      "size": 1216
     },
     "components/planned.ftd": {
       "name": "components/planned.ftd",
@@ -167,5 +172,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "5F1393287AC66A3B2C7F284D56614C75B57547564DB774E279D4F375CBB772C4"
+  "checksum": "A6A731A5850B0EB64ED6E764FB002427FA0BDDBD090AF533EC7C8D1C3B5AE39A"
 }

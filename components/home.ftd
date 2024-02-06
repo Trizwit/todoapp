@@ -1,7 +1,7 @@
 
 
 
-
+-- boolean $show: false
 
 -- component header:
 
@@ -27,17 +27,18 @@ link: /
 
 -- end: ds.row
 
--- ds.row:
+-- ds.column:
 width.fixed.vw: 20
+$on-click$: $ftd.toggle($a = $show)
 
--- ds.phosphor-icon-button: | search our library     
-icon: magnifying-glass
-link: /
-kind: secondary
-width: full 
-icon-position: at-start
+-- ds.text-input:
+size: small
+radius: curved
+icon-start: $assets.files.assets.search.svg
 
--- end: ds.row
+-- search-box:
+
+-- end: ds.column
 
 -- ds.row:
 width: hug-content
@@ -71,6 +72,49 @@ border-radius.px: 100
 -- end: ds.section-row
 
 -- end: header
+
+
+
+
+
+
+
+
+
+-- component search-box:
+
+-- ds.floater:
+if: { $show }
+anchor: parent
+top: 62
+bottom: 0
+left: 0
+right: 0
+height: hug-content
+background.solid: $ds.colors.background.step-1
+z-index: 1
+align-content: top-left
+inset: $ds.spaces.inset-square.medium
+
+	-- ds.column:
+	inset: $ds.spaces.inset-wide.medium
+	align-content: top-left
+
+        -- ds.copy-regular: task-1
+        align: left
+        color: #4b95bd
+
+        -- ds.copy-regular: task-2	
+        align: left
+        color: #4b95bd
+
+	-- end: ds.column
+
+-- end: ds.floater
+
+-- end: search-box
+
+
 
 
 
