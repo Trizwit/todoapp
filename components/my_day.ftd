@@ -1,17 +1,17 @@
+-- import: trizwit.github.io/todoapp/pages/home as hm
 
 
 
-
--- boolean $show: true
 
 -- component my-day-page:
 
 
 -- ds.column:
-radius: $ds.radius.zero
+if: {$hm.open-window == "my-day"}
 spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.extra-large
-height.fixed.vw: 45
+inset: $ds.spaces.inset-square.large
+height.fixed.vw: 40
+background.solid: #cccccc
 
 -- ds.row:
 radius: $ds.radius.zero
@@ -61,7 +61,6 @@ link: /
 inset: $ds.spaces.inset-square.small
 background.solid: $ds.colors.background.step-1
 radius: $ds.radius.zero
-$on-click$: $ftd.toggle($a = $show)
 
 -- phosphor.regular: circle
 size: 24

@@ -1,6 +1,14 @@
 -- import: trizwit.github.io/todoapp/components/home
+-- import: trizwit.github.io/todoapp/components/my_day as myd
+-- import: trizwit.github.io/todoapp/components/imp
+-- import: trizwit.github.io/todoapp/components/planned as pl
+-- import: trizwit.github.io/todoapp/components/assigned as asg
+-- import: trizwit.github.io/todoapp/components/flagged as flg
+-- import: trizwit.github.io/todoapp/components/tasks as tsk
 
 
+
+-- string $open-window: my-day
 
 
 -- component page:
@@ -12,14 +20,27 @@
 -- ds.section-row:
 flush: full
 align-content: top-center
-inset: $ds.spaces.inset-square.small
-spacing: $ds.spaces.horizontal-gap.small
+inset: $ds.spaces.inset-wide.medium
+spacing: $ds.spaces.horizontal-gap.medium
 
 -- home.sidesection:
 
--- home.suggestions:
+;; -- home.suggestions:
 
-;;-- add-task:
+
+
+-- ds.column:
+
+
+-- myd.my-day-page:
+-- imp.imp-page:
+-- pl.plan-page:
+-- asg.assign-page:
+-- flg.flagged-page:
+-- tsk.task-page:
+
+
+-- end: ds.column
 
 -- end: ds.section-row
 

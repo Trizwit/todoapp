@@ -57,38 +57,38 @@
     },
     "components/assigned.ftd": {
       "name": "components/assigned.ftd",
-      "checksum": "55B8AC394AD986C17530F3A9B5DBD9EBFE7908FF276D9543424E303681F02673",
-      "size": 895
+      "checksum": "B6951263DBEB273E3DD372F737776CDC22AECFE23B7EF9AA41E2C2EACEC7DED5",
+      "size": 984
     },
     "components/flagged.ftd": {
       "name": "components/flagged.ftd",
-      "checksum": "813E902C1FD99A51BD0780C3C779E20B6F91B31DF230871249BC4CBC7AF5BB6E",
-      "size": 904
+      "checksum": "BFB2764F12C9485F720E99C614428EDB469A975385174BE9467BC92041B69ED3",
+      "size": 993
     },
     "components/home.ftd": {
       "name": "components/home.ftd",
-      "checksum": "6F005DF638488D303EAC5C4472840042EA772E0859E765604A6B3EFA6E470616",
-      "size": 5417
+      "checksum": "C080FA9E9481D4085006F79669222B4F0C73171C694528B64AA9C4ECDC46233D",
+      "size": 6346
     },
     "components/imp.ftd": {
       "name": "components/imp.ftd",
-      "checksum": "E6E3F17A27774C6F907DE82D1EF1013E15849929B30E055B03E7E32BB41962C7",
-      "size": 895
+      "checksum": "923C18E737677F81A231F906C1BBD395E900F39DC30403168BE0863BC195FC29",
+      "size": 1014
     },
     "components/my_day.ftd": {
       "name": "components/my_day.ftd",
-      "checksum": "4B83F6AB7F8D780A4EE7BF964B36DC95CEE46672CB02C0C98FC0E54E6149AB0E",
-      "size": 1216
+      "checksum": "CE2300F91109F7AABF179F9B4073D69A4A2122A6C8385DAAC1AB4A36D4BB83D5",
+      "size": 1240
     },
     "components/planned.ftd": {
       "name": "components/planned.ftd",
-      "checksum": "B3B1A38D2D72BE152ABC06C41E0644226E6AB53400265F8101B2FAC9453C933C",
-      "size": 901
+      "checksum": "750BFA37777FF6C7249477E5C5EC083B45996B40EE30DEB8BBE72574C541FAA2",
+      "size": 990
     },
     "components/tasks.ftd": {
       "name": "components/tasks.ftd",
-      "checksum": "9E34A11A28721D85FCDDF260421F163575E771BC9996A12B851ADCC83ADC7A84",
-      "size": 917
+      "checksum": "A4C94108C96467E406CD8EA6DE7D366FF60FAB6815C06B0D354450E61B36DACD",
+      "size": 1004
     },
     "favicon.ico": {
       "name": "favicon.ico",
@@ -100,70 +100,10 @@
       "checksum": "911A0A40E14D1779656F7785A7450BB2383C8A152EFCB75FF90D26CFE71EA5DF",
       "size": 74
     },
-    "pages/assigned.ftd": {
-      "name": "pages/assigned.ftd",
-      "checksum": "60888A4AB1F75EDF5D436F4D5319E1083B46D312D9FE962C4A67301792FE3049",
-      "size": 214
-    },
-    "pages/flagged.ftd": {
-      "name": "pages/flagged.ftd",
-      "checksum": "DAC2983F52C0D0DC882076594C94E2EE541BA90348B3C622A65255ABF1CA9C86",
-      "size": 214
-    },
     "pages/home.ftd": {
       "name": "pages/home.ftd",
-      "checksum": "CA8565EDCB21FC39C620C253BAEDD439B1ACF27869B46FF2FEE042969ED4681A",
-      "size": 356
-    },
-    "pages/important.ftd": {
-      "name": "pages/important.ftd",
-      "checksum": "6E184CE5ABB793FECCEA34F726ACB816E8A7D3DDC7F04FD3C60FC603587AAA93",
-      "size": 198
-    },
-    "pages/my_day.ftd": {
-      "name": "pages/my_day.ftd",
-      "checksum": "8ED07F72ED430D65C640218C0B4A73EC82D25B2BFE62A6EFA3E0C4C31EA3623A",
-      "size": 211
-    },
-    "pages/planned.ftd": {
-      "name": "pages/planned.ftd",
-      "checksum": "99E12ADD8ECF877F27823F54F1616DD7108164AFD8C588A61B5D29083CEE6B8F",
-      "size": 207
-    },
-    "pages/tasks.ftd": {
-      "name": "pages/tasks.ftd",
-      "checksum": "573269286A27351ED502897CFD96DEBB4889875263288D873899F2B91F60C76F",
-      "size": 211
-    },
-    "scenarios/assigned/assign.ftd": {
-      "name": "scenarios/assigned/assign.ftd",
-      "checksum": "763BC545D545328D7163B846385E91B111FE96734F97002291D708D4C4A3FFD3",
-      "size": 77
-    },
-    "scenarios/flagged/flagged.ftd": {
-      "name": "scenarios/flagged/flagged.ftd",
-      "checksum": "170EFE38C7D082E8B1836B5A14913D09354A68CA06FE924E9A33CB57B0ED5BAA",
-      "size": 79
-    },
-    "scenarios/important/important.ftd": {
-      "name": "scenarios/important/important.ftd",
-      "checksum": "90D1960571080FE5A790E3911D6061AAB8523E76D96A4E15774FA6A477209091",
-      "size": 78
-    },
-    "scenarios/my_day/my-day.ftd": {
-      "name": "scenarios/my_day/my-day.ftd",
-      "checksum": "10CC556B064F294626AE079924B949EB187822DD2A117A2998B26C4EAA2006F5",
-      "size": 71
-    },
-    "scenarios/planned/planned.ftd": {
-      "name": "scenarios/planned/planned.ftd",
-      "checksum": "5FD09D2AA08AAD8793A02B38064A3FAEA1C5C4D633D887A5867376E01EE4083C",
-      "size": 75
-    },
-    "scenarios/tasks/tasks.ftd": {
-      "name": "scenarios/tasks/tasks.ftd",
-      "checksum": "48FA92FADA7EB04289DB64E424CFA6F4049FAD55A2CC030965685B39243114D4",
-      "size": 73
+      "checksum": "11C5DB5ACC14E43311153868095F7A949DFC893BFC65F1B530ECFCC3499AFFED",
+      "size": 891
     },
     "vercel.json": {
       "name": "vercel.json",
@@ -172,5 +112,5 @@
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "A6A731A5850B0EB64ED6E764FB002427FA0BDDBD090AF533EC7C8D1C3B5AE39A"
+  "checksum": "CE0C9D6685132A777D2BC6A77C68B013918A53D7220C51AE7138377829DFDD4E"
 }
