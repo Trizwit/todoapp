@@ -1,23 +1,25 @@
-
+-- import: trizwit.github.io/todoapp/pages/home as hm
 
 
 
 -- component imp-page:
 
 -- ds.column:
-radius: $ds.radius.zero
+if: { $hm.open-window == "important" }
 spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.extra-large
-height.fixed.vw: 45
+inset: $ds.spaces.inset-square.large
+height.fixed.vw: 40
+background.solid: #123fdc
 
 -- ds.row:
 radius: $ds.radius.zero
 align-content: left
-;;color: #42a1f5
 
--- phosphor.regular: star
-size: 32
-
+-- ds.phosphor-icon-button:
+icon: star
+;; size: 32
+;; color: #ffffff
+kind: tertiary
 
 -- ds.heading-medium: Important
 color: #42a1f5

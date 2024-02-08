@@ -1,4 +1,4 @@
-
+-- import: trizwit.github.io/todoapp/pages/home as hm
 
 
 -- boolean $show: false
@@ -186,136 +186,148 @@ link: /
 
 
 -- component sidesection:
-
--- ds.section-column:
+boolean $open: true
 
 -- ds.column:
-width.fixed.vw: 20
+width: hug-content  
+height: fill-container
 inset: $ds.spaces.inset-square.small
-align-content: left
+align-content: top-left
+background.solid: #ba3fce
 
 -- ds.phosphor-icon-button: 
 icon: list
-link: /
 kind: tertiary
+$on-click$: $ftd.toggle($a = $sidesection.open)
 
 -- ds.row:
 align-content: left
-width.fixed.vw: 16
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if {$hm.open-window == "my-day"}: #cccc00
+$on-click$: $ftd.set-string($a = $hm.open-window, v = my-day)
 
 -- ds.phosphor-icon-button: 
 icon: sun-dim
-link: scenarios/my_day/my-day/
+;; link: scenarios/my_day/my-day/
 kind: tertiary
-;;variant: ghost 
 
--- ds.link: My Day
-color: $ds.colors.text
-link: scenarios/my_day/my-day/
+-- ds.copy-small: My Day
+if: { $sidesection.open }
+color: #ffffff
+
 
 -- end: ds.row
 
 -- ds.row:
 align-content: left
-width.fixed.vw: 16
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if { $hm.open-window == "important"}: #fff123
+$on-click$: $ftd.set-string($a = $hm.open-window, v = important)
+
 
 -- ds.phosphor-icon-button: 
 icon: star
-link: scenarios/important/important/
+;; link: scenarios/important/important/
 kind: tertiary
 ;;variant: ghost 
 
--- ds.link: Important
-color: $ds.colors.text
-link: scenarios/important/important/
+-- ds.copy-small: Important
+if: { $sidesection.open }
+color: #ffffff
+
 
 -- end: ds.row
 
 -- ds.row:
 align-content: left
-width.fixed.vw: 16
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if { $hm.open-window == "planned"}: #ff0000
+$on-click$: $ftd.set-string($a = $hm.open-window, v = planned)
 
 -- ds.phosphor-icon-button: 
 icon: calendar-check
-link: scenarios/planned/planned/
+;; link: scenarios/planned/planned/
 kind: tertiary
 ;;variant: ghost 
 
--- ds.link: Planned
-color: $ds.colors.text
-link: scenarios/planned/planned/
+-- ds.copy-small: Planned
+if: { $sidesection.open }
+color: #ffffff
 
 -- end: ds.row
 
 -- ds.row:
 align-content: left
-width.fixed.vw: 16
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if { $hm.open-window == "assigned"}: #00ff00
+$on-click$: $ftd.set-string($a = $hm.open-window, v = assigned)
 
 -- ds.phosphor-icon-button: 
 icon: user
-link: scenarios/assigned/assign/
+;; link: scenarios/assigned/assign/
 kind: tertiary
 ;;variant: ghost 
 
--- ds.link: Assigned to me
-color: $ds.colors.text
-link: scenarios/assigned/assign/
+-- ds.copy-small: Assigned to me
+if: { $sidesection.open }
+color: #ffffff
 
 -- end: ds.row
 
 -- ds.row:
 align-content: left
-width.fixed.vw: 16
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if { $hm.open-window == "flagged"}: #0000ff
+$on-click$: $ftd.set-string($a = $hm.open-window, v = flagged)
 
 -- ds.phosphor-icon-button: 
 icon: flag
-link: scenarios/flagged/flagged/
+;; link: scenarios/flagged/flagged/
 kind: tertiary
 ;;variant: ghost 
 
--- ds.link: Flagged email
-color: $ds.colors.text
-link: scenarios/flagged/flagged/
+-- ds.copy-small: Flagged email
+if: { $sidesection.open }
+color: #ffffff
 
 -- end: ds.row
 
 -- ds.row:
-radius: $ds.radius.zero
 align-content: left
-width.fixed.vw: 16
-;;border-bottom: $ds.borders.thin
+width.fixed.vw if {$sidesection.open}: 16
+background.solid if { $hm.open-window == "tasks"}: #ff00ff
+$on-click$: $ftd.set-string($a = $hm.open-window, v = tasks)
 
 -- ds.phosphor-icon-button: 
 icon: house
-link: scenarios/tasks/tasks/
+;; link: scenarios/tasks/tasks/
 kind: tertiary
 ;;variant: ghost 
 
--- ds.link: Tasks
-color: $ds.colors.text
-link: scenarios/tasks/tasks/
+-- ds.copy-small: Tasks
+if: { $sidesection.open }
+color: #ffffff
+
 
 -- end: ds.row
 
--- ds.row:
-align-content: left
-width.fixed.vw: 16
+;; -- ds.row:
+;; align-content: left
+;; width.fixed.vw: 16
 
--- ds.phosphor-icon-button: 
-icon: plus
-link: /
-kind: tertiary
-;;variant: ghost 
+;; -- ds.phosphor-icon-button: 
+;; icon: plus
+;; link: /
+;; kind: tertiary
+;; ;;variant: ghost 
 
--- ds.link: New list
-color: $ds.colors.text
-link: /
+;; -- ds.link: New list
+;; color: $ds.colors.text
+;; link: /
 
--- end: ds.row
+;; -- end: ds.row
 
 -- end: ds.column
-
--- end: ds.section-column
 
 -- end: sidesection
 

@@ -1,10 +1,16 @@
+-- import: trizwit.github.io/todoapp/pages/home as hm
+
+
+
+
 -- component plan-page:
 
 -- ds.column:
-radius: $ds.radius.zero
+if: {$hm.open-window == "planned"}
 spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.extra-large
-height.fixed.vw: 45
+inset: $ds.spaces.inset-square.large
+height.fixed.vw: 40
+background.solid: #1e1e1e
 
 -- ds.row:
 radius: $ds.radius.zero
