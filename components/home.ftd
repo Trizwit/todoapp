@@ -192,6 +192,7 @@ boolean $open: true
 width: hug-content  
 height: fill-container
 inset: $ds.spaces.inset-square.small
+spacing: $ds.spaces.vertical-gap.large
 align-content: top-left
 background.solid: #ba3fce
 
@@ -215,15 +216,14 @@ kind: tertiary
 if: { $sidesection.open }
 color: #ffffff
 
-
 -- end: ds.row
+
 
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
-background.solid if { $hm.open-window == "important"}: #fff123
+background.solid if {$hm.open-window == "important"}: #fff123
 $on-click$: $ftd.set-string($a = $hm.open-window, v = important)
-
 
 -- ds.phosphor-icon-button: 
 icon: star
@@ -235,13 +235,13 @@ kind: tertiary
 if: { $sidesection.open }
 color: #ffffff
 
-
 -- end: ds.row
+
 
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
-background.solid if { $hm.open-window == "planned"}: #ff0000
+background.solid if {$hm.open-window == "planned"}: #ff0000
 $on-click$: $ftd.set-string($a = $hm.open-window, v = planned)
 
 -- ds.phosphor-icon-button: 
@@ -256,10 +256,11 @@ color: #ffffff
 
 -- end: ds.row
 
+
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
-background.solid if { $hm.open-window == "assigned"}: #00ff00
+background.solid if {$hm.open-window == "assigned"}: #00ff00
 $on-click$: $ftd.set-string($a = $hm.open-window, v = assigned)
 
 -- ds.phosphor-icon-button: 
@@ -274,10 +275,11 @@ color: #ffffff
 
 -- end: ds.row
 
+
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
-background.solid if { $hm.open-window == "flagged"}: #0000ff
+background.solid if {$hm.open-window == "flagged"}: #0000ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = flagged)
 
 -- ds.phosphor-icon-button: 
@@ -292,10 +294,11 @@ color: #ffffff
 
 -- end: ds.row
 
+
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
-background.solid if { $hm.open-window == "tasks"}: #ff00ff
+background.solid if {$hm.open-window == "tasks"}: #ff00ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = tasks)
 
 -- ds.phosphor-icon-button: 
@@ -308,8 +311,8 @@ kind: tertiary
 if: { $sidesection.open }
 color: #ffffff
 
-
 -- end: ds.row
+
 
 ;; -- ds.row:
 ;; align-content: left
