@@ -1,13 +1,37 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
 
 
+-- void loginFunction():
+js: $assets.files.backend.auth.js:type=module
+
+loginFunction()
+
+
+-- void logoutFunction():
+js: $assets.files.backend.auth.js:type=module
+
+logoutFunction()
+
+
+-- void getAccessToken():
+js: $assets.files.backend.auth.js:type=module
+
+getAccessToken()
+
+
+
+
 -- boolean $show: false
+-- boolean $open: false
+-- boolean $open-sidebar: false
 
 -- component header:
 
 -- ds.section-row:
 flush: full
-inset: $ds.spaces.inset-wide.large
+inset: $ds.spaces.inset-wide.small
+margin: $ds.spaces.vertical-gap.zero
+spacing: $ds.spaces.horizontal-gap.zero
 outer-background.solid: #34a8eb
 
 -- ds.row:
@@ -18,17 +42,27 @@ spacing: $ds.spaces.horizontal-gap.space-between
 -- ds.row:
 width: hug-content
 
+-- ftd.desktop:
 -- phosphor.regular: dots-nine
 size: 40
-;;link: /
+-- end: ftd.desktop
 
+-- ftd.mobile:
+-- phosphor.regular: dots-nine
+size: 40
+$on-click$: $ftd.toggle($a = $open-sidebar)
+-- end: ftd.mobile
+
+
+-- ftd.desktop:
 -- ds.header-link: To  Do
 link: /
+-- end: ftd.desktop
 
 -- end: ds.row
 
 -- ds.column:
-width.fixed.vw: 20
+width.fixed.vw if { ftd.device == "desktop"}: 20
 $on-click$: $ftd.toggle($a = $show)
 
 -- ds.text-input:
@@ -43,14 +77,23 @@ icon-start: $assets.files.assets.search.svg
 -- ds.row:
 width: hug-content
 
+-- ds.column:
+width: hug-content
+height: hug-content
+
 -- phosphor.regular: gear
 size: 30
+$on-click$: $ftd.toggle($a = $open)
 
--- phosphor.regular: question
-size: 30
+-- login-box:
 
--- phosphor.regular: notification
-size: 30 
+-- end: ds.column
+
+;; -- phosphor.regular: question
+;; size: 30
+
+;; -- phosphor.regular: notification
+;; size: 30 
 
 -- ds.row:
 radius: $ds.radius.round
@@ -100,11 +143,15 @@ inset: $ds.spaces.inset-square.medium
 	inset: $ds.spaces.inset-wide.medium
 	align-content: top-left
 
-        -- ds.copy-regular: task-1
+        -- ds.copy-regular: fbgfdgf
         align: left
         color: #4b95bd
 
-        -- ds.copy-regular: task-2	
+        -- ds.copy-regular: hey
+        align: left
+        color: #4b95bd
+
+        -- ds.copy-regular: fcdc        	
         align: left
         color: #4b95bd
 
@@ -113,6 +160,51 @@ inset: $ds.spaces.inset-square.medium
 -- end: ds.floater
 
 -- end: search-box
+
+
+
+
+
+
+
+
+-- component login-box:
+
+-- ds.floater:
+if: { $open }
+anchor: parent
+top: 62
+bottom: 0
+left: 0
+right: 0
+height: hug-content
+width: hug-content
+background.solid: $ds.colors.background.step-1
+z-index: 1
+align-content: top-left
+inset: $ds.spaces.inset-square.medium
+
+	-- ds.column:
+	inset: $ds.spaces.inset-wide.medium
+	align-content: top-left
+
+        -- ftd.text: login
+        color: #4b95bd
+        $on-click$: $loginFunction()
+
+        -- ftd.text: logout
+        color: #4b95bd
+        $on-click$: $logoutFunction()
+
+        -- ftd.text: Access Token
+        color: #4b95bd
+        $on-click$: $getAccessToken()
+
+	-- end: ds.column
+
+-- end: ds.floater
+
+-- end: login-box
 
 
 
@@ -436,5 +528,163 @@ size: 30
 
 
 
+
+
+
+
+
+
+
+
+-- component sidebar:
+
+-- ds.floater:
+if: { $open-sidebar }
+anchor: window
+top: 0
+z-index: 100
+height: fill-container
+width: fill-container
+spacing: $ds.spaces.horizontal-gap.zero
+align-content: top-left
+
+-- ds.column:
+width: fill-container
+height: fill-container
+inset: $ds.spaces.inset-square.small
+spacing: $ds.spaces.vertical-gap.large
+align-content: top-left
+background.solid: #ba3fce
+
+-- ds.row:
+width: fill-container
+align-content: right
+
+-- ds.phosphor-icon-button:
+icon: x-square
+kind: tertiary
+$on-click$: $ftd.toggle($a = $open-sidebar)
+
+-- end: ds.row
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "my-day"}: #cccc00
+$on-click$: $ftd.set-string($a = $hm.open-window, v = my-day)
+
+-- ds.phosphor-icon-button: 
+icon: sun-dim
+kind: tertiary
+
+-- ds.copy-small: My Day
+color: #ffffff
+
+-- end: ds.row
+
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "important"}: #fff123
+$on-click$: $ftd.set-string($a = $hm.open-window, v = important)
+
+-- ds.phosphor-icon-button: 
+icon: star
+kind: tertiary
+;;variant: ghost 
+
+-- ds.copy-small: Important
+color: #ffffff
+
+-- end: ds.row
+
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "planned"}: #ff0000
+$on-click$: $ftd.set-string($a = $hm.open-window, v = planned)
+
+-- ds.phosphor-icon-button: 
+icon: calendar-check
+kind: tertiary
+;;variant: ghost 
+
+-- ds.copy-small: Planned
+color: #ffffff
+
+-- end: ds.row
+
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "assigned"}: #00ff00
+$on-click$: $ftd.set-string($a = $hm.open-window, v = assigned)
+
+-- ds.phosphor-icon-button: 
+icon: user
+;; link: scenarios/assigned/assign/
+kind: tertiary
+;;variant: ghost 
+
+-- ds.copy-small: Assigned to me
+color: #ffffff
+
+-- end: ds.row
+
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "flagged"}: #0000ff
+$on-click$: $ftd.set-string($a = $hm.open-window, v = flagged)
+
+-- ds.phosphor-icon-button: 
+icon: flag
+;; link: scenarios/flagged/flagged/
+kind: tertiary
+;;variant: ghost 
+
+-- ds.copy-small: Flagged email
+color: #ffffff
+
+-- end: ds.row
+
+
+-- ds.row:
+align-content: left
+background.solid if {$hm.open-window == "tasks"}: #ff00ff
+$on-click$: $ftd.set-string($a = $hm.open-window, v = tasks)
+
+-- ds.phosphor-icon-button: 
+icon: house
+;; link: scenarios/tasks/tasks/
+kind: tertiary
+;;variant: ghost 
+
+-- ds.copy-small: Tasks
+color: #ffffff
+
+-- end: ds.row
+
+
+;; -- ds.row:
+;; align-content: left
+;; width.fixed.vw: 16
+
+;; -- ds.phosphor-icon-button: 
+;; icon: plus
+;; link: /
+;; kind: tertiary
+;; ;;variant: ghost 
+
+;; -- ds.link: New list
+;; color: $ds.colors.text
+;; link: /
+
+;; -- end: ds.row
+
+-- end: ds.column
+
+-- end: ds.floater
+
+-- end: sidebar
 
 

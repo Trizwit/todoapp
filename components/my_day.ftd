@@ -8,9 +8,10 @@
 
 -- ds.column:
 if: {$hm.open-window == "my-day"}
+width: fill-container
+height: fill-container
 spacing: $ds.spaces.horizontal-gap.space-between
 inset: $ds.spaces.inset-square.large
-height.fixed.vw: 40
 background.solid: #cccccc
 
 -- ds.row:
@@ -18,6 +19,7 @@ radius: $ds.radius.zero
 align-content: left
 
 -- ds.column:
+align-content: left
 
 -- ds.heading-medium: My Day
 color: #4b95bd
@@ -29,33 +31,34 @@ color: #4b95bd
 
 -- end: ds.row
 
--- ds.column:
-align-content: center
-width.fixed.vw: 18
-background.solid: $ds.colors.background.step-2
-inset: $ds.spaces.inset-square.medium
 
--- ftd.image: 
-src: $assets.files.assets.img-5.png
-width.fixed.vw: 6
-border-radius.px: 8
+;; -- ds.column:
+;; align-content: center
+;; width.fixed.vw: 18
+;; background.solid: $ds.colors.background.step-2
+;; inset: $ds.spaces.inset-square.medium
 
--- ds.copy-regular:
-align: center
-color: #4b95bd
+;; -- ftd.image: 
+;; src: $assets.files.assets.img-5.png
+;; width.fixed.vw: 6
+;; border-radius.px: 8
 
-Focus on your day
+;; -- ds.copy-regular:
+;; align: center
+;; color: #4b95bd
 
--- ds.fine-print:
-align: center
-color: #4b95bd
+;; Focus on your day
 
-Get things done with My Day, a list that refreshes every day
+;; -- ds.fine-print:
+;; align: center
+;; color: #4b95bd
 
--- ds.secondary-button: Add task to My Day
-link: /
+;; Get things done with My Day, a list that refreshes every day
 
--- end: ds.column
+;; -- ds.secondary-button: Add task to My Day
+;; link: /
+
+;; -- end: ds.column
 
 -- ds.row:
 inset: $ds.spaces.inset-square.small

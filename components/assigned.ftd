@@ -6,9 +6,10 @@
 
 -- ds.column:
 if: {$hm.open-window == "assigned"}
+width: fill-container
+height: fill-container
 spacing: $ds.spaces.horizontal-gap.space-between
 inset: $ds.spaces.inset-square.large
-height.fixed.vw: 40
 background.solid: #ffff75
 
 -- ds.row:

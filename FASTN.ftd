@@ -10,6 +10,7 @@ favicon: /-/trizwit.github.io/todoapp/favicon.ico
 
 
 -- fastn.auto-import: trizwit.github.io/todoapp/assets
+-- fastn.auto-import: trizwit.github.io/todoapp/index as tp
 -- fastn.auto-import: fastn-community.github.io/design-system as ds
 -- fastn.auto-import: fastn-community.github.io/svg-icons/phosphor
 

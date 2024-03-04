@@ -4,3 +4,8 @@
 .idea
 _fastn_todoapp*
 _Users*
+.env
+node_modules
+```
+
+
