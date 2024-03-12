@@ -10,26 +10,45 @@
 
 -- string $open-window: my-day
 
+-- ds.page-widths test-widths:
+regular.px: 1000
+narrow.px: 800
+wide.px: 1200
+
 
 -- component page:
 
--- ds.page:
+-- ds.page: todoapp
+widths: $test-widths
+
+-- ds.column:
+width: fill-container
+height: fill-container
 
 -- home.header:
 
--- ds.section-row:
-flush: full
+-- home.sidebar:
+
+-- ds.row:
+width: fill-container
+height: fill-container
 align-content: top-center
 inset: $ds.spaces.inset-wide.medium
 spacing: $ds.spaces.horizontal-gap.medium
+;; background.solid: #f5f5f5
 
+
+-- ftd.desktop:
 -- home.sidesection:
-
+-- end: ftd.desktop
 ;; -- home.suggestions:
 
 
 
 -- ds.column:
+width: fill-container
+height: fill-container
+
 
 
 -- myd.my-day-page:
@@ -42,7 +61,9 @@ spacing: $ds.spaces.horizontal-gap.medium
 
 -- end: ds.column
 
--- end: ds.section-row
+-- end: ds.row
+
+-- end: ds.column
 
 -- end: ds.page
 

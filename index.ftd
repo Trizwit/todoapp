@@ -1,9 +1,24 @@
 -- import: trizwit.github.io/todoapp/pages/home
+-- import: fastn/processors as pr
+
+
+;; -- record user_credentials:
+;; string name: none 
+;; string picture: none
+;; string userId: none
+;; boolean created: 
+
+
+-- record r-data:
+string code: dums
+string state: dums
+
+-- r-data data:
+$processor$: pr.request-data
 
 
 
 -- home.page:
-
 
 
 
