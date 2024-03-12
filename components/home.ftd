@@ -2,19 +2,19 @@
 
 
 -- void loginFunction():
-js: $assets.files.backend.auth.js:type=module
+js: $assets.files.backend.auth.js
 
 loginFunction()
 
 
 -- void logoutFunction():
-js: $assets.files.backend.auth.js:type=module
+js: $assets.files.backend.auth.js
 
 logoutFunction()
 
 
 -- void getAccessToken():
-js: $assets.files.backend.auth.js:type=module
+js: $assets.files.backend.auth.js
 
 getAccessToken()
 
