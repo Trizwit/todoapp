@@ -57,13 +57,13 @@
     },
     "backend/app.js": {
       "name": "backend/app.js",
-      "checksum": "D7641F2EF38D9C2A8A1F6023B14469F8E09F706BD02F77B6EA9C17E24FCD79A7",
-      "size": 6564
+      "checksum": "EB950562EFD994B440E110ADB0746DE0687E2BD6C2CA182BBDC76EADFCCA1E10",
+      "size": 5904
     },
     "backend/auth.js": {
       "name": "backend/auth.js",
-      "checksum": "BE1286036748388DF4FE2CA01632BAF2C54FF1C7B52095D99065420381A7DACA",
-      "size": 5449
+      "checksum": "CDFB939E41F85E907DFAA037A0BB2DF1D09843BA3D8AAE58D1B5B9C437D9C534",
+      "size": 3140
     },
     "backend/auth0-spa-js.production.js": {
       "name": "backend/auth0-spa-js.production.js",
@@ -97,18 +97,18 @@
     },
     "components/home.ftd": {
       "name": "components/home.ftd",
-      "checksum": "C46E5B6672DEB838AC7DB33130565559AE60D8683F05905B1FED6ED364DAAA4C",
-      "size": 10574
+      "checksum": "565C17CB3B39007ADB08162F28D046845A8A05FF8FFB81A207E13EFF781845A9",
+      "size": 10583
     },
     "components/imp.ftd": {
       "name": "components/imp.ftd",
-      "checksum": "F287E6BF4E4CB8D1891EFFE02A3987990C3803494F146966B458BE80BB76F187",
-      "size": 1039
+      "checksum": "3CD76450B87E6050ED468E9067860E4A79060C559CB2E39D09373084116DC96E",
+      "size": 1149
     },
     "components/my_day.ftd": {
       "name": "components/my_day.ftd",
-      "checksum": "90FA37928C9C7D7CB11A1B1389007201DCCC2199F9195CC5AA95A14B091E9731",
-      "size": 1346
+      "checksum": "F0DFDAECA1E279B4CDA837B58C37F078157F6FE16C8450A0233FB07426A8FF6D",
+      "size": 3385
     },
     "components/planned.ftd": {
       "name": "components/planned.ftd",
@@ -127,8 +127,8 @@
     },
     "index.ftd": {
       "name": "index.ftd",
-      "checksum": "732765DB21D8467597490FA32D10CE08F9903FD427726EF97DF63BCEEFBE2053",
-      "size": 333
+      "checksum": "A4AA29901C99D761E2ABCE1F11B462269D594C03F4BC14CC460F4F8051F92DF8",
+      "size": 407
     },
     "node_modules/@hapi/hoek/LICENSE.md": {
       "name": "node_modules/@hapi/hoek/LICENSE.md",
@@ -31219,8 +31219,13 @@
       "name": "pages/home.ftd",
       "checksum": "7D0198C20A8CB19EC8FE7E5395C4C32A19A7BD09A0302F4B153C337BF4A44D6C",
       "size": 1223
+    },
+    "schema.ftd": {
+      "name": "schema.ftd",
+      "checksum": "C1981B751A790BD42DC7FEA9F0AA0A31795A99C537B09B6B90C3CE539B4B5470",
+      "size": 280
     }
   },
   "zip_url": "https://codeload.github.com/trizwit/todoapp/zip/refs/heads/main",
-  "checksum": "3EC0F3A7AAA0AC404996BC7B5F56901AAC9F60C99598DD866308AF439A1062A5"
+  "checksum": "68454448D11D0C0065B12956D8D739A24985E5C55A992E1F1E93183C155EE4AE"
 }

@@ -1,12 +1,4 @@
-// Login function
-// Logout function
-// Refresh Id token function
-// Init auth0 client
-// Get client info function
-// Get Id token claims function
-// Call protected API function
-// Decode given Id token to obtain user info function                           decodeIdToken(idToken)
-
+// Auth0 client side code
 import "https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js";
 import * as config from "../backend/config.js";
 // import "./posthog.js";
@@ -38,26 +30,17 @@ window.logoutFunction = async function logoutFunction() {
   }catch(e){
     // posthog.capture(JSON.stringify(e.stack));
     console.error(e);
-  } 
+  }
 };
 
 /////////////////////////////////////////////////////////////////// Client side login
 window.loginFunction = async function loginFunction() {
-  try{
+  try {
     await auth0Client.loginWithRedirect();
-    
-  }catch(e){
-    // posthog.capture(JSON.stringify(e.stack));
+
+  } catch(e) {
     console.error(e);
   }
-
-  
-  // await auth0Client.loginWithRedirect({
-  //   authorizationParams: {
-  //     redirect_uri: `${config.BASE_FRONTEND_URL}/dashboard/campaign/ongoing`,
-  //    // audience: config.AUTH0_AUDIENCE
-  //   },
-  // });
 };
 
 
@@ -79,117 +62,54 @@ window.getAccessToken = async function getAccessToken() {
 
 
 
-// 
+
 window.addEventListener('load', async () => {
-  const redirectResult = await auth0Client.handleRedirectCallback();
-  console.log("redirect result is ", redirectResult);
-  //logged in. you can get the user profile like this:
+  // After login, get the URL parameters
+  const params = new URLSearchParams(window.location.search);
+
+  // Get the code and state
+  const code = params.get('code');
+  const state = params.get('state');
+
+  // Store the code and state
+  window.localStorage.setItem('code', code);
+  window.localStorage.setItem('state', state);
+
+  // Remove the code and state from the URL
+  params.delete('code');
+  params.delete('state');
+  window.history.replaceState({}, document.title, "/" + params.toString());
+
+  // Get the user info
   const user = await auth0Client.getUser();
-  console.log(user);
+
+  // Get the access token from function getAccessToken
+  const accessToken = await getAccessToken(); // Make sure this function is defined
+
+  // save user access token, email id, photo and name into fastn record
+  const user_data = {
+    email: user.email,
+    name: user.name,
+    picture: user.picture,
+    access_token: accessToken
+  };
+
+  class AppStore extends HTMLElement {
+    connectedCallback() {
+      ftd.on_load(() => {
+        this.data = ftd.component_data(this);
+
+        const currentUser = this.data.current_user.get();
+
+        currentUser.set("email", user_data.email);
+        currentUser.set("name", user_data.name);
+        currentUser.set("picture", user_data.picture);
+        currentUser.set("access_token", user_data.access_token);
+      })
+    }
+  }
+
+  customElements.define('app-store', AppStore);
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// /////////////////////////////////////////////////////////////////// Get User info
-// window.getUserInfo = async function getUserInfo() {
-//   console.log("entering get user info function", auth0Client);
-
-//   try {
-//     const idTokenClaims = await auth0Client.getIdTokenClaims({
-//       cacheMode: "off",
-//       forceRefresh: true,
-//     });
-//     const idToken = idTokenClaims.__raw;
-//     console.log("New ID token:", idToken);
-//     decodeIdToken(idToken).then((response) => {
-//       console.log("decode token is ", response);
-//     });
-//   } catch (e) {
-//     // posthog.capture(JSON.stringify(e.stack));
-//     console.error(e);
-//   }
-
-//   await auth0Client.getUser().then((user) => {
-//     console.log("user isdsfsd ", user);
-//     window.ftd.set_value(
-//       "app.maxz.io/globalVariables#userName",
-//       user.nickname
-//     );
-//   });
-// };
-
-// ///////////////////////////////////////////////////////////////// Get Id token claims
-// window.getIdTokenClaims = async function getIdTokenClaims() {
-//   console.log("entering get id token claims function", auth0Client);
-//   // const differentAudienceOptions = {
-//   //   cacheMode: "off",
-//   //   authorizationParams: {
-//   //     audience: `${AUTH0_AUDIENCE}`,
-//   //     //  scope: 'read:rules',
-//   //   },
-//   // };
-
-//   auth0Client.getTokenSilently();
-
-//   await auth0Client.getUser().then((user) => {
-//     console.log("user isdsfsd ", user);
-//     window.ftd.set_value(
-//       "app.maxz.io/globalVariables#userName",
-//       user.nickname
-//     );
-//   });
-//   // if you need the raw id_token, you can access it
-//   // using the __raw property
-// };
-
-// /////////////////////////////////////////////////////////////////////////////// Refresh ID Token
-// window.refreshFunct = async function refreshFunct() {
-//   try {
-//     const idTokenClaims = await auth0Client.getIdTokenClaims({
-//       cacheMode: "off",
-//       forceRefresh: true,
-//     });
-//     const idToken = idTokenClaims.__raw;
-//     console.log("New ID token:", idToken);
-//   } catch (e) {
-//     // posthog.capture(JSON.stringify(e.stack));
-//     console.error(e);
-//   }
-// };
-
-
-
-// /////////////////////////////////////////////////////////////////////////// Decode a given ID token to obtain user info
-// window.decodeIdToken = async function decodeIdToken(idToken) {
-//   console.log("idToken is ", idToken);
-//   const base64Url = idToken.split(".")[1];
-//   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-//   const jsonPayload = decodeURIComponent(
-//     atob(base64)
-//       .split("")
-//       .map(function (c) {
-//         return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-//       })
-//       .join("")
-//   );
-//   const payload = JSON.parse(jsonPayload);
-//   window.ftd.set_value(
-//     "app.maxz.io/globalVariables#userName",
-//     payload.nickname
-//   );
-//   return payload;
-// };
 

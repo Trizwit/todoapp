@@ -2,28 +2,21 @@
 -- import: fastn/processors as pr
 
 
-;; -- record user_credentials:
-;; string name: none 
-;; string picture: none
-;; string userId: none
-;; boolean created: 
+-- record user-credentials:
+optional string name:
+optional string picture:
+optional string email:
+optional string access_token:
 
+-- user-credentials $current-user:
+name: NULL
+picture: NULL
+email: NULL
+access_token: NULL
 
--- record r-data:
-string code: dums
-string state: dums
-
--- r-data data:
-$processor$: pr.request-data
-
+-- web-component app-store:
+js: auth.js
+user-credentials $current-user: $current-user
 
 
 -- home.page:
-
-
-
-
-
-
-
-

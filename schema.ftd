@@ -1,0 +1,16 @@
+-- record todos-schema:
+integer id:
+string title:
+string description:
+string type:
+string status:
+string createdAt:
+string updatedAt:
+integer UserId:
+
+
+-- record user-credentials:
+optional string name:
+optional string picture:
+optional string email:
+optional string access_token:
