@@ -27,20 +27,30 @@ color: #42a1f5
 
 -- end: ds.row
 
--- ds.column:
-align-content: center
 
--- ftd.image: 
-src: $assets.files.assets.img-1.png
-width.fixed.vw: 10
-border-radius.px: 8
+;; -- tp.app-store:
 
--- ds.fine-print:
-color: #42a1f5
+;; -- ftd.text: $tp.current-user.name
+;; color: #fff
 
-Try starring some tasks to see them here
 
--- end: ds.column
+;; -- ds.column:
+;; align-content: center
+
+;; -- ftd.image: 
+;; src: $assets.files.assets.img-1.png
+;; width.fixed.vw: 10
+;; border-radius.px: 8
+
+;; -- ds.fine-print:
+;; color: #42a1f5
+
+;; Try starring some tasks to see them here
+
+;; -- end: ds.column
+
+
+
 
 -- ds.row:
 inset: $ds.spaces.inset-square.small

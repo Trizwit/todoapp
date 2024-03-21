@@ -120,78 +120,58 @@ app.get('/', jwtCheck, (req, res) => {
 
 
 
-// // req.isAuthenticated is provided from the auth router and lets us know if the user is logged in
-// app.get('/', (req, res) => {
-//   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-// });
+// create a route adduser to add user to the database if not already present
+app.post('/adduser/:email', async (req, res) => {
+  const { email } = req.params;
 
-// // custom login route to redirect to main page after login
-// app.get('/loginn', (req, res) =>
-//   res.oidc.login({
-//     returnTo: '/profile',
-//     authorizationParams: {
-//       redirect_uri: 'http://localhost:8000/index',
-//     },
-//   })
-// );
+  try {
+    const [user, created] = await User.findOrCreate({
+      where: { username: email },
+    });
 
-// // custom logout route to redirect to login page after logout
-// app.get('/logoutt', (req, res) =>
-//   res.oidc.logout({
-//     returnTo: '/login',
-//   })
-// );
-
-// // return user profile and user id after login 
-// app.get('/profile', requiresAuth(), async (req, res) => {
-//   const username = req.oidc.user.name;
-
-//   try {
-//     const [user, created] = await User.findOrCreate({
-//       where: { username },
-//     });
-
-//     res.send({
-//       name: username,
-//       picture: req.oidc.user.picture,
-//       userId: user.id,
-//       created
-//     });
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+    res.send({
+      name: email,
+      userId: user.id,
+      created
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 
 
-// Get all todos based on user and type (myday, important, flagged)
-app.get('/todos/:userId/:type', jwtCheck, async (req, res) => {
-    const { userId, type } = req.params;
+// Get all todos based on user email (stored in username column) and type (myday, important, flagged)
+app.get('/fetchtodos/:username/:type', async (req, res) => {
+  const { username, type } = req.params;
 
-    try {
-      const user = await User.findByPk(userId, {
-        include: [{
-          model: Todo,
-          where: { type },
-        }],
-      });
+  try {
+    const user = await User.findOne({
+      where: { username },
+      include: [{
+        model: Todo,
+        where: { type },
+      }],
+    });
 
-      if (!user) {
-        return res.status(404).json({ error: 'User not found' });
-      }
-
-      res.json(user.Todos);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
     }
-  });
+
+    res.json(user.Todos);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 
   // Add a new todo for a specific user
-  app.post('/todos/:userId', jwtCheck, async (req, res) => {
-    const { userId } = req.params;
+  app.post('/addtodos/:username', async (req, res) => {
+    const { username } = req.params;
 
     try {
-      const user = await User.findByPk(userId);
+      const user = await User.findOne({ where: { username } });
 
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -206,6 +186,21 @@ app.get('/todos/:userId/:type', jwtCheck, async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Delete a todo by ID for a specific user
   app.delete('/todos/:userId/:id', jwtCheck, async (req, res) => {

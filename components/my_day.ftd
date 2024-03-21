@@ -1,9 +1,131 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
+-- import: fastn/processors as pr
+-- import: trizwit.github.io/todoapp/schema
+
+
+-- schema.todos-schema list todos:
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- end: todos
+
+
+
+-- schema.todos-schema list todos:
+$processor$: pr.http
+method: get
+url: http://localhost:3000/fetchtodos/shaheen50053@gmail.com/myday
+
+
+
+
+-- component my-day-list:
+caption schema.todos-schema todo:
+
+-- ds.column:
+if: {$hm.open-window == "my-day"}
+width: fill-container
+height: hug-content
+inset: $ds.spaces.inset-square.small
+background.solid: #ba3f23
+
+-- ds.row:
+width: fill-container
+align-content: left
+spacing: $ds.spaces.horizontal-gap.small
+
+
+-- ftd.desktop:
+-- ds.row:
+width.fixed.percent: 20
+-- ds.copy-regular: $my-day-list.todo.title
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 55
+-- ds.copy-regular: $my-day-list.todo.description
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 15
+-- ds.copy-regular: $my-day-list.todo.status
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 10
+
+-- phosphor.regular: check
+size: 24
+color: #4b95bd
+
+-- phosphor.regular: trash
+size: 24
+color: #4b95bd
+
+-- end: ds.row
+-- end: ftd.desktop
+
+-- ftd.mobile:
+-- ds.row:
+width: fill-container
+-- ds.copy-regular: $my-day-list.todo.title
+-- end: ds.row
+
+-- ds.row:
+width: fill-container
+;; -- ds.copy-regular: $my-day-list.todo.status
+
+-- phosphor.regular: check
+size: 24
+color: #4b95bd
+
+-- phosphor.regular: trash
+size: 24
+color: #4b95bd
+
+-- end: ds.row
+
+-- end: ftd.mobile
+
+-- end: ds.row
+
+-- ftd.mobile:
+
+-- ds.row:
+width: fill-container
+-- ds.copy-regular: $my-day-list.todo.description
+-- end: ds.row
+
+-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: my-day-list
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 -- component my-day-page:
+
 
 
 -- ds.column:
@@ -17,6 +139,7 @@ background.solid: #cccccc
 -- ds.row:
 radius: $ds.radius.zero
 align-content: left
+inset: $ds.spaces.inset-square.small
 
 -- ds.column:
 align-content: left
@@ -24,12 +147,30 @@ align-content: left
 -- ds.heading-medium: My Day
 color: #4b95bd
 
--- ds.heading-tiny: Monday, 22 January
-color: #4b95bd
+;; -- ds.heading-tiny: Monday, 22 January
+;; color: #4b95bd
 
 -- end: ds.column
 
 -- end: ds.row
+
+
+
+
+-- ds.column:
+width: fill-container
+height: fill-container
+spacing: $ds.spaces.vertical-gap.small
+;; background.solid: #000000
+align-content: top-center
+
+-- my-day-list: $task
+for: $task in $todos
+
+-- end: ds.column
+
+
+
 
 
 ;; -- ds.column:
@@ -61,6 +202,7 @@ color: #4b95bd
 ;; -- end: ds.column
 
 -- ds.row:
+align-content: left
 inset: $ds.spaces.inset-square.small
 background.solid: $ds.colors.background.step-1
 radius: $ds.radius.zero

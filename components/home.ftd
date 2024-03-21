@@ -2,19 +2,19 @@
 
 
 -- void loginFunction():
-js: $assets.files.backend.auth.js:type=module
+js: ../backend/auth.js:type=module
 
 loginFunction()
 
 
 -- void logoutFunction():
-js: $assets.files.backend.auth.js:type=module
+js: ../backend/auth.js:type=module
 
 logoutFunction()
 
 
 -- void getAccessToken():
-js: $assets.files.backend.auth.js:type=module
+js: ../backend/auth.js:type=module
 
 getAccessToken()
 
@@ -560,7 +560,7 @@ background.solid: #ba3fce
 width: fill-container
 align-content: right
 
--- ds.phosphor-icon-button:
+-- ds.phosphor-icon-button: Close
 icon: x-square
 kind: tertiary
 $on-click$: $ftd.toggle($a = $open-sidebar)
