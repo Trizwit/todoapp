@@ -71,14 +71,14 @@ const Todo = sequelize.define('Todo', {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isIn: [['myday', 'important', 'flagged']],
+      isIn: [['myday', 'important', 'planned', 'flagged', 'assigned', 'tasks']],
     },
   },
   status: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      isIn: [['complete', 'pending', 'in-progress', 'canceled']],
+      isIn: [['completed', 'pending', 'in-progress', 'canceled']],
     },
   },
 });
@@ -91,7 +91,7 @@ const User = sequelize.define('User', {
       unique: true, // Ensure usernames are unique
     },
   });
-  
+
   // Define the association between User and Todo
   User.hasMany(Todo);
   Todo.belongsTo(User);
@@ -146,19 +146,20 @@ app.get('/fetchtodos/:username/:type', async (req, res) => {
   const { username, type } = req.params;
 
   try {
-    const user = await User.findOne({
-      where: { username },
-      include: [{
-        model: Todo,
-        where: { type },
-      }],
-    });
+    const user = await User.findOne({ where: { username } });
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    res.json(user.Todos);
+    const todos = await Todo.findAll({
+      where: {
+        type,
+        UserId: user.id // assuming 'UserId' is the foreign key in 'Todo' model
+      }
+    });
+
+    res.json(todos);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -202,12 +203,12 @@ app.get('/fetchtodos/:username/:type', async (req, res) => {
 
 
 
-  // Delete a todo by ID for a specific user
-  app.delete('/todos/:userId/:id', jwtCheck, async (req, res) => {
-    const { userId, id } = req.params;
+  // Delete a todo by ID for a specific user using a POST request
+  app.post('/deletetodos/:username/:id', async (req, res) => {
+    const { username, id } = req.params;
 
     try {
-      const user = await User.findByPk(userId);
+      const user = await User.findOne({ where: { username } });
 
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -225,6 +226,14 @@ app.get('/fetchtodos/:username/:type', async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
+
+
+
+
+
+
+
+
 
   // Toggle the status of a todo between 'complete' and 'pending' by ID for a specific user
   app.put('/todos/:userId/:id/toggle', jwtCheck, async (req, res) => {
@@ -252,6 +261,9 @@ app.get('/fetchtodos/:username/:type', async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
+
+
+
 
   // Start the server
   app.listen(port, () => {

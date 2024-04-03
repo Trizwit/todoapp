@@ -25,6 +25,16 @@ getAccessToken()
 -- boolean $open: false
 -- boolean $open-sidebar: false
 
+
+
+
+
+
+
+
+
+
+
 -- component header:
 
 -- ds.section-row:
@@ -124,6 +134,7 @@ border-radius.px: 100
 
 
 
+
 -- component search-box:
 
 -- ds.floater:
@@ -151,7 +162,7 @@ inset: $ds.spaces.inset-square.medium
         align: left
         color: #4b95bd
 
-        -- ds.copy-regular: fcdc        	
+        -- ds.copy-regular: fcdc
         align: left
         color: #4b95bd
 
@@ -160,6 +171,7 @@ inset: $ds.spaces.inset-square.medium
 -- end: ds.floater
 
 -- end: search-box
+
 
 
 
@@ -277,6 +289,7 @@ link: /
 
 
 
+
 -- component sidesection:
 boolean $open: true
 
@@ -286,7 +299,7 @@ height: fill-container
 inset: $ds.spaces.inset-square.small
 spacing: $ds.spaces.vertical-gap.large
 align-content: top-left
-background.solid: #ba3fce
+background.solid: #111
 
 -- ds.phosphor-icon-button: 
 icon: list
@@ -380,7 +393,7 @@ icon: flag
 kind: tertiary
 ;;variant: ghost 
 
--- ds.copy-small: Flagged email
+-- ds.copy-small: Flagged
 if: { $sidesection.open }
 color: #ffffff
 
@@ -425,6 +438,8 @@ color: #ffffff
 -- end: ds.column
 
 -- end: sidesection
+
+
 
 
 
@@ -497,6 +512,13 @@ More
 -- end: ds.section-column
 
 -- end: suggestions
+
+
+
+
+
+
+
 
 
 

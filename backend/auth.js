@@ -63,53 +63,59 @@ window.getAccessToken = async function getAccessToken() {
 
 
 
-window.addEventListener('load', async () => {
-  // After login, get the URL parameters
-  const params = new URLSearchParams(window.location.search);
+// window.addEventListener('load', async () => {
+//   // After login, get the URL parameters
+//   const params = new URLSearchParams(window.location.search);
 
-  // Get the code and state
-  const code = params.get('code');
-  const state = params.get('state');
+//   // Get the code and state
+//   const code = params.get('code');
+//   const state = params.get('state');
 
-  // Store the code and state
-  window.localStorage.setItem('code', code);
-  window.localStorage.setItem('state', state);
+//   // Store the code and state
+//   window.localStorage.setItem('code', code);
+//   window.localStorage.setItem('state', state);
 
-  // Remove the code and state from the URL
-  params.delete('code');
-  params.delete('state');
-  window.history.replaceState({}, document.title, "/" + params.toString());
+//   // Remove the code and state from the URL
+//   params.delete('code');
+//   params.delete('state');
+//   window.history.replaceState({}, document.title, "/" + params.toString());
 
-  // Get the user info
-  const user = await auth0Client.getUser();
+//   // Get the user info
+//   const user = await auth0Client.getUser();
 
-  // Get the access token from function getAccessToken
-  const accessToken = await getAccessToken(); // Make sure this function is defined
+//   // Get the access token from function getAccessToken
+//   const accessToken = await getAccessToken(); // Make sure this function is defined
 
-  // save user access token, email id, photo and name into fastn record
-  const user_data = {
-    email: user.email,
-    name: user.name,
-    picture: user.picture,
-    access_token: accessToken
-  };
+//   // save user access token, email id, photo and name into fastn record
+//   const user_data = {
+//     email: user.email,
+//     name: user.name,
+//     picture: user.picture,
+//     access_token: accessToken
+//   };
 
-  class AppStore extends HTMLElement {
-    connectedCallback() {
-      ftd.on_load(() => {
-        this.data = ftd.component_data(this);
+  // store user data in local storage
+  // localStorage.setItem("current_user", JSON.stringify(user_data));
 
-        const currentUser = this.data.current_user.get();
 
-        currentUser.set("email", user_data.email);
-        currentUser.set("name", user_data.name);
-        currentUser.set("picture", user_data.picture);
-        currentUser.set("access_token", user_data.access_token);
-      })
-    }
-  }
+  // class AppStore extends HTMLElement {
+  //   connectedCallback() {
+  //     ftd.on_load(() => {
+  //       this.data = ftd.component_data(this);
 
-  customElements.define('app-store', AppStore);
+  //       const currentUser = this.data.current_user.get();
+
+  //       currentUser.set("email", user_data.email);
+  //       currentUser.set("name", user_data.name);
+  //       currentUser.set("picture", user_data.picture);
+  //       currentUser.set("access_token", user_data.access_token);
+  //     })
+  //   }
+  // }
+  // customElements.define('app-store', AppStore);
+
+
+
 });
 
 

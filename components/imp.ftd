@@ -1,72 +1,390 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
+-- import: fastn/processors as pr
+-- import: trizwit.github.io/todoapp/schema
+
+-- boolean $open-add-task: false
+
+
+
+
+-- schema.todos-schema list todos:
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- end: todos
+
+
+
+
+
+
+
+-- schema.todos-schema list todos:
+$processor$: pr.http
+method: get
+url: http://localhost:3000/fetchtodos/shaheen50053@gmail.com/important
+
+
+
+
+
+-- ftd.http-options opts:
+method: GET
+fastn-module: trizwit.github.io/todoapp/components/imp
+
+
+
+-- void send-req-delete:
+ftd.http-options opts: $opts
+
+ftd.http(
+    "http://localhost:3000/",
+    opts
+)
+
+
+
+
+
+
+
+
+
+
+-- component todo-list:
+caption schema.todos-schema todo:
+string $title: *$todo-list.todo.title
+string $status: *$todo-list.todo.status
+string $description: *$todo-list.todo.description
+
+-- ds.column:
+if: {$hm.open-window == "important"}
+width: fill-container
+height: hug-content
+inset: $ds.spaces.inset-square.small
+background.solid if {$todo-list.status == "completed"}: #47d147
+background.solid if {$todo-list.status == "pending"}: #ba3f23
+
+-- ds.row:
+width: fill-container
+align-content: left
+spacing: $ds.spaces.horizontal-gap.small
+
+-- ftd.desktop:
+-- ds.row:
+width.fixed.percent: 20
+-- ds.copy-regular: $todo-list.title
+color: #ffffff
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 55
+-- ds.copy-regular: $todo-list.description
+color: #ffffff
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 15
+-- ds.copy-regular: $todo-list.status
+color: #ffffff
+-- end: ds.row
+
+-- ds.row:
+width.fixed.percent: 10
+
+-- phosphor.regular: check
+if: {$todo-list.status == "pending"}
+size: 24
+color: #ffffff
+$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
+
+-- phosphor.regular: arrows-clockwise
+if: {$todo-list.status == "completed"}
+size: 24
+color: #ffffff
+$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
+
+-- phosphor.regular: trash
+size: 24
+color: #ffffff
+;; $on-click$: send-req-delete()
+
+-- end: ds.row
+-- end: ftd.desktop
+
+-- ftd.mobile:
+-- ds.row:
+width: fill-container
+-- ds.copy-regular: $todo-list.todo.title
+color: #ffffff
+-- end: ds.row
+
+-- ds.row:
+width: fill-container
+;; -- ds.copy-regular: $todo-list.todo.status
+
+-- phosphor.regular: check
+size: 24
+color: #ffffff
+
+-- phosphor.regular: trash
+size: 24
+color: #ffffff
+
+-- end: ds.row
+
+-- end: ftd.mobile
+
+-- end: ds.row
+
+-- ftd.mobile:
+
+-- ds.row:
+width: fill-container
+-- ds.copy-regular: $todo-list.todo.description
+color: #ffffff
+-- end: ds.row
+
+-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: todo-list
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 -- component imp-page:
 
+
+
 -- ds.column:
 if: { $hm.open-window == "important" }
 width: fill-container
 height: fill-container
-spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.large
-background.solid: #123fdc
+;; spacing: $ds.spaces.horizontal-gap.space-between
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+background.solid: #000000
 
 -- ds.row:
 radius: $ds.radius.zero
 align-content: left
+inset: $ds.spaces.inset-wide.small
 
--- ds.phosphor-icon-button:
-icon: star
-;; size: 32
-;; color: #ffffff
-kind: tertiary
+-- ds.column:
+align-content: left
+spacing: $ds.spaces.horizontal-gap.space-between
 
 -- ds.heading-medium: Important
-color: #42a1f5
+color: #4b95bd
 
--- end: ds.row
-
-
-;; -- tp.app-store:
-
-;; -- ftd.text: $tp.current-user.name
-;; color: #fff
-
-
-;; -- ds.column:
-;; align-content: center
-
-;; -- ftd.image: 
-;; src: $assets.files.assets.img-1.png
-;; width.fixed.vw: 10
-;; border-radius.px: 8
-
-;; -- ds.fine-print:
-;; color: #42a1f5
-
-;; Try starring some tasks to see them here
-
-;; -- end: ds.column
-
-
-
+-- end: ds.column
 
 -- ds.row:
-inset: $ds.spaces.inset-square.small
-background.solid: $ds.colors.background.step-1
-radius: $ds.radius.zero
+align-content: right
+inset: $ds.spaces.inset-wide.medium
+;; background.solid: #fff
 
 -- phosphor.regular: circle
 size: 24
-color: #42a1f5
+color: #4b95bd
 
--- ds.copy-regular: Try typing  'pay utilities bill by friday 6pm'
+-- ds.copy-large: Add a task
 align: left
-color: #42a1f5
+color: #4b95bd
+$on-click$: $ftd.toggle($a = $open-add-task)
 
 -- end: ds.row
+
+-- end: ds.row
+
+
+
+-- add-task:
+
+
+
+
+-- ds.column:
+width: fill-container
+inset: $ds.spaces.inset-tall.small
+spacing: $ds.spaces.horizontal-gap.small
+;; background.solid: #000000
+align-content: top-center
+overflow-y: auto
+
+-- todo-list: $task
+if: { ftd.len(todos) > 0 }
+for: $task in $todos
+
+-- end: ds.column
+
+
+
+
+
+
+
+
+
+
 
 -- end: ds.column
 
 -- end: imp-page
+
+
+
+
+
+
+
+
+-- component add-task:
+
+-- ftd.column:
+if: {$open-add-task}
+anchor: parent
+width: fill-container
+height: hug-content
+top.px: 0
+
+-- ds.column:
+width: fill-container
+height: fill-container
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+spacing: $ds.spaces.horizontal-gap.medium
+background.solid: #1a1a1a89
+
+-- ds.row:
+align-content: right
+inset: $ds.spaces.inset-square.small
+
+
+-- ds.phosphor-icon-button: Close
+icon: x
+$on-click$: $ftd.toggle($a = $open-add-task)
+
+-- end: ds.row
+
+
+-- ds.text-input: title
+size: large
+radius: curved
+
+-- ds.text-input: description
+size: large
+radius: curved
+
+
+-- ds.phosphor-icon-button: Add
+icon: plus
+$on-click$: $ftd.toggle($a = $open-add-task)
+;; $on-click$: $add-task()
+
+
+-- end: ds.column
+
+-- end: ftd.column
+
+-- end: add-task
