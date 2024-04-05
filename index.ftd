@@ -3,9 +3,16 @@
 
 
 
-
+-- auth-resolver:
 
 -- home.page:
+
+
+
+
+
+
+
 
 
 
@@ -20,17 +27,17 @@ optional string email:
 optional string access_token:
 
 -- user-credentials $current-user:
-name: NULL
-picture: NULL
-email: NULL
-access_token: NULL
+name: *$ftd.empty
+picture: *$ftd.empty
+email: *$ftd.empty
+access_token: *$ftd.empty
 
 
 
 
-;; -- web-component app-store:
-;; js: auth.js
-;; user-credentials $current-user: $current-user
+-- web-component auth-resolver:
+js: $assets.files.backend.auth.js:type=module
+user-credentials $current-user: $current-user
 
 
 ;; -- void get-data(user):

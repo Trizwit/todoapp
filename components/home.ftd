@@ -2,19 +2,19 @@
 
 
 -- void loginFunction():
-js: ../backend/auth.js:type=module
+js: $assets.files.backend.auth.js:type=module
 
 loginFunction()
 
 
 -- void logoutFunction():
-js: ../backend/auth.js:type=module
+js: $assets.files.backend.auth.js:type=module
 
 logoutFunction()
 
 
 -- void getAccessToken():
-js: ../backend/auth.js:type=module
+js: $assets.files.backend.auth.js:type=module
 
 getAccessToken()
 
@@ -111,7 +111,7 @@ width.fixed.px: 40
 height.fixed.px: 40
 
 -- ftd.image:
-src: $assets.files.assets.profile-pic.png
+src: $tp.current-user.picture
 width: fill-container
 height: fill-container
 border-radius.px: 100
@@ -309,6 +309,7 @@ $on-click$: $ftd.toggle($a = $sidesection.open)
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "my-day"}: #cccc00
 $on-click$: $ftd.set-string($a = $hm.open-window, v = my-day)
 
@@ -327,6 +328,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "important"}: #fff123
 $on-click$: $ftd.set-string($a = $hm.open-window, v = important)
 
@@ -346,6 +348,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "planned"}: #ff0000
 $on-click$: $ftd.set-string($a = $hm.open-window, v = planned)
 
@@ -365,6 +368,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "assigned"}: #00ff00
 $on-click$: $ftd.set-string($a = $hm.open-window, v = assigned)
 
@@ -384,6 +388,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "flagged"}: #0000ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = flagged)
 
@@ -403,6 +408,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "tasks"}: #ff00ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = tasks)
 
@@ -562,7 +568,7 @@ size: 30
 
 -- ds.floater:
 if: { $open-sidebar }
-anchor: window
+anchor: parent
 top: 0
 z-index: 100
 height: fill-container

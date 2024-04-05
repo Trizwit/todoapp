@@ -49,16 +49,14 @@ window.getAccessToken = async function getAccessToken() {
     cacheMode: "on",
   };
 
-  const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
-  console.log("access token is ", accessToken);
+  // const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+  // console.log("access token is ", accessToken);
 
-  // const accessToken1 = await auth0Client.getTokenSilently();
-  // console.log("access token 1 is ", accessToken1);
+  const accessToken = await auth0Client.getTokenSilently();
+  console.log("access token 1 is ", accessToken);
 
   return accessToken;
 }
-
-
 
 
 
@@ -71,9 +69,9 @@ window.getAccessToken = async function getAccessToken() {
 //   const code = params.get('code');
 //   const state = params.get('state');
 
-//   // Store the code and state
-//   window.localStorage.setItem('code', code);
-//   window.localStorage.setItem('state', state);
+//   // // Store the code and state
+//   // window.localStorage.setItem('code', code);
+//   // window.localStorage.setItem('state', state);
 
 //   // Remove the code and state from the URL
 //   params.delete('code');
@@ -94,28 +92,57 @@ window.getAccessToken = async function getAccessToken() {
 //     access_token: accessToken
 //   };
 
-  // store user data in local storage
-  // localStorage.setItem("current_user", JSON.stringify(user_data));
+//   console.log("user data is ", user_data);
 
-
-  // class AppStore extends HTMLElement {
-  //   connectedCallback() {
-  //     ftd.on_load(() => {
-  //       this.data = ftd.component_data(this);
-
-  //       const currentUser = this.data.current_user.get();
-
-  //       currentUser.set("email", user_data.email);
-  //       currentUser.set("name", user_data.name);
-  //       currentUser.set("picture", user_data.picture);
-  //       currentUser.set("access_token", user_data.access_token);
-  //     })
-  //   }
-  // }
-  // customElements.define('app-store', AppStore);
+// });
 
 
 
-});
 
+if(!customeElements.get('auth-resolver')) {
+  class AuthResolver extends HTMLElement {
+    connectedCallback() {
+      ftd.on_load(async () => {
 
+        // After login, get the URL parameters
+        const params = new URLSearchParams(window.location.search);
+
+        // Get the code and state
+        const code = params.get('code');
+        const state = params.get('state');
+
+        // Store the code and state
+        window.localStorage.setItem('code', code);
+        window.localStorage.setItem('state', state);
+
+        // Remove the code and state from the URL
+        params.delete('code');
+        params.delete('state');
+        window.history.replaceState({}, document.title, "/" + params.toString());
+
+        // Get the user info
+        const user = await auth0Client.getUser();
+
+        // Get the access token from function getAccessToken
+        const accessToken = await getAccessToken(); // Make sure this function is defined
+
+        // save user access token, email id, photo and name into fastn record
+        const user_data = {
+          email: user ? user.email : 'guest@example.com',
+          name: user ? user.name : 'Guest',
+          picture: user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
+          access_token: user ? accessToken : 'default_access_token'
+        };
+
+        // store user data in local storage
+        // localStorage.setItem("current_user", JSON.stringify(user_data));
+
+        this.data = ftd.component_data(this);
+        console.log("user data is ", this.user_data);
+
+      })
+    }
+  }
+  customElements.define('auth-resolver', AuthResolver);
+
+}
