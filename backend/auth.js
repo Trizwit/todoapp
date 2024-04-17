@@ -117,11 +117,9 @@ window.getAccessToken = async function getAccessToken() {
 
 
 
-if(!customeElements.get('auth-resolver')) {
+if(!customElements.get('auth-resolver')) {
   class AuthResolver extends HTMLElement {
-    connectedCallback() {
-      ftd.on_load(async () => {
-
+    async connectedCallback() {
         // After login, get the URL parameters
         const params = new URLSearchParams(window.location.search);
 
@@ -142,23 +140,27 @@ if(!customeElements.get('auth-resolver')) {
         const user = await auth0Client.getUser();
 
         // Get the access token from function getAccessToken
-        const accessToken = await getAccessToken(); // Make sure this function is defined
+        // const accessToken = await getAccessToken(); // Make sure this function is defined
+        // console.log("Access token: ", access_token);
 
         // save user access token, email id, photo and name into fastn record
         const user_data = {
-          email: user ? user.email : 'guest@example.com',
-          name: user ? user.name : 'Guest',
-          picture: user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
-          access_token: user ? accessToken : 'default_access_token'
+          email: !!user ? user.email : 'guest@example.com',
+          name: !!user ? user.name : 'Guest',
+          picture: !!user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
+          access_token: !!user ? accessToken : 'default_access_token'
         };
 
         // store user data in local storage
         // localStorage.setItem("current_user", JSON.stringify(user_data));
+        let data = ftd.component_data(this);
 
-        this.data = ftd.component_data(this);
-        console.log("user data is ", this.user_data);
+        let auth_user = data.current_user;
+        console.log("Input user: ", auth_user);
 
-      })
+        console.log("Setting user_data: ", user_data);
+        auth_user.set(user_data);
+        console.log("user data is ", auth_user);
     }
   }
   customElements.define('auth-resolver', AuthResolver);

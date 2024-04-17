@@ -1,0 +1,19 @@
+-- optional string $task-error:
+
+-- ftd.http-options opts:
+redirect: follow
+method: POST
+fastn-module: trizwit.github.io/todoapp/actions/add-todo
+
+-- string api-url: www.submit-todo-api-here.com
+
+-- void submit(task):
+string task:
+ftd.http-options opts: $opts
+string url: $api-url
+
+ftd.http(
+    url,
+    opts,
+    ("task", task),
+)
