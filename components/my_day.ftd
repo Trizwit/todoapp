@@ -1,18 +1,62 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/schema
+-- import: trizwit.github.io/todoapp/actions/add-todo
 
 -- boolean $open-add-task: false
 
 
+-- schema.todos-schema list temp-todos:
 
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
 
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
 
--- schema.todos-schema list todos:
+-- schema.todos-schema:
+id: -1
+title: sample task
+description: complete the todo app
+type: myday
+status: completed
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- schema.todos-schema:
+id: -10
+title: demo task
+description: complete the todo app
+type: myday
+status: pending
+createdAt: ds
+updatedAt: dcd
+UserId: -1
+
+-- end: temp-todos
+
+;; Temporarily disabling todos from API
+/-- schema.todos-schema list todos:
 $processor$: pr.http
 method: get
 url: http://localhost:3000/fetchtodos/shaheen50053@gmail.com/myday
 
+-- schema.todos-schema list todos: $temp-todos
 
 
 
@@ -254,6 +298,7 @@ for: $task in $todos
 
 
 -- component add-task:
+module add-todo: add-todo
 
 -- ftd.column:
 if: {$open-add-task}
@@ -295,6 +340,7 @@ radius: curved
 icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
 ;; $on-click$: $ftd.add-task()
+$on-click$: $add-task.add-todo.submit(task = Some task)
 
 
 -- end: ds.column
