@@ -12,9 +12,11 @@ export const auth0Client = await auth0.createAuth0Client({
   authorizationParams: {
     redirect_uri: `${config.BASE_FRONTEND_URL}/index`,
     audience:  config.AUTH0_AUDIENCE,
+    scope: "openid profile email offline_access",
+
   },
-   useRefreshTokens: true,
-   cacheLocation: 'localstorage',
+  useRefreshTokens: true,
+  cacheLocation: 'localstorage',
 });
 
 //////////////////////////////////////////////////////////////////////////////// Logout function
@@ -38,6 +40,13 @@ window.loginFunction = async function loginFunction() {
   try {
     await auth0Client.loginWithRedirect();
 
+    const differentAudienceOptions = {
+      cacheMode: "on",
+    };
+
+    const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+    console.log("access token is ", accessToken);
+
   } catch(e) {
     console.error(e);
   }
@@ -45,17 +54,26 @@ window.loginFunction = async function loginFunction() {
 
 
 window.getAccessToken = async function getAccessToken() {
+
+  try{
+    console.log("autho client is ", auth0Client);
   const differentAudienceOptions = {
     cacheMode: "on",
   };
+  console.log("inside getAccessToken function");
+  
+  const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+  console.log("access token is ", accessToken);
 
-  // const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
-  // console.log("access token is ", accessToken);
-
-  const accessToken = await auth0Client.getTokenSilently();
-  console.log("access token 1 is ", accessToken);
-
+  // const accessToken = await auth0Client.getTokenSilently();
+  // console.log("access token 1 is ", accessToken);
   return accessToken;
+
+    }
+  catch(e) {
+  console.error(e);
+  }
+
 }
 
 
@@ -112,8 +130,8 @@ if(!customeElements.get('auth-resolver')) {
         const state = params.get('state');
 
         // Store the code and state
-        window.localStorage.setItem('code', code);
-        window.localStorage.setItem('state', state);
+        // window.localStorage.setItem('code', code);
+        // window.localStorage.setItem('state', state);
 
         // Remove the code and state from the URL
         params.delete('code');
