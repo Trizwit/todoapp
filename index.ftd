@@ -1,14 +1,14 @@
 -- import: trizwit.github.io/todoapp/pages/home
 -- import: fastn/processors as pr
 
-
-
 -- auth-resolver:
 
+;; after modification from web-component
+-- ftd.text: $current-user.name
+if: { current-user != NULL }
+color: red
+
 -- home.page:
-
-
-
 
 
 
@@ -33,10 +33,8 @@ email: *$ftd.empty
 access_token: *$ftd.empty
 
 
-
-
 -- web-component auth-resolver:
-js: $assets.files.backend.auth.js:type=module
+js: $assets.files.backend.auth.js
 user-credentials $current-user: $current-user
 
 
