@@ -12,15 +12,18 @@ export const auth0Client = await auth0.createAuth0Client({
   authorizationParams: {
     redirect_uri: `${config.BASE_FRONTEND_URL}/index`,
     audience:  config.AUTH0_AUDIENCE,
+    scope: "openid profile email offline_access",
+
   },
-   useRefreshTokens: true,
-   cacheLocation: 'localstorage',
+  useRefreshTokens: true,
+  // useRefreshTokensFallback: true,
+  cacheLocation: 'localstorage',
 });
 
 //////////////////////////////////////////////////////////////////////////////// Logout function
 window.logoutFunction = async function logoutFunction() {
   try{
-    localStorage.removeItem("campaignId");
+    // localStorage.removeItem("campaignId");
     // Client side logout
     auth0Client.logout({
       logoutParams: {
@@ -38,6 +41,13 @@ window.loginFunction = async function loginFunction() {
   try {
     await auth0Client.loginWithRedirect();
 
+    const differentAudienceOptions = {
+      cacheMode: "on",
+    };
+
+    const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+    console.log("access token is ", accessToken);
+
   } catch(e) {
     console.error(e);
   }
@@ -45,71 +55,115 @@ window.loginFunction = async function loginFunction() {
 
 
 window.getAccessToken = async function getAccessToken() {
+
+  try{
+    console.log("autho client is ", auth0Client);
   const differentAudienceOptions = {
     cacheMode: "on",
   };
-
+  console.log("inside getAccessToken function");
+  
   const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
   console.log("access token is ", accessToken);
 
-  // const accessToken1 = await auth0Client.getTokenSilently();
-  // console.log("access token 1 is ", accessToken1);
-
+  // const accessToken = await auth0Client.getTokenSilently();
+  // console.log("access token 1 is ", accessToken);
   return accessToken;
+
+    }
+  catch(e) {
+  console.error(e);
+  }
+
 }
 
 
 
 
+// window.addEventListener('load', async () => {
+//   // After login, get the URL parameters
+//   const params = new URLSearchParams(window.location.search);
+
+//   // Get the code and state
+//   const code = params.get('code');
+//   const state = params.get('state');
+
+//   // // Store the code and state
+//   // window.localStorage.setItem('code', code);
+//   // window.localStorage.setItem('state', state);
+
+//   // Remove the code and state from the URL
+//   params.delete('code');
+//   params.delete('state');
+//   window.history.replaceState({}, document.title, "/" + params.toString());
+
+//   // Get the user info
+//   const user = await auth0Client.getUser();
+
+//   // Get the access token from function getAccessToken
+//   const accessToken = await getAccessToken(); // Make sure this function is defined
+
+//   // save user access token, email id, photo and name into fastn record
+//   const user_data = {
+//     email: user.email,
+//     name: user.name,
+//     picture: user.picture,
+//     access_token: accessToken
+//   };
+
+//   console.log("user data is ", user_data);
+
+// });
 
 
-window.addEventListener('load', async () => {
-  // After login, get the URL parameters
-  const params = new URLSearchParams(window.location.search);
 
-  // Get the code and state
-  const code = params.get('code');
-  const state = params.get('state');
 
-  // Store the code and state
-  window.localStorage.setItem('code', code);
-  window.localStorage.setItem('state', state);
+if(!customElements.get('auth-resolver')) {
+  class AuthResolver extends HTMLElement {
+    async connectedCallback() {
+        // After login, get the URL parameters
+        const params = new URLSearchParams(window.location.search);
 
-  // Remove the code and state from the URL
-  params.delete('code');
-  params.delete('state');
-  window.history.replaceState({}, document.title, "/" + params.toString());
+        // Get the code and state
+        const code = params.get('code');
+        const state = params.get('state');
 
-  // Get the user info
-  const user = await auth0Client.getUser();
+        // Store the code and state
+        // window.localStorage.setItem('code', code);
+        // window.localStorage.setItem('state', state);
 
-  // Get the access token from function getAccessToken
-  const accessToken = await getAccessToken(); // Make sure this function is defined
+        // Remove the code and state from the URL
+        params.delete('code');
+        params.delete('state');
+        window.history.replaceState({}, document.title, "/" + params.toString());
 
-  // save user access token, email id, photo and name into fastn record
-  const user_data = {
-    email: user.email,
-    name: user.name,
-    picture: user.picture,
-    access_token: accessToken
-  };
+        // Get the user info
+        const user = await auth0Client.getUser();
 
-  class AppStore extends HTMLElement {
-    connectedCallback() {
-      ftd.on_load(() => {
-        this.data = ftd.component_data(this);
+        // Get the access token from function getAccessToken
+        // const accessToken = await getAccessToken(); // Make sure this function is defined
+        // console.log("Access token: ", access_token);
 
-        const currentUser = this.data.current_user.get();
+        // save user access token, email id, photo and name into fastn record
+        const user_data = {
+          email: !!user ? user.email : 'guest@example.com',
+          name: !!user ? user.name : 'Guest',
+          picture: !!user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
+          access_token: !!user ? accessToken : 'default_access_token'
+        };
 
-        currentUser.set("email", user_data.email);
-        currentUser.set("name", user_data.name);
-        currentUser.set("picture", user_data.picture);
-        currentUser.set("access_token", user_data.access_token);
-      })
+        // store user data in local storage
+        // localStorage.setItem("current_user", JSON.stringify(user_data));
+        let data = ftd.component_data(this);
+
+        let auth_user = data.current_user;
+        console.log("Input user: ", auth_user);
+
+        console.log("Setting user_data: ", user_data);
+        auth_user.set(user_data);
+        console.log("user data is ", auth_user);
     }
   }
+  customElements.define('auth-resolver', AuthResolver);
 
-  customElements.define('app-store', AppStore);
-});
-
-
+}

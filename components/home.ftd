@@ -8,22 +8,29 @@ loginFunction()
 
 
 -- void logoutFunction():
-js: ../backend/auth.js:type=module
+js: ..backend/auth.js:type=module
 
 logoutFunction()
 
 
 -- void getAccessToken():
-js: ../backend/auth.js:type=module
+js: ..backend/auth.js:type=module
 
 getAccessToken()
 
 
+-- tp.auth-resolver:
 
 
 -- boolean $show: false
 -- boolean $open: false
 -- boolean $open-sidebar: false
+
+
+
+
+
+
 
 -- component header:
 
@@ -101,7 +108,7 @@ width.fixed.px: 40
 height.fixed.px: 40
 
 -- ftd.image:
-src: $assets.files.assets.profile-pic.png
+src: $tp.current-user.picture
 width: fill-container
 height: fill-container
 border-radius.px: 100
@@ -115,6 +122,7 @@ border-radius.px: 100
 -- end: ds.section-row
 
 -- end: header
+
 
 
 
@@ -147,11 +155,11 @@ inset: $ds.spaces.inset-square.medium
         align: left
         color: #4b95bd
 
-        -- ds.copy-regular: hey
+        -- ds.copy-regular: $tp.current-user.picture
         align: left
         color: #4b95bd
 
-        -- ds.copy-regular: fcdc        	
+        -- ds.copy-regular: fcdc
         align: left
         color: #4b95bd
 
@@ -160,6 +168,7 @@ inset: $ds.spaces.inset-square.medium
 -- end: ds.floater
 
 -- end: search-box
+
 
 
 
@@ -277,6 +286,7 @@ link: /
 
 
 
+
 -- component sidesection:
 boolean $open: true
 
@@ -286,7 +296,7 @@ height: fill-container
 inset: $ds.spaces.inset-square.small
 spacing: $ds.spaces.vertical-gap.large
 align-content: top-left
-background.solid: #ba3fce
+background.solid: #111
 
 -- ds.phosphor-icon-button: 
 icon: list
@@ -296,6 +306,7 @@ $on-click$: $ftd.toggle($a = $sidesection.open)
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "my-day"}: #cccc00
 $on-click$: $ftd.set-string($a = $hm.open-window, v = my-day)
 
@@ -314,6 +325,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "important"}: #fff123
 $on-click$: $ftd.set-string($a = $hm.open-window, v = important)
 
@@ -333,6 +345,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "planned"}: #ff0000
 $on-click$: $ftd.set-string($a = $hm.open-window, v = planned)
 
@@ -352,6 +365,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "assigned"}: #00ff00
 $on-click$: $ftd.set-string($a = $hm.open-window, v = assigned)
 
@@ -371,6 +385,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "flagged"}: #0000ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = flagged)
 
@@ -380,7 +395,7 @@ icon: flag
 kind: tertiary
 ;;variant: ghost 
 
--- ds.copy-small: Flagged email
+-- ds.copy-small: Flagged
 if: { $sidesection.open }
 color: #ffffff
 
@@ -390,6 +405,7 @@ color: #ffffff
 -- ds.row:
 align-content: left
 width.fixed.vw if {$sidesection.open}: 16
+background.solid: transparent
 background.solid if {$hm.open-window == "tasks"}: #ff00ff
 $on-click$: $ftd.set-string($a = $hm.open-window, v = tasks)
 
@@ -425,6 +441,8 @@ color: #ffffff
 -- end: ds.column
 
 -- end: sidesection
+
+
 
 
 
@@ -502,6 +520,13 @@ More
 
 
 
+
+
+
+
+
+
+
 -- component task:
 string task-name:
 
@@ -540,7 +565,7 @@ size: 30
 
 -- ds.floater:
 if: { $open-sidebar }
-anchor: window
+anchor: parent
 top: 0
 z-index: 100
 height: fill-container

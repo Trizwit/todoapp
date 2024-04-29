@@ -7,7 +7,6 @@
 -- import: trizwit.github.io/todoapp/components/tasks as tsk
 
 
-
 -- string $open-window: my-day
 
 -- ds.page-widths test-widths:
@@ -24,6 +23,9 @@ widths: $test-widths
 -- ds.column:
 width: fill-container
 height: fill-container
+align-content: top-center
+spacing: $ds.spaces.horizontal-gap.zero
+background.solid: #f5f5f5
 
 -- home.header:
 
@@ -35,7 +37,7 @@ height: fill-container
 align-content: top-center
 inset: $ds.spaces.inset-wide.medium
 spacing: $ds.spaces.horizontal-gap.medium
-;; background.solid: #f5f5f5
+;; background.solid: #000
 
 
 -- ftd.desktop:
@@ -48,8 +50,8 @@ spacing: $ds.spaces.horizontal-gap.medium
 -- ds.column:
 width: fill-container
 height: fill-container
-
-
+align-content: top-center
+spacing: $ds.spaces.horizontal-gap.zero
 
 -- myd.my-day-page:
 -- imp.imp-page:
@@ -68,3 +70,7 @@ height: fill-container
 -- end: ds.page
 
 -- end: page
+
+
+
+

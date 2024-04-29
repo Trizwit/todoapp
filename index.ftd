@@ -1,6 +1,23 @@
 -- import: trizwit.github.io/todoapp/pages/home
 -- import: fastn/processors as pr
 
+-- auth-resolver:
+
+;; after modification from web-component
+;; -- ftd.text: $current-user.picture
+;; if: { current-user != NULL }
+;; color: red
+-- home.page:
+
+
+
+
+
+
+
+
+
+
 
 -- record user-credentials:
 optional string name:
@@ -9,14 +26,32 @@ optional string email:
 optional string access_token:
 
 -- user-credentials $current-user:
-name: NULL
-picture: NULL
-email: NULL
-access_token: NULL
+name: *$ftd.empty
+picture: *$ftd.empty
+email: *$ftd.empty
+access_token: *$ftd.empty
 
--- web-component app-store:
-js: auth.js
+
+-- web-component auth-resolver:
+js: $assets.files.backend.auth.js
 user-credentials $current-user: $current-user
 
 
--- home.page:
+;; -- void get-data(user):
+;; user-credentials $user:
+
+;; name = ftd.local_storage.get("name", "Universe");
+;; __args__.user.set(name || "Empty");
+
+;; email = ftd.local_storage.get("email", "Universe");
+;; __args__.user.set(email || "Empty");
+
+;; picture = ftd.local_storage.get("picture", "Universe");
+;; __args__.user.set(picture || "Empty");
+
+;; access_token = ftd.local_storage.get("access_token", "Universe");
+;; __args__.user.set(access_token || "Empty");
+
+
+;; -- ftd.text: helo world
+;; color: red

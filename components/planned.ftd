@@ -1,4 +1,23 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
+-- import: fastn/processors as pr
+-- import: trizwit.github.io/todoapp/schema
+-- import: trizwit.github.io/todoapp/actions/add-todo
+-- import: trizwit.github.io/todoapp/actions/delete-todo
+
+-- boolean $open-add-task: false
+
+
+
+-- schema.todos-schema list todos:
+$processor$: pr.http
+method: get
+url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/planned
+
+
+
+
+
+
 
 
 
@@ -9,53 +28,161 @@
 if: {$hm.open-window == "planned"}
 width: fill-container
 height: fill-container
-spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.large
-background.solid: #1e1e1e
+;; spacing: $ds.spaces.horizontal-gap.space-between
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+background.solid: #000000
 
 -- ds.row:
 radius: $ds.radius.zero
 align-content: left
-;;color: #42f59c
-
--- phosphor.regular: check-fat
-size: 32
-
--- ds.heading-medium: Planned
-color: #42f59c
-
--- end: ds.row
+inset: $ds.spaces.inset-wide.small
 
 -- ds.column:
-align-content: center
+align-content: left
+spacing: $ds.spaces.horizontal-gap.space-between
 
--- ftd.image: 
-src: $assets.files.assets.img-2.png
-width.fixed.vw: 10
-border-radius.px: 8
-
--- ds.fine-print:
-color: #42f59c
-
-Tasks with reminders or due dates show up here
+-- ds.heading-medium: Planned
+color: #4b95bd
 
 -- end: ds.column
 
 -- ds.row:
-inset: $ds.spaces.inset-square.small
-background.solid: $ds.colors.background.step-1
-radius: $ds.radius.zero
+align-content: right
+inset: $ds.spaces.inset-wide.medium
+;; background.solid: #fff
 
--- phosphor.regular: circle
-size: 24
-color: #42f59c
+;; -- phosphor.regular: circle
+;; size: 24
+;; color: #4b95bd
 
--- ds.copy-regular: Try typing  'pay utilities bill by friday 6pm'
+-- ds.copy-large: Add a task
 align: left
-color: #42f59c
+color: #4b95bd
+$on-click$: $ftd.toggle($a = $open-add-task)
 
 -- end: ds.row
+
+-- end: ds.row
+
+
+
+-- add-task:
+
+
+
+
+-- ds.column:
+width: fill-container
+inset: $ds.spaces.inset-tall.small
+spacing: $ds.spaces.horizontal-gap.small
+;; background.solid: #000000
+align-content: top-center
+overflow-y: auto
+
+-- schema.todo-list: $task
+if: { ftd.len(todos) > 0 }
+for: $task in $todos
+
+-- end: ds.column
+
+
+
+
+
+
+
+
+
 
 -- end: ds.column
 
 -- end: plan-page
+
+
+
+
+
+
+
+
+-- string $title: Nothing typed yet
+
+-- string $description: Nothing typed yet
+
+
+
+
+
+
+
+
+
+
+
+-- component add-task:
+module add-todo: add-todo
+
+
+-- ftd.column:
+if: {$open-add-task}
+anchor: parent
+width: fill-container
+height: hug-content
+top.px: 0
+
+-- ds.column:
+width: fill-container
+height: fill-container
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+spacing: $ds.spaces.horizontal-gap.medium
+background.solid: #1a1a1a89
+
+-- ds.row:
+align-content: right
+inset: $ds.spaces.inset-square.small
+
+
+-- ds.phosphor-icon-button: Close
+icon: x
+$on-click$: $ftd.toggle($a = $open-add-task)
+
+-- end: ds.row
+
+
+-- ftd.text-input:
+width: fill-container
+placeholder: Type title of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $title, v = $VALUE)
+
+
+-- ftd.text-input:
+placeholder: Type description of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+width: fill-container
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $description, v = $VALUE)
+
+
+-- ds.phosphor-icon-button: Add
+icon: plus
+$on-click$: $ftd.toggle($a = $open-add-task)
+;; $on-click$: $ftd.add-task()
+$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = planned)
+
+
+
+-- end: ds.column
+
+-- end: ftd.column
+
+-- end: add-task

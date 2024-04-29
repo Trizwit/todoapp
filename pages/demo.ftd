@@ -1,0 +1,217 @@
+
+
+-- tp.auth-resolver:
+
+-- ftd.text: $tp.current-user.picture
+
+-- ftd.text: hello world
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;; -- schema.todos-schema list todos:
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -10
+;; title: demo task
+;; description: complete the todo app
+;; type: myday
+;; status: pending
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+;; -- schema.todos-schema:
+;; id: -1
+;; title: sample task
+;; description: complete the todo app
+;; type: myday
+;; status: completed
+;; createdAt: ds
+;; updatedAt: dcd
+;; UserId: -1
+
+
+
+
+;; -- end: todos

@@ -1,41 +1,45 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/schema
+-- import: trizwit.github.io/todoapp/actions/add-todo
+-- import: trizwit.github.io/todoapp/actions/delete-todo
 
-
--- schema.todos-schema list todos:
-
--- schema.todos-schema:
-id: -1
-title: sample task
-description: complete the todo app
-type: myday
-status: pending
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- end: todos
+-- boolean $open-add-task: false
 
 
 
 -- schema.todos-schema list todos:
 $processor$: pr.http
 method: get
-url: http://localhost:3000/fetchtodos/shaheen50053@gmail.com/myday
+url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/myday
+
+
+
+
+
+
+
+
+
 
 
 
 
 -- component my-day-list:
 caption schema.todos-schema todo:
+integer $id: *$my-day-list.todo.id
+string $title: *$my-day-list.todo.title
+string $status: *$my-day-list.todo.status
+string $description: *$my-day-list.todo.description
+module delete-todo: delete-todo
 
 -- ds.column:
 if: {$hm.open-window == "my-day"}
 width: fill-container
 height: hug-content
 inset: $ds.spaces.inset-square.small
-background.solid: #ba3f23
+background.solid if {$my-day-list.status == "completed"}: #47d147
+background.solid if {$my-day-list.status == "pending"}: #ba3f23
 
 -- ds.row:
 width: fill-container
@@ -46,50 +50,74 @@ spacing: $ds.spaces.horizontal-gap.small
 -- ftd.desktop:
 -- ds.row:
 width.fixed.percent: 20
--- ds.copy-regular: $my-day-list.todo.title
+-- ds.copy-regular: $my-day-list.title
+color: #ffffff
 -- end: ds.row
 
 -- ds.row:
 width.fixed.percent: 55
--- ds.copy-regular: $my-day-list.todo.description
+-- ds.copy-regular: $my-day-list.description
+color: #ffffff
 -- end: ds.row
 
 -- ds.row:
 width.fixed.percent: 15
--- ds.copy-regular: $my-day-list.todo.status
+-- ds.copy-regular: $my-day-list.status
+color: #ffffff
 -- end: ds.row
 
 -- ds.row:
 width.fixed.percent: 10
 
--- phosphor.regular: check
-size: 24
-color: #4b95bd
+-- ftd.image:
+src: $assets.files.assets.check.svg
+if: {$my-day-list.status == "pending"}
+;; size: 24
+;; color: #ffffff
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = completed)
 
--- phosphor.regular: trash
-size: 24
-color: #4b95bd
+-- ftd.image:
+src: $assets.files.assets.arrows-clockwise.svg
+if: {$my-day-list.status == "completed"}
+;; size: 24
+;; color: #ffffff
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
+
+-- ftd.image:
+src: $assets.files.assets.trash.svg
+;; size: 24
+;; color: #ffffff
+$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
+
 
 -- end: ds.row
 -- end: ftd.desktop
+
 
 -- ftd.mobile:
 -- ds.row:
 width: fill-container
 -- ds.copy-regular: $my-day-list.todo.title
+color: #ffffff
 -- end: ds.row
 
 -- ds.row:
 width: fill-container
 ;; -- ds.copy-regular: $my-day-list.todo.status
 
--- phosphor.regular: check
-size: 24
-color: #4b95bd
+-- ftd.image:
+src: $assets.files.assets.check.svg
+if: {$my-day-list.todo.status == "pending"}
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = completed)
 
--- phosphor.regular: trash
-size: 24
-color: #4b95bd
+-- ftd.image:
+src: $assets.files.assets.arrows-clockwise.svg
+if: {$my-day-list.todo.status == "completed"}
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
+
+-- ftd.image:
+src: $assets.files.assets.trash.svg
+$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
 
 -- end: ds.row
 
@@ -102,6 +130,7 @@ color: #4b95bd
 -- ds.row:
 width: fill-container
 -- ds.copy-regular: $my-day-list.todo.description
+color: #ffffff
 -- end: ds.row
 
 -- end: ftd.mobile
@@ -127,96 +156,155 @@ width: fill-container
 -- component my-day-page:
 
 
-
 -- ds.column:
 if: {$hm.open-window == "my-day"}
 width: fill-container
 height: fill-container
-spacing: $ds.spaces.horizontal-gap.space-between
-inset: $ds.spaces.inset-square.large
-background.solid: #cccccc
+;; spacing: $ds.spaces.horizontal-gap.space-between
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+background.solid: #000000
 
 -- ds.row:
 radius: $ds.radius.zero
 align-content: left
-inset: $ds.spaces.inset-square.small
+inset: $ds.spaces.inset-wide.small
 
 -- ds.column:
 align-content: left
+spacing: $ds.spaces.horizontal-gap.space-between
 
 -- ds.heading-medium: My Day
 color: #4b95bd
 
-;; -- ds.heading-tiny: Monday, 22 January
-;; color: #4b95bd
-
 -- end: ds.column
+
+-- ds.row:
+align-content: right
+inset: $ds.spaces.inset-wide.medium
+;; background.solid: #fff
+
+;; -- phosphor.regular: circle
+;; size: 24
+;; color: #4b95bd
+;; add task icon here
+
+-- ds.copy-large: Add a task
+align: left
+color: #4b95bd
+$on-click$: $ftd.toggle($a = $open-add-task)
+
+-- end: ds.row
 
 -- end: ds.row
 
 
+-- add-task:
 
 
 -- ds.column:
 width: fill-container
-height: fill-container
-spacing: $ds.spaces.vertical-gap.small
+inset: $ds.spaces.inset-tall.small
+spacing: $ds.spaces.horizontal-gap.small
 ;; background.solid: #000000
 align-content: top-center
+overflow-y: auto
 
 -- my-day-list: $task
+if: { ftd.len(todos) > 0 }
 for: $task in $todos
 
 -- end: ds.column
 
 
 
+;; logic for logout user state and redirect to login page
 
 
-;; -- ds.column:
-;; align-content: center
-;; width.fixed.vw: 18
-;; background.solid: $ds.colors.background.step-2
-;; inset: $ds.spaces.inset-square.medium
 
-;; -- ftd.image: 
-;; src: $assets.files.assets.img-5.png
-;; width.fixed.vw: 6
-;; border-radius.px: 8
-
-;; -- ds.copy-regular:
-;; align: center
-;; color: #4b95bd
-
-;; Focus on your day
-
-;; -- ds.fine-print:
-;; align: center
-;; color: #4b95bd
-
-;; Get things done with My Day, a list that refreshes every day
-
-;; -- ds.secondary-button: Add task to My Day
-;; link: /
-
-;; -- end: ds.column
-
--- ds.row:
-align-content: left
-inset: $ds.spaces.inset-square.small
-background.solid: $ds.colors.background.step-1
-radius: $ds.radius.zero
-
--- phosphor.regular: circle
-size: 24
-color: #4b95bd
-
--- ds.copy-regular: Add a task
-align: left
-color: #4b95bd
-
--- end: ds.row
 
 -- end: ds.column
 
 -- end: my-day-page
+
+
+
+
+
+
+
+
+
+-- string $title: Nothing typed yet
+
+-- string $description: Nothing typed yet
+
+
+
+
+
+-- component add-task:
+module add-todo: add-todo
+
+-- ftd.column:
+if: {$open-add-task}
+anchor: parent
+width: fill-container
+height: hug-content
+top.px: 0
+
+-- ds.column:
+width: fill-container
+height: fill-container
+inset: $ds.spaces.inset-square.medium
+align-content: top-center
+spacing: $ds.spaces.horizontal-gap.medium
+background.solid: #1a1a1a89
+
+-- ds.row:
+align-content: right
+inset: $ds.spaces.inset-square.small
+
+
+-- ds.phosphor-icon-button: Close
+icon: x
+$on-click$: $ftd.toggle($a = $open-add-task)
+
+-- end: ds.row
+
+
+
+-- ftd.text-input:
+width: fill-container
+placeholder: Type title of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $title, v = $VALUE)
+
+
+-- ftd.text-input:
+placeholder: Type description of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+width: fill-container
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $description, v = $VALUE)
+
+
+-- ds.phosphor-icon-button: Add
+icon: plus
+$on-click$: $ftd.toggle($a = $open-add-task)
+;; $on-click$: $ftd.add-task()
+$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = myday)
+
+
+-- end: ds.column
+
+-- end: ftd.column
+
+-- end: add-task
