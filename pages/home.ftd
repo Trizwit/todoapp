@@ -5,7 +5,6 @@
 -- import: trizwit.github.io/todoapp/components/assigned as asg
 -- import: trizwit.github.io/todoapp/components/flagged as flg
 -- import: trizwit.github.io/todoapp/components/tasks as tsk
--- import: trizwit.github.io/todoapp as self
 
 
 -- string $open-window: my-day
