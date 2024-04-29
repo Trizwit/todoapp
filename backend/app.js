@@ -3,6 +3,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const { json } = require('body-parser');
 const { Sequelize, DataTypes } = require('sequelize');
 // const { auth } = require('express-openid-connect');
@@ -42,6 +43,7 @@ const port = 3000;
 
 
 app.use(json());
+app.use(cors());
 
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL

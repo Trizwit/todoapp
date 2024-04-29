@@ -1,3 +1,7 @@
+-- import: trizwit.github.io/todoapp/pages/home as hm
+-- import: fastn/processors as pr
+-- import: trizwit.github.io/todoapp/actions/delete-todo
+
 -- record todos-schema:
 integer id:
 string title:
@@ -9,8 +13,126 @@ string updatedAt:
 integer UserId:
 
 
+
+
+
+
 -- record user-credentials:
 optional string name:
 optional string picture:
 optional string email:
 optional string access_token:
+
+
+
+
+
+
+-- boolean $open-add-task: false
+
+
+
+-- component todo-list:
+caption todos-schema todo:
+integer $id: *$todo-list.todo.id
+string $title: *$todo-list.todo.title
+string $status: *$todo-list.todo.status
+string $description: *$todo-list.todo.description
+module delete-todo: delete-todo
+
+-- ds.column:
+if: {$hm.open-window == "important"}
+width: fill-container
+height: hug-content
+inset: $ds.spaces.inset-square.small
+background.solid if {$todo-list.status == "completed"}: #47d147
+background.solid if {$todo-list.status == "pending"}: #ba3f23
+
+	-- ds.row:
+	width: fill-container
+	align-content: left
+	spacing: $ds.spaces.horizontal-gap.small
+	
+		-- ftd.desktop:
+			-- ds.row:
+			width.fixed.percent: 20
+				-- ds.copy-regular: $todo-list.title
+				color: #ffffff
+			-- end: ds.row
+
+			-- ds.row:
+			width.fixed.percent: 55
+				-- ds.copy-regular: $todo-list.description
+				color: #ffffff
+			-- end: ds.row
+
+			-- ds.row:
+			width.fixed.percent: 15
+				-- ds.copy-regular: $todo-list.status
+				color: #ffffff
+			-- end: ds.row
+
+			-- ds.row:
+			width.fixed.percent: 10
+			
+				-- ftd.image:
+				src: $assets.files.assets.check.svg
+				if: {$todo-list.status == "pending"}
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
+				
+				-- ftd.image:
+				src: $assets.files.assets.arrows-clockwise.svg
+				if: {$todo-list.status == "completed"}
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
+				
+				-- ftd.image:
+				src: $assets.files.assets.trash.svg
+				$on-click$: $todo-list.delete-todo.delete(id = $todo-list.todo.id)
+				
+			-- end: ds.row
+		-- end: ftd.desktop
+
+		-- ftd.mobile:
+			-- ds.row:
+			width: fill-container
+				-- ds.copy-regular: $todo-list.todo.title
+				color: #ffffff
+			-- end: ds.row
+
+			-- ds.row:
+			width: fill-container
+			;; -- ds.copy-regular: $todo-list.todo.status
+			
+				-- ftd.image:
+				src: $assets.files.assets.check.svg
+				if: {$todo-list.todo.status == "pending"}
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
+				
+				-- ftd.image:
+				src: $assets.files.assets.arrows-clockwise.svg
+				if: {$todo-list.todo.status == "completed"}
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
+				
+				-- ftd.image:
+				src: $assets.files.assets.trash.svg
+				$on-click$: $todo-list.delete-todo.delete(id = $todo-list.todo.id)
+				
+			-- end: ds.row
+
+		-- end: ftd.mobile
+
+	-- end: ds.row
+
+	-- ftd.mobile:
+	
+		-- ds.row:
+		width: fill-container
+			-- ds.copy-regular: $todo-list.todo.description
+			color: #ffffff
+		-- end: ds.row
+
+	-- end: ftd.mobile
+
+-- end: ds.column
+
+-- end: todo-list

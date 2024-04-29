@@ -1385,6 +1385,16 @@
           "checksum": "9FE08755E974052A1A067681815F9F58D0B7650DFFDEC4230AC287E618E97601",
           "size": 3318
         },
+        "assets/avatar.svg": {
+          "name": "assets/avatar.svg",
+          "checksum": "9F55CDA1FF6C7F390739454232D7299C30BE32F8328F822809A74E51C6D7BDC3",
+          "size": 444
+        },
+        "assets/coming-soon.png": {
+          "name": "assets/coming-soon.png",
+          "checksum": "820CEEDE12AC1D38D18D6DCBBA5A80FD348B55B112CE943DD311A07E61BAAFD6",
+          "size": 23528
+        },
         "assets/convert-dark.svg": {
           "name": "assets/convert-dark.svg",
           "checksum": "21F8AF60080DB695FF6ABD4DC4D154CFB984CC94D907EAB710B39E2D405E4BCE",
@@ -1420,6 +1430,11 @@
           "checksum": "DD0E5B5E5D9B855C4F534392AF3F66E81905721556BACE9BE5E245BACA7657B5",
           "size": 220
         },
+        "assets/cross-dark.svg": {
+          "name": "assets/cross-dark.svg",
+          "checksum": "343319A229320DC2AB82FE65FBF4B95C4EFF36EDD706CEC37D3149282632C95B",
+          "size": 220
+        },
         "assets/cross-info.svg": {
           "name": "assets/cross-info.svg",
           "checksum": "6667BF134DD73352198BABC8D26822B5B99039EDFC11898D561BC738C94FFF7A",
@@ -1435,6 +1450,11 @@
           "checksum": "17AAAE1EF7311E1242DE290690E19CF70BBFFAD2D65380F60C4F0E8086BCDCE4",
           "size": 220
         },
+        "assets/cross.svg": {
+          "name": "assets/cross.svg",
+          "checksum": "809330DACDE47F7935D28E1475A7CDBCFBDAB4118B0277745B6043FEDB9E1415",
+          "size": 220
+        },
         "assets/dark-mode-dark.svg": {
           "name": "assets/dark-mode-dark.svg",
           "checksum": "F9B493615363E0367A0EF2513DFCB68BA698564A832610B6297F4B779F245308",
@@ -1445,6 +1465,31 @@
           "checksum": "5FE45D2C06A95BDBA1EA1EF2F0E90EF00A7E5DF34A29C2351C1982DE8242DE69",
           "size": 2735
         },
+        "assets/down-dark.svg": {
+          "name": "assets/down-dark.svg",
+          "checksum": "9548D2124D1BA760D3FB140E9E8F7A3A305B063873AFB0BBD7459807676283AF",
+          "size": 660
+        },
+        "assets/down.svg": {
+          "name": "assets/down.svg",
+          "checksum": "4D599E4CA35448A0AD3D0886011B34D86DEEDE0A749F01D51694F31DE0CD064D",
+          "size": 660
+        },
+        "assets/empty-box.png": {
+          "name": "assets/empty-box.png",
+          "checksum": "843C708B0BAE3E6618C474A66329ABACA063AEE5DB93470E5F643577A156784B",
+          "size": 33801
+        },
+        "assets/expand-less.svg": {
+          "name": "assets/expand-less.svg",
+          "checksum": "4367C4E30D97BC9B8461F6EB88F36FA82109CE1252F2681A25C5049274D2F132",
+          "size": 451
+        },
+        "assets/expand-more.svg": {
+          "name": "assets/expand-more.svg",
+          "checksum": "7BA91516F28CE463C6330FA2F99659E8367B507C72361560718D9B5DEBA8A9DF",
+          "size": 449
+        },
         "assets/fastn-logo-dark.svg": {
           "name": "assets/fastn-logo-dark.svg",
           "checksum": "B82980A0566A43453849F1E293D6E724280ED7976B0EDFC30D343CD5D10D2227",
@@ -1454,6 +1499,11 @@
           "name": "assets/fastn-logo.svg",
           "checksum": "A2EE52458DAB43F3A6D8A279654F307E71505AA985CAD3991EDC4D4ED8CCBF49",
           "size": 5205
+        },
+        "assets/fb.svg": {
+          "name": "assets/fb.svg",
+          "checksum": "6F2975E6384F924F9E88E13BD21FFAF37A37B80F9A719A8A26CD4515905626A3",
+          "size": 1014
         },
         "assets/ftd-logo-dark.svg": {
           "name": "assets/ftd-logo-dark.svg",
@@ -1469,6 +1519,11 @@
           "name": "assets/functions.js",
           "checksum": "273D6304965E2B5863E0C849B89ABDB0CFC18443857E0388C9A37EBFEA656FFF",
           "size": 744
+        },
+        "assets/google.svg": {
+          "name": "assets/google.svg",
+          "checksum": "F7B4425D6F252005BD04253BB82EF52A3E02D6F2FAEA892B40E6CEBFE639A640",
+          "size": 1215
         },
         "assets/gradient.svg": {
           "name": "assets/gradient.svg",
@@ -1494,6 +1549,11 @@
           "name": "assets/hubspot.svg",
           "checksum": "8EC14606B65906EC488A79E901B623E736D1FC62B02A4E87A6048B6DC771FEDD",
           "size": 9708
+        },
+        "assets/icon.svg": {
+          "name": "assets/icon.svg",
+          "checksum": "912A2634B6C37EF5BB893091BF61A4F31851F24A472AE5EA5EF35361F45E849E",
+          "size": 14632
         },
         "assets/image-2.svg": {
           "name": "assets/image-2.svg",
@@ -1535,6 +1595,11 @@
           "checksum": "02B63490CDD43802AD5E9700389EEEF3AE064297143A7158BD91D5513B080DC5",
           "size": 402
         },
+        "assets/msg.svg": {
+          "name": "assets/msg.svg",
+          "checksum": "E9AEE7E0F5F37896624673879B3A68EF772AB9FAAA3446622BD3BC1CD4E976BC",
+          "size": 3123
+        },
         "assets/placeholder.jpg": {
           "name": "assets/placeholder.jpg",
           "checksum": "3CBF7363F01A7FDE9B486232738E557629FC5F1D66EA1602C69233AF189F110A",
@@ -1559,6 +1624,16 @@
           "name": "assets/powered-by.svg",
           "checksum": "AF53213A694EA60A37905CCF0B62C29DF6D452182407CE64B730B852CF057FFD",
           "size": 14034
+        },
+        "assets/right-dark.svg": {
+          "name": "assets/right-dark.svg",
+          "checksum": "3CB1D5E88991FC0AA82EBC3C441A04ACEE816184CD6A37D8FFEA8E4F0832CCC6",
+          "size": 671
+        },
+        "assets/right.svg": {
+          "name": "assets/right.svg",
+          "checksum": "F596DEDEB6468EB64836802DB28F8FA3657D99213662141627142252818F1F10",
+          "size": 671
         },
         "assets/star.svg": {
           "name": "assets/star.svg",
@@ -1740,6 +1815,11 @@
           "checksum": "C38159921CB23F7429329657D51111577AF4BB18DD386923B863C48FAF7047C7",
           "size": 7638
         },
+        "components/band.ftd": {
+          "name": "components/band.ftd",
+          "checksum": "D71A255C82FC316A5B54DD624CC6667444C5BD204F1ED5431ADFC925153BBE20",
+          "size": 2320
+        },
         "components/button-group.ftd": {
           "name": "components/button-group.ftd",
           "checksum": "A8A3DE433E783A138322499C276A25A16237E9235A09F3EF3DEF2F23E06339BC",
@@ -1760,18 +1840,35 @@
           "checksum": "D3A49FD9A6FE49AADDECB1E7D95DF982EFB07888F218B71970543FE85F57FF22",
           "size": 2998
         },
-<<<<<<< HEAD
         "components/code.ftd": {
           "name": "components/code.ftd",
-          "checksum": "5D663296C7EE82C3745125659095FB9E076D61A863ADFF001B73EA11EFB2478C",
-          "size": 5482
+          "checksum": "CD868125F9F2352BB0BE00C3D78D98ACB242106CD25D675BB032332455A730F9",
+          "size": 4617
         },
-=======
->>>>>>> 217ae314d00dfb17c7010b17b0f0f9c7626ad24c
         "components/dark-mode-toggle.ftd": {
           "name": "components/dark-mode-toggle.ftd",
           "checksum": "40946600680F1A7E817AB0A73CC727F548FDE71197E5165A32DFB8E45403FAC8",
           "size": 668
+        },
+        "components/drawer.ftd": {
+          "name": "components/drawer.ftd",
+          "checksum": "9E45EC2ED021CC525AE7AEE9F37B41EBD9C9A36DD3529FD4ACF493FADC737984",
+          "size": 1811
+        },
+        "components/dropdown.ftd": {
+          "name": "components/dropdown.ftd",
+          "checksum": "7EDBE2E48DE6129A110A6F360FEED1A701DEE103652B00185C5960E7C3857272",
+          "size": 2365
+        },
+        "components/empty-page.ftd": {
+          "name": "components/empty-page.ftd",
+          "checksum": "564E155CE4D9323A446EB271F17272B54B1C5CEA98A2F813E5D884044C4C28A5",
+          "size": 1190
+        },
+        "components/expander.ftd": {
+          "name": "components/expander.ftd",
+          "checksum": "CC070423C6310B8B1568C98224E47710ACA17FDFE6A0A54A8D567C9DACB454EE",
+          "size": 3290
         },
         "components/footer.ftd": {
           "name": "components/footer.ftd",
@@ -1783,6 +1880,16 @@
           "checksum": "C28A4208DD8D7A84858357B90664DC261F1338035CFFB7F72EFE9D6F4C102F9E",
           "size": 292
         },
+        "components/hero.ftd": {
+          "name": "components/hero.ftd",
+          "checksum": "5F9C31B595A4A8F6753250FD3C89449B2EFF2502A70D5B3032439133A43C431C",
+          "size": 4303
+        },
+        "components/icon-banner.ftd": {
+          "name": "components/icon-banner.ftd",
+          "checksum": "C90AD293C7719365047A54F10602C247930F966936C7590CC2B55B0895BBF13C",
+          "size": 1397
+        },
         "components/icon-button.ftd": {
           "name": "components/icon-button.ftd",
           "checksum": "5DC53AB764248CC52171644DABD9A016D43A3394012AA954C85316616BD8649E",
@@ -1790,15 +1897,24 @@
         },
         "components/input.ftd": {
           "name": "components/input.ftd",
-          "checksum": "D538EE9DFF7B0560FBF8F748711E6A044A4FFD66A9BF4D118861C500B757969D",
-          "size": 5038
+          "checksum": "44C359F337170FD9B2755FDE0D9061FD7C980A6A941957551A246C0F2C5FC386",
+          "size": 5135
         },
         "components/label-text.ftd": {
           "name": "components/label-text.ftd",
           "checksum": "7287117D126182A09923CDBC063531F298C124FA9206100084531B4F139B0C12",
           "size": 1606
         },
-<<<<<<< HEAD
+        "components/modal.ftd": {
+          "name": "components/modal.ftd",
+          "checksum": "2E3AA85D559396B2A922D735A06FAFF1A2C2C10ABA0D0D2AC76AE3A29ABD7D5E",
+          "size": 1274
+        },
+        "components/person-card.ftd": {
+          "name": "components/person-card.ftd",
+          "checksum": "3209BD07604F0D8B46320EFB1C2F691FC2FEAAEAFEE390BECD27BAEF247B5E6A",
+          "size": 3891
+        },
         "components/skeleton.ftd": {
           "name": "components/skeleton.ftd",
           "checksum": "9FB13430E8FDBB6668CFC9C6B26C6AE9F6624D0A4138B7D65B91A7270CFA5CAE",
@@ -1806,8 +1922,8 @@
         },
         "components/tab-button.ftd": {
           "name": "components/tab-button.ftd",
-          "checksum": "E8D8E3BEEF106A7FA1F90A8950ADBB91A069331783D4B87AC4D23C749747197D",
-          "size": 1543
+          "checksum": "9E0C5C874311A2C390410DABA92D2E8E1FECBB4B170E29E571B61DC61F08C21F",
+          "size": 2616
         },
         "components/tag.ftd": {
           "name": "components/tag.ftd",
@@ -1818,12 +1934,16 @@
           "name": "components/text-area.ftd",
           "checksum": "9FB71D57C261919A34459DEFB7340C326FF93D23A4415A0825F7DB7E1529B70F",
           "size": 1203
-=======
-        "components/tab-button.ftd": {
-          "name": "components/tab-button.ftd",
-          "checksum": "120FEF8B47EE2E77706C09851F6265A5731D9D7E83A1935D683AB2B206D6FE49",
-          "size": 856
->>>>>>> 217ae314d00dfb17c7010b17b0f0f9c7626ad24c
+        },
+        "components/timeline.ftd": {
+          "name": "components/timeline.ftd",
+          "checksum": "924DEAA61F5030AB05F89D9ADBF50AFF0470CC67BAD36709C3773BAF10805888",
+          "size": 3642
+        },
+        "components/toast.ftd": {
+          "name": "components/toast.ftd",
+          "checksum": "6B100B6AA61758A05F25EE284F35A0469CB8064146FD34795DA05C5DE3106157",
+          "size": 1302
         },
         "components/toggle.ftd": {
           "name": "components/toggle.ftd",
@@ -1862,8 +1982,8 @@
         },
         "foundation-elements/container.ftd": {
           "name": "foundation-elements/container.ftd",
-          "checksum": "4AC232064A2C73AB42D3A0A6F4D069F79129C07E11077030658EF085299A8767",
-          "size": 4472
+          "checksum": "5B3AC7E68613C11AF294E62394CAC522059207B32AEF7DD17BACE6E8F7BBB658",
+          "size": 4549
         },
         "foundation-elements/floater.ftd": {
           "name": "foundation-elements/floater.ftd",
@@ -1912,18 +2032,13 @@
         },
         "index.ftd": {
           "name": "index.ftd",
-<<<<<<< HEAD
-          "checksum": "647EF6EC3AD98BDFF8D6B4968D7F37081F8C97ED9942CAD5C6A7C458F548D649",
-          "size": 16860
-=======
-          "checksum": "8057944561FAD1B8C34800E3E929CC0E53CD1B8E58F46DD738018B34D1CB1A85",
-          "size": 16379
->>>>>>> 217ae314d00dfb17c7010b17b0f0f9c7626ad24c
+          "checksum": "81CB9A0402991075A4918F79A7FB90C7E324727F64A4C1894B33317EF18F2D3A",
+          "size": 17446
         },
         "record.ftd": {
           "name": "record.ftd",
-          "checksum": "57BFAE2A5AFC54469B1175310DAB7368E62F083994C13770785C3D5F26A85E48",
-          "size": 516
+          "checksum": "E67C822D2D24D4E39D12F7551F234A12373024B98311E4388E0D29FD856241F4",
+          "size": 889
         },
         "slide.ftd": {
           "name": "slide.ftd",
@@ -1941,13 +2056,8 @@
           "size": 78
         }
       },
-<<<<<<< HEAD
-      "zip_url": "https://github.com/fastn-community/design-system/archive/cf996d2cdb425c3b9d4d10d8c0a954368b65c38d.zip",
-      "checksum": "A8B1BF3B2F66DF483945CE7A9B3F761597FC96C7173695B4FCF25C4F5C80064E"
-=======
-      "zip_url": "https://github.com/fastn-community/design-system/archive/8f8705d720aa0321f54845eabd2b481866b86c03.zip",
-      "checksum": "E9F31D305A2226AF5FBB14631F98666A2CB0127DAE3E2F4469A3707A1C687C98"
->>>>>>> 217ae314d00dfb17c7010b17b0f0f9c7626ad24c
+      "zip_url": "https://github.com/fastn-community/design-system/archive/1bc88c9b3377c9fffed49c2d63d63276a3f075a3.zip",
+      "checksum": "6A395A278269220628A8A812F9C48C7AE8882D1909406A23701A921D3A657D1A"
     },
     "fastn-community.github.io/doc-site": {
       "files": {

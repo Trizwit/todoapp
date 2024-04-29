@@ -1,256 +1,17 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/schema
+-- import: trizwit.github.io/todoapp/actions/add-todo
+-- import: trizwit.github.io/todoapp/actions/delete-todo
 
 -- boolean $open-add-task: false
-
-
-
-
-
--- schema.todos-schema list todos:
-
--- schema.todos-schema:
-id: -1
-title: sample task
-description: complete the todo app
-type: myday
-status: completed
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -10
-title: demo task
-description: complete the todo app
-type: myday
-status: pending
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -1
-title: sample task
-description: complete the todo app
-type: myday
-status: completed
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -10
-title: demo task
-description: complete the todo app
-type: myday
-status: pending
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
-;; -- schema.todos-schema:
-;; id: -10
-;; title: demo task
-;; description: complete the todo app
-;; type: myday
-;; status: pending
-;; createdAt: ds
-;; updatedAt: dcd
-;; UserId: -1
-
-;; -- schema.todos-schema:
-;; id: -1
-;; title: sample task
-;; description: complete the todo app
-;; type: myday
-;; status: completed
-;; createdAt: ds
-;; updatedAt: dcd
-;; UserId: -1
-
-;; -- schema.todos-schema:
-;; id: -10
-;; title: demo task
-;; description: complete the todo app
-;; type: myday
-;; status: pending
-;; createdAt: ds
-;; updatedAt: dcd
-;; UserId: -1
-
-;; -- schema.todos-schema:
-;; id: -1
-;; title: sample task
-;; description: complete the todo app
-;; type: myday
-;; status: completed
-;; createdAt: ds
-;; updatedAt: dcd
-;; UserId: -1
-
-
-
-
--- end: todos
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 -- schema.todos-schema list todos:
 $processor$: pr.http
 method: get
-url: http://localhost:3000/fetchtodos/shaheen50053@gmail.com/tasks
-
-
-
-
-
--- ftd.http-options opts:
-method: GET
-fastn-module: trizwit.github.io/todoapp/components/imp
-
-
-
--- void send-req-delete:
-ftd.http-options opts: $opts
-
-ftd.http(
-    "http://localhost:3000/",
-    opts
-)
-
-
-
-
-
-
-
-
-
--- component todo-list:
-caption schema.todos-schema todo:
-string $title: *$todo-list.todo.title
-string $status: *$todo-list.todo.status
-string $description: *$todo-list.todo.description
-
--- ds.column:
-if: {$hm.open-window == "tasks"}
-width: fill-container
-height: hug-content
-inset: $ds.spaces.inset-square.small
-background.solid if {$todo-list.status == "completed"}: #47d147
-background.solid if {$todo-list.status == "pending"}: #ba3f23
-
--- ds.row:
-width: fill-container
-align-content: left
-spacing: $ds.spaces.horizontal-gap.small
-
--- ftd.desktop:
--- ds.row:
-width.fixed.percent: 20
--- ds.copy-regular: $todo-list.title
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 55
--- ds.copy-regular: $todo-list.description
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 15
--- ds.copy-regular: $todo-list.status
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 10
-
--- phosphor.regular: check
-if: {$todo-list.status == "pending"}
-size: 24
-color: #ffffff
-$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
-
--- phosphor.regular: arrows-clockwise
-if: {$todo-list.status == "completed"}
-size: 24
-color: #ffffff
-$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
-
--- phosphor.regular: trash
-size: 24
-color: #ffffff
-;; $on-click$: send-req-delete()
-
--- end: ds.row
--- end: ftd.desktop
-
--- ftd.mobile:
--- ds.row:
-width: fill-container
--- ds.copy-regular: $todo-list.todo.title
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width: fill-container
-;; -- ds.copy-regular: $todo-list.todo.status
-
--- phosphor.regular: check
-size: 24
-color: #ffffff
-
--- phosphor.regular: trash
-size: 24
-color: #ffffff
-
--- end: ds.row
-
--- end: ftd.mobile
-
--- end: ds.row
-
--- ftd.mobile:
-
--- ds.row:
-width: fill-container
--- ds.copy-regular: $todo-list.todo.description
-color: #ffffff
--- end: ds.row
-
--- end: ftd.mobile
-
--- end: ds.column
-
--- end: todo-list
-
-
-
-
-
-
-
-
-
-
-
-
+url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/tasks
 
 
 
@@ -289,9 +50,9 @@ align-content: right
 inset: $ds.spaces.inset-wide.medium
 ;; background.solid: #fff
 
--- phosphor.regular: circle
-size: 24
-color: #4b95bd
+;; -- phosphor.regular: circle
+;; size: 24
+;; color: #4b95bd
 
 -- ds.copy-large: Add a task
 align: left
@@ -318,7 +79,7 @@ spacing: $ds.spaces.horizontal-gap.small
 align-content: top-center
 overflow-y: auto
 
--- todo-list: $task
+-- schema.todo-list: $task
 if: { ftd.len(todos) > 0 }
 for: $task in $todos
 
@@ -339,11 +100,20 @@ for: $task in $todos
 
 
 
+-- string $title: Nothing typed yet
+
+-- string $description: Nothing typed yet
+
+
+
+
+
 
 
 
 
 -- component add-task:
+module add-todo: add-todo
 
 -- ftd.column:
 if: {$open-add-task}
@@ -372,19 +142,33 @@ $on-click$: $ftd.toggle($a = $open-add-task)
 -- end: ds.row
 
 
--- ds.text-input: title
-size: large
-radius: curved
+-- ftd.text-input:
+width: fill-container
+placeholder: Type title of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $title, v = $VALUE)
 
--- ds.text-input: description
-size: large
-radius: curved
+
+-- ftd.text-input:
+placeholder: Type description of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+width: fill-container
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $description, v = $VALUE)
 
 
 -- ds.phosphor-icon-button: Add
 icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
-;; $on-click$: $add-task()
+;; $on-click$: $ftd.add-task()
+$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = task)
 
 
 -- end: ds.column

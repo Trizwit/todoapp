@@ -4,10 +4,9 @@
 -- auth-resolver:
 
 ;; after modification from web-component
--- ftd.text: $current-user.name
-if: { current-user != NULL }
-color: red
-
+;; -- ftd.text: $current-user.picture
+;; if: { current-user != NULL }
+;; color: red
 -- home.page:
 
 

@@ -16,13 +16,14 @@ export const auth0Client = await auth0.createAuth0Client({
 
   },
   useRefreshTokens: true,
+  // useRefreshTokensFallback: true,
   cacheLocation: 'localstorage',
 });
 
 //////////////////////////////////////////////////////////////////////////////// Logout function
 window.logoutFunction = async function logoutFunction() {
   try{
-    localStorage.removeItem("campaignId");
+    // localStorage.removeItem("campaignId");
     // Client side logout
     auth0Client.logout({
       logoutParams: {

@@ -19,15 +19,12 @@ js: $assets.files.backend.auth.js:type=module
 getAccessToken()
 
 
+-- tp.auth-resolver:
 
 
 -- boolean $show: false
 -- boolean $open: false
 -- boolean $open-sidebar: false
-
-
-
-
 
 
 
@@ -158,7 +155,7 @@ inset: $ds.spaces.inset-square.medium
         align: left
         color: #4b95bd
 
-        -- ds.copy-regular: hey
+        -- ds.copy-regular: $tp.current-user.picture
         align: left
         color: #4b95bd
 

@@ -2,86 +2,17 @@
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/schema
 -- import: trizwit.github.io/todoapp/actions/add-todo
+-- import: trizwit.github.io/todoapp/actions/delete-todo
 
 -- boolean $open-add-task: false
 
 
--- schema.todos-schema list temp-todos:
 
--- schema.todos-schema:
-id: -1
-title: sample task
-description: complete the todo app
-type: myday
-status: completed
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -10
-title: demo task
-description: complete the todo app
-type: myday
-status: pending
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -1
-title: sample task
-description: complete the todo app
-type: myday
-status: completed
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- schema.todos-schema:
-id: -10
-title: demo task
-description: complete the todo app
-type: myday
-status: pending
-createdAt: ds
-updatedAt: dcd
-UserId: -1
-
--- end: temp-todos
-
-;; Temporarily disabling todos from API
-/-- schema.todos-schema list todos:
+-- schema.todos-schema list todos:
 $processor$: pr.http
 method: get
 url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/myday
 
--- schema.todos-schema list todos: $temp-todos
-
-
-
-
--- ftd.http-options opts:
-method: GET
-fastn-module: trizwit.github.io/todoapp/components/my-day
-
-
-
-
-
--- void send-req-delete:
-ftd.http-options opts: $opts
-
-ftd.http(
-    "http://localhost:3000/",
-    opts
-)
-
-
-
-
--- void send-req-add:
-ftd.http-options opts: $opts
 
 
 
@@ -96,9 +27,11 @@ ftd.http-options opts: $opts
 
 -- component my-day-list:
 caption schema.todos-schema todo:
+integer $id: *$my-day-list.todo.id
 string $title: *$my-day-list.todo.title
 string $status: *$my-day-list.todo.status
 string $description: *$my-day-list.todo.description
+module delete-todo: delete-todo
 
 -- ds.column:
 if: {$hm.open-window == "my-day"}
@@ -154,7 +87,7 @@ $on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
 src: $assets.files.assets.trash.svg
 ;; size: 24
 ;; color: #ffffff
-;; $on-click$: send-req-delete()
+$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
 
 
 -- end: ds.row
@@ -172,13 +105,19 @@ color: #ffffff
 width: fill-container
 ;; -- ds.copy-regular: $my-day-list.todo.status
 
--- phosphor.regular: check
-size: 24
-color: #ffffff
+-- ftd.image:
+src: $assets.files.assets.check.svg
+if: {$my-day-list.todo.status == "pending"}
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = completed)
 
--- phosphor.regular: trash
-size: 24
-color: #ffffff
+-- ftd.image:
+src: $assets.files.assets.arrows-clockwise.svg
+if: {$my-day-list.todo.status == "completed"}
+$on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
+
+-- ftd.image:
+src: $assets.files.assets.trash.svg
+$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
 
 -- end: ds.row
 
@@ -245,9 +184,10 @@ align-content: right
 inset: $ds.spaces.inset-wide.medium
 ;; background.solid: #fff
 
--- phosphor.regular: circle
-size: 24
-color: #4b95bd
+;; -- phosphor.regular: circle
+;; size: 24
+;; color: #4b95bd
+;; add task icon here
 
 -- ds.copy-large: Add a task
 align: left
@@ -295,6 +235,12 @@ for: $task in $todos
 
 
 
+-- string $title: Nothing typed yet
+
+-- string $description: Nothing typed yet
+
+
+
 
 
 -- component add-task:
@@ -327,20 +273,34 @@ $on-click$: $ftd.toggle($a = $open-add-task)
 -- end: ds.row
 
 
--- ds.text-input: title
-size: large
-radius: curved
 
--- ds.text-input: description
-size: large
-radius: curved
+-- ftd.text-input:
+width: fill-container
+placeholder: Type title of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $title, v = $VALUE)
+
+
+-- ftd.text-input:
+placeholder: Type description of your todo
+padding-horizontal.px: 16
+padding-vertical.px: 8
+width: fill-container
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+$on-input$: $ftd.set-string($a = $description, v = $VALUE)
 
 
 -- ds.phosphor-icon-button: Add
 icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
 ;; $on-click$: $ftd.add-task()
-$on-click$: $add-task.add-todo.submit(task = Some task)
+$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = myday)
 
 
 -- end: ds.column
