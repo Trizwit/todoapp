@@ -82,6 +82,7 @@ align-content: top-center
 overflow-y: auto
 
 -- schema.todo-list: $task
+view: flagged
 if: { ftd.len(todos) > 0 }
 for: $task in $todos
 
