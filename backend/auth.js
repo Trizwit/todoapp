@@ -9,6 +9,7 @@ console.log("entering auth page");
 export const auth0Client = await auth0.createAuth0Client({
   domain: config.AUTH0_DOMAIN,
   clientId: config.AUTH0_CLIENT,
+  // clientSecret: config.AUTH0_CLIENT_SECRET,
   authorizationParams: {
     redirect_uri: `${config.BASE_FRONTEND_URL}/index`,
     audience:  config.AUTH0_AUDIENCE,
@@ -17,7 +18,7 @@ export const auth0Client = await auth0.createAuth0Client({
   },
   useRefreshTokens: true,
   // useRefreshTokensFallback: true,
-  cacheLocation: 'localstorage',
+  cacheLocation: "localstorage",
 });
 
 //////////////////////////////////////////////////////////////////////////////// Logout function
@@ -41,12 +42,12 @@ window.loginFunction = async function loginFunction() {
   try {
     await auth0Client.loginWithRedirect();
 
-    const differentAudienceOptions = {
-      cacheMode: "on",
-    };
+    // const differentAudienceOptions = {
+    //   cacheMode: "on",
+    // };
 
-    const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
-    console.log("access token is ", accessToken);
+    // const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+    // console.log("access token is ", accessToken);
 
   } catch(e) {
     console.error(e);
@@ -62,8 +63,14 @@ window.getAccessToken = async function getAccessToken() {
     cacheMode: "on",
   };
   console.log("inside getAccessToken function");
-  
-  const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
+
+  const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions).then((token) => {
+    localStorage.setItem("access_token", token);
+    console.log("access token is ", token);
+  }).catch((e) => {
+    console.error(e);
+  });
+
   console.log("access token is ", accessToken);
 
   // const accessToken = await auth0Client.getTokenSilently();
@@ -122,20 +129,43 @@ if(!customElements.get('auth-resolver')) {
   class AuthResolver extends HTMLElement {
     async connectedCallback() {
         // After login, get the URL parameters
-        const params = new URLSearchParams(window.location.search);
+        // const params = new URLSearchParams(window.location.search);
 
         // Get the code and state
-        const code = params.get('code');
-        const state = params.get('state');
+        // const code = params.get('code');
+        // const state = params.get('state');
 
         // Store the code and state
         // window.localStorage.setItem('code', code);
         // window.localStorage.setItem('state', state);
 
         // Remove the code and state from the URL
-        params.delete('code');
-        params.delete('state');
-        window.history.replaceState({}, document.title, "/" + params.toString());
+        // params.delete('code');
+        // params.delete('state');
+        // window.history.replaceState({}, document.title, "/" + params.toString());
+
+        // var options = {
+        //   method: 'POST',
+        //   url: 'https://dev-ci5h1y84jll0nhuf.us.auth0.com/oauth/token',
+        //   headers: {'content-type': 'application/x-www-form-urlencoded'},
+        //   data: new URLSearchParams({
+        //     grant_type: 'authorization_code',
+        //     client_id: config.AUTH0_CLIENT,
+        //     client_secret: config.AUTH0_CLIENT_SECRET,
+        //     code: code,
+        //     redirect_uri: `${config.BASE_FRONTEND_URL}/index`
+        //   })
+        // };
+
+        // axios.request(options).then(function (response) {
+        //   console.log("response is ", response);} ).catch(function (error) {
+        //     console.error(error);
+        //   });
+
+        // // add the items to local storage
+        // localStorage.setItem('refresh_token', response.data.refresh_token);
+        // localStorage.setItem('access_token', response.data.access_token);
+        // localStorage.setItem('id_token', response.data.id_token);
 
         // Get the user info
         const user = await auth0Client.getUser();

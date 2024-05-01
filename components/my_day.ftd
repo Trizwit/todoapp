@@ -21,138 +21,6 @@ url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com
 
 
 
-
-
-
-
--- component my-day-list:
-caption schema.todos-schema todo:
-integer $id: *$my-day-list.todo.id
-string $title: *$my-day-list.todo.title
-string $status: *$my-day-list.todo.status
-string $description: *$my-day-list.todo.description
-module delete-todo: delete-todo
-
--- ds.column:
-if: {$hm.open-window == "my-day"}
-width: fill-container
-height: hug-content
-inset: $ds.spaces.inset-square.small
-background.solid if {$my-day-list.status == "completed"}: #47d147
-background.solid if {$my-day-list.status == "pending"}: #ba3f23
-
--- ds.row:
-width: fill-container
-align-content: left
-spacing: $ds.spaces.horizontal-gap.small
-
-
--- ftd.desktop:
--- ds.row:
-width.fixed.percent: 20
--- ds.copy-regular: $my-day-list.title
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 55
--- ds.copy-regular: $my-day-list.description
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 15
--- ds.copy-regular: $my-day-list.status
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width.fixed.percent: 10
-
--- ftd.image:
-src: $assets.files.assets.check.svg
-if: {$my-day-list.status == "pending"}
-;; size: 24
-;; color: #ffffff
-$on-click$: $ftd.set-string($a = $my-day-list.status, v = completed)
-
--- ftd.image:
-src: $assets.files.assets.arrows-clockwise.svg
-if: {$my-day-list.status == "completed"}
-;; size: 24
-;; color: #ffffff
-$on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
-
--- ftd.image:
-src: $assets.files.assets.trash.svg
-;; size: 24
-;; color: #ffffff
-$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
-
-
--- end: ds.row
--- end: ftd.desktop
-
-
--- ftd.mobile:
--- ds.row:
-width: fill-container
--- ds.copy-regular: $my-day-list.todo.title
-color: #ffffff
--- end: ds.row
-
--- ds.row:
-width: fill-container
-;; -- ds.copy-regular: $my-day-list.todo.status
-
--- ftd.image:
-src: $assets.files.assets.check.svg
-if: {$my-day-list.todo.status == "pending"}
-$on-click$: $ftd.set-string($a = $my-day-list.status, v = completed)
-
--- ftd.image:
-src: $assets.files.assets.arrows-clockwise.svg
-if: {$my-day-list.todo.status == "completed"}
-$on-click$: $ftd.set-string($a = $my-day-list.status, v = pending)
-
--- ftd.image:
-src: $assets.files.assets.trash.svg
-$on-click$: $my-day-list.delete-todo.delete(id = $my-day-list.todo.id)
-
--- end: ds.row
-
--- end: ftd.mobile
-
--- end: ds.row
-
--- ftd.mobile:
-
--- ds.row:
-width: fill-container
--- ds.copy-regular: $my-day-list.todo.description
-color: #ffffff
--- end: ds.row
-
--- end: ftd.mobile
-
--- end: ds.column
-
--- end: my-day-list
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- component my-day-page:
 
 
@@ -210,7 +78,8 @@ spacing: $ds.spaces.horizontal-gap.small
 align-content: top-center
 overflow-y: auto
 
--- my-day-list: $task
+-- schema.todo-list: $task
+view: my-day
 if: { ftd.len(todos) > 0 }
 for: $task in $todos
 

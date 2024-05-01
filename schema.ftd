@@ -1,6 +1,7 @@
 -- import: trizwit.github.io/todoapp/pages/home as hm
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/actions/delete-todo
+-- import: trizwit.github.io/todoapp/actions/toggle-todo
 
 -- record todos-schema:
 integer id:
@@ -39,9 +40,11 @@ string $title: *$todo-list.todo.title
 string $status: *$todo-list.todo.status
 string $description: *$todo-list.todo.description
 module delete-todo: delete-todo
+module toggle-todo: toggle-todo
+string view:
 
 -- ds.column:
-if: {$hm.open-window == "important"}
+if: {$hm.open-window == $todo-list.view}
 width: fill-container
 height: hug-content
 inset: $ds.spaces.inset-square.small
@@ -78,12 +81,14 @@ background.solid if {$todo-list.status == "pending"}: #ba3f23
 				-- ftd.image:
 				src: $assets.files.assets.check.svg
 				if: {$todo-list.status == "pending"}
-				$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = completed)
+				$on-click$: $todo-list.toggle-todo.toggle(id = $todo-list.todo.id)
 				
 				-- ftd.image:
 				src: $assets.files.assets.arrows-clockwise.svg
 				if: {$todo-list.status == "completed"}
-				$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = pending)
+				$on-click$: $todo-list.toggle-todo.toggle(id = $todo-list.todo.id)
 				
 				-- ftd.image:
 				src: $assets.files.assets.trash.svg
@@ -106,12 +111,14 @@ background.solid if {$todo-list.status == "pending"}: #ba3f23
 				-- ftd.image:
 				src: $assets.files.assets.check.svg
 				if: {$todo-list.todo.status == "pending"}
-				$on-click$: $ftd.set-string($a = $todo-list.status, v = "completed")
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = completed)
+				$on-click$: $todo-list.toggle-todo.toggle(id = $todo-list.todo.id)
 				
 				-- ftd.image:
 				src: $assets.files.assets.arrows-clockwise.svg
 				if: {$todo-list.todo.status == "completed"}
-				$on-click$: $ftd.set-string($a = $todo-list.status, v = "pending")
+				$on-click$: $ftd.set-string($a = $todo-list.status, v = pending)
+				$on-click$: $todo-list.toggle-todo.toggle(id = $todo-list.todo.id)
 				
 				-- ftd.image:
 				src: $assets.files.assets.trash.svg
