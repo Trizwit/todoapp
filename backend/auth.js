@@ -176,7 +176,7 @@ if(!customElements.get('auth-resolver')) {
 
         // save user access token, email id, photo and name into fastn record
         const user_data = {
-          email: !!user ? user.email : 'guest@example.com',
+          email: !!user ? user.email : 'shaheen50053@gmail.com',
           name: !!user ? user.name : 'Guest',
           picture: !!user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
           access_token: !!user ? accessToken : 'default_access_token'
@@ -195,5 +195,22 @@ if(!customElements.get('auth-resolver')) {
     }
   }
   customElements.define('auth-resolver', AuthResolver);
+
+}
+
+
+
+
+
+
+function addTodosjs( list_todos, todo){
+
+  console.log("list todos is ", list_todos);
+  console.log("todo is ", todo);
+
+  // console type of each data passes to the function
+  console.log("type of list_todos is ", typeof list_todos);
+  console.log("type of todo is ", typeof todo);
+
 
 }

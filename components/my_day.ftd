@@ -8,13 +8,21 @@
 
 
 
--- schema.todos-schema list todos:
+-- schema.todos-schema list $todos:
 $processor$: pr.http
 method: get
 url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/myday
 
 
 
+
+
+-- void addTodos(todos, todo):
+schema.todos-schema list $todos:
+schema.todos-schema todo:
+js: ../backend/auth.js:type=module
+
+addTodosjs(todos, todo)
 
 
 
@@ -108,6 +116,16 @@ for: $task in $todos
 
 -- string $description: Nothing typed yet
 
+-- schema.todos-schema $todo-add:
+id: -1
+title: None
+description: None
+status: pending
+type: myday
+createdAt: *$ftd.empty
+updatedAt: *$ftd.empty
+UserId: -11
+
 
 
 
@@ -151,7 +169,7 @@ padding-vertical.px: 8
 border-width.px: 1
 border-color: $inherited.colors.border
 border-radius.px: 4
-$on-input$: $ftd.set-string($a = $title, v = $VALUE)
+$on-input$: $ftd.set-string($a = $todo-add.title, v = $VALUE)
 
 
 -- ftd.text-input:
@@ -162,15 +180,15 @@ width: fill-container
 border-width.px: 1
 border-color: $inherited.colors.border
 border-radius.px: 4
-$on-input$: $ftd.set-string($a = $description, v = $VALUE)
+$on-input$: $ftd.set-string($a = $todo-add.description, v = $VALUE)
 
 
 -- ds.phosphor-icon-button: Add
 icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
 ;; $on-click$: $ftd.add-task()
-$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = myday)
-
+$on-click$: $add-task.add-todo.submit(title = $todo-add.title, description = $todo-add.description, status = pending, type = myday)
+$on-click$: $addTodos($todos = $todos, todo = $todo-add)
 
 -- end: ds.column
 
