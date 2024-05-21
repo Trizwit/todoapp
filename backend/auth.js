@@ -12,9 +12,8 @@ export const auth0Client = await auth0.createAuth0Client({
   // clientSecret: config.AUTH0_CLIENT_SECRET,
   authorizationParams: {
     redirect_uri: `${config.BASE_FRONTEND_URL}/index`,
-    audience:  config.AUTH0_AUDIENCE,
+    audience: config.AUTH0_AUDIENCE,
     // scope: "openid profile email offline_access",
-
   },
   useRefreshTokens: true,
   // useRefreshTokensFallback: true,
@@ -23,7 +22,7 @@ export const auth0Client = await auth0.createAuth0Client({
 
 //////////////////////////////////////////////////////////////////////////////// Logout function
 window.logoutFunction = async function logoutFunction() {
-  try{
+  try {
     // localStorage.removeItem("campaignId");
     // Client side logout
     auth0Client.logout({
@@ -31,7 +30,7 @@ window.logoutFunction = async function logoutFunction() {
         returnTo: `${config.BASE_FRONTEND_URL}`,
       },
     });
-  }catch(e){
+  } catch (e) {
     // posthog.capture(JSON.stringify(e.stack));
     console.error(e);
   }
@@ -40,7 +39,7 @@ window.logoutFunction = async function logoutFunction() {
 /////////////////////////////////////////////////////////////////// Client side login
 window.loginFunction = async function loginFunction() {
   try {
-    console.log("entered login function")
+    console.log("entered login function");
     await auth0Client.loginWithRedirect();
 
     // const differentAudienceOptions = {
@@ -49,44 +48,52 @@ window.loginFunction = async function loginFunction() {
 
     // const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions);
     // console.log("access token is ", accessToken);
-
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
 };
 
-
 window.getAccessToken = async function getAccessToken() {
-
-  try{
+  try {
     console.log("autho client is ", auth0Client);
-  const differentAudienceOptions = {
-    cacheMode: "on",
-  };
-  console.log("inside getAccessToken function");
 
-  const accessToken = await auth0Client.getTokenSilently(differentAudienceOptions).then((token) => {
-    localStorage.setItem("access_token", token);
-    console.log("access token is ", token);
-  }).catch((e) => {
+    const differentAudienceOptions = {
+      cacheMode: "off",
+    };
+    console.log("inside getAccessToken function");
+
+    const accessToken = await auth0Client.getTokenSilently(
+      differentAudienceOptions
+    );
+
+    // localStorage.setItem("access_token", token);
+    // console.log("access token is ", token);
+
+    console.log("access token is ", accessToken);
+
+    // const accessToken = await auth0Client.getTokenSilently();
+    // console.log("access token 1 is ", accessToken);
+    return accessToken;
+  } catch (e) {
     console.error(e);
-  });
-
-  console.log("access token is ", accessToken);
-
-  // const accessToken = await auth0Client.getTokenSilently();
-  // console.log("access token 1 is ", accessToken);
-  return accessToken;
-
-    }
-  catch(e) {
-  console.error(e);
   }
+};
 
-}
-
-
-
+ftd.on_load(async function () {
+  console.log("DOM content loaded");
+  if (
+    location.search.includes("state=") &&
+    (location.search.includes("code=") || location.search.includes("error="))
+  ) {
+    try {
+      console.log("auth0 handle callback");
+      await auth0Client.handleRedirectCallback();
+    } catch (e) {
+      console.error(e);
+      logoutFunction();
+    }
+  }
+});
 
 // window.addEventListener('load', async () => {
 //   // After login, get the URL parameters
@@ -123,95 +130,85 @@ window.getAccessToken = async function getAccessToken() {
 
 // });
 
-
-
-
-if(!customElements.get('auth-resolver')) {
+if (!customElements.get("auth-resolver")) {
   class AuthResolver extends HTMLElement {
     async connectedCallback() {
-        // After login, get the URL parameters
-        // const params = new URLSearchParams(window.location.search);
+      // After login, get the URL parameters
+      // const params = new URLSearchParams(window.location.search);
 
-        // Get the code and state
-        // const code = params.get('code');
-        // const state = params.get('state');
+      // Get the code and state
+      // const code = params.get('code');
+      // const state = params.get('state');
 
-        // Store the code and state
-        // window.localStorage.setItem('code', code);
-        // window.localStorage.setItem('state', state);
+      // Store the code and state
+      // window.localStorage.setItem('code', code);
+      // window.localStorage.setItem('state', state);
 
-        // Remove the code and state from the URL
-        // params.delete('code');
-        // params.delete('state');
-        // window.history.replaceState({}, document.title, "/" + params.toString());
+      // Remove the code and state from the URL
+      // params.delete('code');
+      // params.delete('state');
+      // window.history.replaceState({}, document.title, "/" + params.toString());
 
-        // var options = {
-        //   method: 'POST',
-        //   url: 'https://dev-ci5h1y84jll0nhuf.us.auth0.com/oauth/token',
-        //   headers: {'content-type': 'application/x-www-form-urlencoded'},
-        //   data: new URLSearchParams({
-        //     grant_type: 'authorization_code',
-        //     client_id: config.AUTH0_CLIENT,
-        //     client_secret: config.AUTH0_CLIENT_SECRET,
-        //     code: code,
-        //     redirect_uri: `${config.BASE_FRONTEND_URL}/index`
-        //   })
-        // };
+      // var options = {
+      //   method: 'POST',
+      //   url: 'https://dev-ci5h1y84jll0nhuf.us.auth0.com/oauth/token',
+      //   headers: {'content-type': 'application/x-www-form-urlencoded'},
+      //   data: new URLSearchParams({
+      //     grant_type: 'authorization_code',
+      //     client_id: config.AUTH0_CLIENT,
+      //     client_secret: config.AUTH0_CLIENT_SECRET,
+      //     code: code,
+      //     redirect_uri: `${config.BASE_FRONTEND_URL}/index`
+      //   })
+      // };
 
-        // axios.request(options).then(function (response) {
-        //   console.log("response is ", response);} ).catch(function (error) {
-        //     console.error(error);
-        //   });
+      // axios.request(options).then(function (response) {
+      //   console.log("response is ", response);} ).catch(function (error) {
+      //     console.error(error);
+      //   });
 
-        // // add the items to local storage
-        // localStorage.setItem('refresh_token', response.data.refresh_token);
-        // localStorage.setItem('access_token', response.data.access_token);
-        // localStorage.setItem('id_token', response.data.id_token);
+      // // add the items to local storage
+      // localStorage.setItem('refresh_token', response.data.refresh_token);
+      // localStorage.setItem('access_token', response.data.access_token);
+      // localStorage.setItem('id_token', response.data.id_token);
 
-        // Get the user info
-        const user = await auth0Client.getUser();
+      // Get the user info
+      const user = await auth0Client.getUser();
 
-        // Get the access token from function getAccessToken
-        // const accessToken = await getAccessToken(); // Make sure this function is defined
-        // console.log("Access token: ", access_token);
+      // Get the access token from function getAccessToken
+      // const accessToken = await getAccessToken(); // Make sure this function is defined
+      // console.log("Access token: ", access_token);
 
-        // save user access token, email id, photo and name into fastn record
-        const user_data = {
-          email: !!user ? user.email : 'shaheen50053@gmail.com',
-          name: !!user ? user.name : 'Guest',
-          picture: !!user ? user.picture : 'https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg',
-          access_token: !!user ? accessToken : 'default_access_token'
-        };
+      // save user access token, email id, photo and name into fastn record
+      const user_data = {
+        email: !!user ? user.email : "shaheen50053@gmail.com",
+        name: !!user ? user.name : "Guest",
+        picture: !!user
+          ? user.picture
+          : "https://www.shaheen-senpai.tech/-/shaheen-senpai.tech/assets/logo.svg",
+        access_token: !!user ? accessToken : "default_access_token",
+      };
 
-        // store user data in local storage
-        // localStorage.setItem("current_user", JSON.stringify(user_data));
-        let data = ftd.component_data(this);
+      // store user data in local storage
+      // localStorage.setItem("current_user", JSON.stringify(user_data));
+      let data = ftd.component_data(this);
 
-        let auth_user = data.current_user;
-        console.log("Input user: ", auth_user);
+      let auth_user = data.current_user;
+      console.log("Input user: ", auth_user);
 
-        console.log("Setting user_data: ", user_data);
-        auth_user.set(user_data);
-        console.log("user data is ", auth_user);
+      console.log("Setting user_data: ", user_data);
+      auth_user.set(user_data);
+      console.log("user data is ", auth_user);
     }
   }
-  customElements.define('auth-resolver', AuthResolver);
-
+  customElements.define("auth-resolver", AuthResolver);
 }
 
-
-
-
-
-
-function addTodosjs( list_todos, todo){
-
+function addTodosjs(list_todos, todo) {
   console.log("list todos is ", list_todos);
   console.log("todo is ", todo);
 
   // console type of each data passes to the function
   console.log("type of list_todos is ", typeof list_todos);
   console.log("type of todo is ", typeof todo);
-
-
 }
