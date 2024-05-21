@@ -13,7 +13,7 @@ export const auth0Client = await auth0.createAuth0Client({
   authorizationParams: {
     redirect_uri: `${config.BASE_FRONTEND_URL}/index`,
     audience:  config.AUTH0_AUDIENCE,
-    scope: "openid profile email offline_access",
+    // scope: "openid profile email offline_access",
 
   },
   useRefreshTokens: true,
@@ -40,6 +40,7 @@ window.logoutFunction = async function logoutFunction() {
 /////////////////////////////////////////////////////////////////// Client side login
 window.loginFunction = async function loginFunction() {
   try {
+    console.log("entered login function")
     await auth0Client.loginWithRedirect();
 
     // const differentAudienceOptions = {
