@@ -4,7 +4,9 @@
 
 -- ftd.text: $tp.current-user.picture
 
--- ftd.text: hello world
+-- ftd.text: $tp.current-user.name
+
+-- ftd.text: $tp.current-user.email
 
 
 
