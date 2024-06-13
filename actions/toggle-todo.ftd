@@ -7,7 +7,7 @@ redirect: follow
 method: POST
 fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
 
--- string api-url: https://todoapp-backend-xf0d.onrender.com/todos/shaheen50053@gmail.com/
+-- string api-url: https://todoapp-backend-xf0d.onrender.com/todos/
 
 -- void toggle(id):
 integer id:

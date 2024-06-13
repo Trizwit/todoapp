@@ -69,15 +69,19 @@ window.getAccessToken = async function getAccessToken() {
     // localStorage.setItem("access_token", token);
     // console.log("access token is ", token);
 
-    console.log("access token is ", accessToken);
+    // console.log("access token is ", accessToken);
 
-    // const accessToken = await auth0Client.getTokenSilently();
-    // console.log("access token 1 is ", accessToken);
+    // const user = await auth0Client.getUser();
+    // console.log("user is ", user);
+
+
     return accessToken;
   } catch (e) {
     console.error(e);
   }
 };
+
+
 
 ftd.on_load(async function () {
   console.log("DOM content loaded");
@@ -133,50 +137,20 @@ ftd.on_load(async function () {
 if (!customElements.get("auth-resolver")) {
   class AuthResolver extends HTMLElement {
     async connectedCallback() {
-      // After login, get the URL parameters
-      // const params = new URLSearchParams(window.location.search);
 
-      // Get the code and state
-      // const code = params.get('code');
-      // const state = params.get('state');
-
-      // Store the code and state
-      // window.localStorage.setItem('code', code);
-      // window.localStorage.setItem('state', state);
-
-      // Remove the code and state from the URL
-      // params.delete('code');
-      // params.delete('state');
-      // window.history.replaceState({}, document.title, "/" + params.toString());
-
-      // var options = {
-      //   method: 'POST',
-      //   url: 'https://dev-ci5h1y84jll0nhuf.us.auth0.com/oauth/token',
-      //   headers: {'content-type': 'application/x-www-form-urlencoded'},
-      //   data: new URLSearchParams({
-      //     grant_type: 'authorization_code',
-      //     client_id: config.AUTH0_CLIENT,
-      //     client_secret: config.AUTH0_CLIENT_SECRET,
-      //     code: code,
-      //     redirect_uri: `${config.BASE_FRONTEND_URL}/index`
-      //   })
-      // };
-
-      // axios.request(options).then(function (response) {
-      //   console.log("response is ", response);} ).catch(function (error) {
-      //     console.error(error);
-      //   });
-
-      // // add the items to local storage
-      // localStorage.setItem('refresh_token', response.data.refresh_token);
-      // localStorage.setItem('access_token', response.data.access_token);
-      // localStorage.setItem('id_token', response.data.id_token);
+      console.log("Auth resolver connected");
+      let user;
 
       // Get the user info
-      const user = await auth0Client.getUser();
+      try {
+        user = await auth0Client.getUser();
+        console.log(user);
+      } catch (error) {
+        console.error('Error getting user:', error);
+      }
 
       // Get the access token from function getAccessToken
-      // const accessToken = await getAccessToken(); // Make sure this function is defined
+      const accessToken = await getAccessToken(); // Make sure this function is defined
       // console.log("Access token: ", access_token);
 
       // save user access token, email id, photo and name into fastn record
@@ -203,6 +177,9 @@ if (!customElements.get("auth-resolver")) {
   }
   customElements.define("auth-resolver", AuthResolver);
 }
+
+
+
 
 function addTodosjs(list_todos, todo) {
   console.log("list todos is ", list_todos);
