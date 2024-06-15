@@ -69,7 +69,7 @@ window.getAccessToken = async function getAccessToken() {
     // localStorage.setItem("access_token", token);
     // console.log("access token is ", token);
 
-    // console.log("access token is ", accessToken);
+    console.log("access token is ", accessToken);
 
     // const user = await auth0Client.getUser();
     // console.log("user is ", user);

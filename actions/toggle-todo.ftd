@@ -1,23 +1,42 @@
 -- tp.auth-resolver:
+-- string token: $tp.current-user.access_token
+
+-- headers auth:
+Authorization: $to-bearer-token(t = $token)
+Content-Type: application/json
 
 -- optional string $task-error:
 
--- ftd.http-options opts:
-redirect: follow
-method: POST
-fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
+;; -- ftd.http-options opts:
+;; redirect: follow
+;; method: POST
+;; fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
 
--- string api-url: https://todoapp-backend-xf0d.onrender.com/todos/
+-- string api-url: http://localhost:3000/todos/
 
 -- void toggle(id):
+headers h: $auth
 integer id:
 string user: $tp.current-user.email
-ftd.http-options opts: $opts
+;; ftd.http-options opts: $opts
 string url: $api-url
 
 ftd.http(
     url + user + "/" + id + "/toggle",
     ;; opts,
     "POST",
+    h,
     ;; ("Content-Type", "application/json"),
 )
+
+
+
+-- string to-bearer-token(t):
+string t:
+
+"Bearer " + t
+
+
+-- record headers:
+string Authorization
+string Content-Type
