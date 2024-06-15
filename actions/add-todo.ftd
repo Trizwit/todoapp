@@ -1,3 +1,5 @@
+-- tp.auth-resolver:
+
 -- optional string $task-error:
 
 -- ftd.http-options opts:
@@ -5,7 +7,7 @@ redirect: follow
 method: POST
 fastn-module: trizwit.github.io/todoapp/actions/add-todo
 
--- string api-url: https://todoapp-backend-xf0d.onrender.com/addtodos/shaheen50053@gmail.com
+-- string api-url: https://todoapp-backend-xf0d.onrender.com/addtodos/
 
 -- void submit(title, description, type, status):
 string title:
@@ -14,10 +16,14 @@ string type:
 string status:
 ftd.http-options opts: $opts
 string url: $api-url
+string user: $tp.current-user.email
+
 
 ftd.http(
-    url,
-    opts,
+    url + user,
+    "POST",
+    ("Content-Type", "application/json"),
+    ;; opts,
     ("title", title),
     ("description", description),
     ("type", type),

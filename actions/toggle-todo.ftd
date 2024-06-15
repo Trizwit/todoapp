@@ -1,3 +1,5 @@
+-- tp.auth-resolver:
+
 -- optional string $task-error:
 
 -- ftd.http-options opts:
@@ -5,15 +7,17 @@ redirect: follow
 method: POST
 fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
 
--- string api-url: https://todoapp-backend-xf0d.onrender.com/todos/shaheen50053@gmail.com/
+-- string api-url: https://todoapp-backend-xf0d.onrender.com/todos/
 
 -- void toggle(id):
 integer id:
+string user: $tp.current-user.email
 ftd.http-options opts: $opts
 string url: $api-url
 
 ftd.http(
-    url + id + "/toggle",
-    opts,
-
+    url + user + "/" + id + "/toggle",
+    ;; opts,
+    "POST",
+    ;; ("Content-Type", "application/json"),
 )

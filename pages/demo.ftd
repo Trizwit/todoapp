@@ -2,12 +2,31 @@
 
 -- tp.auth-resolver:
 
--- ftd.text: $tp.current-user.picture
+-- ftd.column:
+width.fixed.px: 350
+height: hug-content
+padding.px: 25
+background.solid: #f5f5f5
 
--- ftd.text: hello world
+-- ftd.image: $tp.current-user.picture
+width: fill-container
+
+-- ftd.text: $tp.current-user.name
+margin-top.px: 25
+
+-- ftd.text: $tp.current-user.email
+width: fill-container
+margin-top.px: 25
+
+-- ftd.text: $tp.current-user.access_token
+width.fixed.px: 300
+height.fixed.px: 150
+color: green
+margin-top.px: 25
+overflow: hidden
 
 
-
+-- end: ftd.column
 
 
 
