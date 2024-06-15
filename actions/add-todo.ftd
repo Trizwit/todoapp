@@ -16,13 +16,13 @@ string type:
 string status:
 ftd.http-options opts: $opts
 string url: $api-url
-string user-email: $tp.current-user.email
+string user: $tp.current-user.email
 
 
 ftd.http(
-    url + user-email,
+    url + user,
     "POST",
-    ;; ("Content-Type", "application/json"),
+    ("Content-Type", "application/json"),
     ;; opts,
     ("title", title),
     ("description", description),
