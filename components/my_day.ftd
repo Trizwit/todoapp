@@ -3,26 +3,25 @@
 -- import: trizwit.github.io/todoapp/schema
 -- import: trizwit.github.io/todoapp/actions/add-todo
 -- import: trizwit.github.io/todoapp/actions/delete-todo
+-- import: trizwit.github.io/todoapp/actions/fetch-todo as ft
 
 -- boolean $open-add-task: false
 
-
-
--- schema.todos-schema list $todos:
-$processor$: pr.http
-method: get
-url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/myday
+;; -- tp.auth-resolver:
+;; -- string user-cred: $tp.current-user.email
+;; -- string fetch-api-url: $api-url(user = $user-cred)
 
 
 
+;; -- schema.todos-schema list $todos:
 
 
--- void addTodos(todos, todo):
-schema.todos-schema list $todos:
-schema.todos-schema todo:
-js: ../backend/auth.js:type=module
+;; -- string api-url(user):
+;; string user:
 
-addTodosjs(todos, todo)
+;; "https://todoapp-backend-xf0d.onrender.com/fetchtodos/" + user + "/myday"
+
+
 
 
 
@@ -30,7 +29,7 @@ addTodosjs(todos, todo)
 
 
 -- component my-day-page:
-
+integer api-return: $ft.fetchtodos(type = myday)
 
 -- ds.column:
 if: {$hm.open-window == "my-day"}
@@ -88,8 +87,8 @@ overflow-y: auto
 
 -- schema.todo-list: $task
 view: my-day
-if: { ftd.len(todos) > 0 }
-for: $task in $todos
+if: { ftd.len(ft.todos) > 0 }
+for: $task in $ft.todos
 
 -- end: ds.column
 
@@ -188,7 +187,6 @@ icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
 ;; $on-click$: $ftd.add-task()
 $on-click$: $add-task.add-todo.submit(title = $todo-add.title, description = $todo-add.description, status = pending, type = myday)
-$on-click$: $addTodos($todos = $todos, todo = $todo-add)
 
 -- end: ds.column
 

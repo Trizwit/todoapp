@@ -2,6 +2,7 @@
 -- import: fastn/processors as pr
 -- import: trizwit.github.io/todoapp/actions/delete-todo
 -- import: trizwit.github.io/todoapp/actions/toggle-todo
+-- import: trizwit.github.io/todoapp/actions/fetch-todo as ft
 
 
 

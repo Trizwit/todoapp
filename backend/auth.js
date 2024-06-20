@@ -150,8 +150,32 @@ if (!customElements.get("auth-resolver")) {
       }
 
       // Get the access token from function getAccessToken
-      const accessToken = await getAccessToken(); // Make sure this function is defined
-      // console.log("Access token: ", access_token);
+      const accessToken = await getAccessToken();
+
+
+
+      // ADD user endpoint to add him to DB
+      const userEmail = user.email;
+      try {
+        const response = await fetch(`http://localhost:3000/adduser/${userEmail}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const requestdata = await response.json();
+        console.log('API for user addition:', requestdata);
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+      }
+
+
 
       // save user access token, email id, photo and name into fastn record
       const user_data = {
@@ -189,3 +213,5 @@ function addTodosjs(list_todos, todo) {
   console.log("type of list_todos is ", typeof list_todos);
   console.log("type of todo is ", typeof todo);
 }
+
+

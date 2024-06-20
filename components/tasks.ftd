@@ -3,15 +3,16 @@
 -- import: trizwit.github.io/todoapp/schema
 -- import: trizwit.github.io/todoapp/actions/add-todo
 -- import: trizwit.github.io/todoapp/actions/delete-todo
+-- import: trizwit.github.io/todoapp/actions/fetch-todo as ft
 
 -- boolean $open-add-task: false
 
 
 
--- schema.todos-schema list todos:
-$processor$: pr.http
-method: get
-url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/tasks
+;; -- schema.todos-schema list todos:
+;; $processor$: pr.http
+;; method: get
+;; url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com/tasks
 
 
 
@@ -21,6 +22,7 @@ url: https://todoapp-backend-xf0d.onrender.com/fetchtodos/shaheen50053@gmail.com
 
 
 -- component task-page:
+integer api-return: $ft.fetchtodos(type = tasks)
 
 -- ds.column:
 if: {$hm.open-window == "tasks"}
@@ -81,8 +83,8 @@ overflow-y: auto
 
 -- schema.todo-list: $task
 view: tasks
-if: { ftd.len(todos) > 0 }
-for: $task in $todos
+if: { ftd.len(ft.todos) > 0 }
+for: $task in $ft.todos
 
 -- end: ds.column
 

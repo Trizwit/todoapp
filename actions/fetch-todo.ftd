@@ -1,8 +1,12 @@
+-- import: trizwit.github.io/todoapp/schema
+
 -- tp.auth-resolver:
--- string token: $tp.current-user.access_token
+;; -- string token: $tp.current-user.access_token
+
+-- schema.todos-schema list $todos:
 
 -- headers auth:
-Authorization: $to-bearer-token(t = $token)
+Authorization: $to-bearer-token(t = $tp.current-user.access_token)
 Content-Type: application/json
 
 -- optional string $task-error:
@@ -12,22 +16,24 @@ Content-Type: application/json
 ;; method: POST
 ;; fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
 
--- string api-url: http://localhost:3000/todos/
+-- string api-url: http://localhost:3000/fetchtodos/
 
--- void toggle(id):
+-- integer fetchtodos(email, type):
 headers h: $auth
-integer id:
-string user: $tp.current-user.email
+string type:
+string email: $tp.current-user.email
 ;; ftd.http-options opts: $opts
 string url: $api-url
+js: $assets.files.backend.http.js
 
-ftd.http(
-    url + user + "/" + id + "/toggle",
+http2(
+    url + email + "/" + type,
     ;; opts,
-    "POST",
+    "GET",
+    "trizwit.github.io/todoapp/actions/fetch-todo",
     h,
     ;; ("Content-Type", "application/json"),
-)
+) && 0
 
 
 
