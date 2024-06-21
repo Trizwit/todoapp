@@ -16,7 +16,7 @@ Content-Type: application/json
 ;; method: POST
 ;; fastn-module: trizwit.github.io/todoapp/actions/toggle-todo
 
--- string api-url: http://localhost:3000/fetchtodos/
+-- string api-url: https://todoapp-backend-w-o-auth.onrender.com/fetchtodos/
 
 -- integer fetchtodos(email, type):
 headers h: $auth

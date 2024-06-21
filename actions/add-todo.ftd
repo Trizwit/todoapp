@@ -12,7 +12,7 @@ Content-Type: application/json
 ;; method: POST
 ;; fastn-module: trizwit.github.io/todoapp/actions/add-todo
 
--- string api-url: https://todoapp-backend-xf0d.onrender.com/addtodos/
+-- string api-url: https://todoapp-backend-w-o-auth.onrender.com/addtodos/
 
 -- void submit(title, description, type, status):
 headers h: $auth

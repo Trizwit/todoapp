@@ -171,7 +171,7 @@ $on-input$: $ftd.set-string($a = $description, v = $VALUE)
 icon: plus
 $on-click$: $ftd.toggle($a = $open-add-task)
 ;; $on-click$: $ftd.add-task()
-$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = task)
+$on-click$: $add-task.add-todo.submit(title = $title, description = $description, status = pending, type = tasks)
 
 
 -- end: ds.column

@@ -140,6 +140,7 @@ if (!customElements.get("auth-resolver")) {
 
       console.log("Auth resolver connected");
       let user;
+      let accessToken;
 
       // Get the user info
       try {
@@ -149,30 +150,35 @@ if (!customElements.get("auth-resolver")) {
         console.error('Error getting user:', error);
       }
 
-      // Get the access token from function getAccessToken
-      const accessToken = await getAccessToken();
+      try {
+        accessToken = await getAccessToken();
+      } catch (error) {
+        console.error('Failed to get access token:', error);
+      }
 
 
 
       // ADD user endpoint to add him to DB
-      const userEmail = user.email;
-      try {
-        const response = await fetch(`http://localhost:3000/adduser/${userEmail}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`
+      if (user) {
+        let userEmail = user.email;
+        try {
+          const response = await fetch(`http://localhost:3000/adduser/${userEmail}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${accessToken}`
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
           }
-        });
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+          const requestdata = await response.json();
+          console.log('API for user addition:', requestdata);
+        } catch (error) {
+          console.error('There has been a problem with your fetch operation:', error);
         }
-
-        const requestdata = await response.json();
-        console.log('API for user addition:', requestdata);
-      } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
       }
 
 
